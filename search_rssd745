@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:syn="http://purl.org/rss/1.0/modules/syndication/"
+         xmlns="http://purl.org/rss/1.0/">
+
+
+
+
+    
+
+
+
+<channel rdf:about="http://payson.webfactional.com/hoffman/search_rss">
+  <title>Hoffman Triangle Knowledge Center</title>
+  <link>http://payson.webfactional.com/hoffman</link>
+  
+  <description>
+    
+            These are the search results for the query, showing results 1 to 4.
+        
+  </description>
+  
+  
+  
+  
+  <image rdf:resource="http://payson.webfactional.com/hoffman/masthead2.png"/>
+
+  <items>
+    <rdf:Seq>
+        
+            <rdf:li rdf:resource="http://payson.webfactional.com/hoffman/news-and-events/HTNA%20Meeting%201.ics"/>
+        
+        
+            <rdf:li rdf:resource="http://payson.webfactional.com/hoffman/news-and-events/HTNA%20September%20Meeting.ics"/>
+        
+        
+            <rdf:li rdf:resource="http://payson.webfactional.com/hoffman/news-and-events/htna-meeting"/>
+        
+        
+            <rdf:li rdf:resource="http://payson.webfactional.com/hoffman/news-and-events/copy_of_htna-meeting"/>
+        
+    </rdf:Seq>
+  </items>
+
+</channel>
+
+    <item rdf:about="http://payson.webfactional.com/hoffman/news-and-events/HTNA%20Meeting%201.ics">        <title>HTNA Meeting 04-2009</title>        <link>http://payson.webfactional.com/hoffman/news-and-events/HTNA%20Meeting%201.ics</link>        <description>Meeting of the Hoffman Triangle Neighboorhood Association</description>        <dc:publisher>No publisher</dc:publisher>        <dc:creator>webmaster</dc:creator>        <dc:rights></dc:rights>                    <dc:subject>Meeting</dc:subject>                <dc:date>2009-04-09T17:38:12Z</dc:date>        <dc:type>Event</dc:type>    </item>
+    <item rdf:about="http://payson.webfactional.com/hoffman/news-and-events/HTNA%20September%20Meeting.ics">        <title>HTNA September Meeting</title>        <link>http://payson.webfactional.com/hoffman/news-and-events/HTNA%20September%20Meeting.ics</link>        <description>Come to our HTNA September Meeting! </description>        <dc:publisher>No publisher</dc:publisher>        <dc:creator>mheaney</dc:creator>        <dc:rights></dc:rights>                    <dc:subject>Meeting</dc:subject>                <dc:date>2008-10-28T00:43:30Z</dc:date>        <dc:type>Event</dc:type>    </item>
+    <item rdf:about="http://payson.webfactional.com/hoffman/news-and-events/htna-meeting">        <title>HTNA Meeting</title>        <link>http://payson.webfactional.com/hoffman/news-and-events/htna-meeting</link>        <description>Monthly Meeting of the Hoffman Triangle Neighborhood Association.</description>        <dc:publisher>No publisher</dc:publisher>        <dc:creator>admin</dc:creator>        <dc:rights></dc:rights>                    <dc:subject>Meeting</dc:subject>                <dc:date>2009-04-09T15:13:18Z</dc:date>        <dc:type>Event</dc:type>    </item>
+    <item rdf:about="http://payson.webfactional.com/hoffman/news-and-events/copy_of_htna-meeting">        <title>May HTNA Meeting</title>        <link>http://payson.webfactional.com/hoffman/news-and-events/copy_of_htna-meeting</link>        <description>Monthly Meeting of the Hoffman Triangle Neighborhood Association.</description>        <dc:publisher>No publisher</dc:publisher>        <dc:creator>admin</dc:creator>        <dc:rights></dc:rights>                    <dc:subject>Meeting</dc:subject>                <dc:date>2009-04-09T15:13:18Z</dc:date>        <dc:type>Event</dc:type>    </item>
+
+
+
+</rdf:RDF>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:syn="http://purl.org/rss/1.0/modules/syndication/"
+         xmlns="http://purl.org/rss/1.0/">
+
+
+
+
+    
+
+
+
+<channel rdf:about="http://payson.webfactional.com/hoffman/search_rss">
+  <title>Hoffman Triangle Knowledge Center</title>
+  <link>http://payson.webfactional.com/hoffman</link>
+  
+  <description>
+    
+            These are the search results for the query, showing results 1 to 2.
+        
+  </description>
+  
+  
+  
+  
+  <image rdf:resource="http://payson.webfactional.com/hoffman/masthead2.png"/>
+
+  <items>
+    <rdf:Seq>
+        
+            <rdf:li rdf:resource="http://payson.webfactional.com/hoffman/resources/library/rally-information-products/Hoffman%20Triangle%20presentation%20Nov%2011.ppt"/>
+        
+        
+            <rdf:li rdf:resource="http://payson.webfactional.com/hoffman/news-and-events/test-news"/>
+        
+    </rdf:Seq>
+  </items>
+
+</channel>
+
+    <item rdf:about="http://payson.webfactional.com/hoffman/resources/library/rally-information-products/Hoffman%20Triangle%20presentation%20Nov%2011.ppt">        <title>Results of Fall '07 Rapid Census of Hoffman</title>        <link>http://payson.webfactional.com/hoffman/resources/library/rally-information-products/Hoffman%20Triangle%20presentation%20Nov%2011.ppt</link>        <description>Results of the RALLY Foundation's November 2007 rapid census of the Hoffman Triangle.</description>        <dc:publisher>No publisher</dc:publisher>        <dc:creator>admin</dc:creator>        <dc:rights></dc:rights>                    <dc:subject>Blog</dc:subject>                    <dc:subject>featured</dc:subject>                    <dc:subject>Data</dc:subject>                <dc:date>2009-07-30T14:48:38Z</dc:date>        <dc:type>File</dc:type>    </item>
+    <item rdf:about="http://payson.webfactional.com/hoffman/news-and-events/test-news">        <title>Welcome</title>        <link>http://payson.webfactional.com/hoffman/news-and-events/test-news</link>        <description>Welcome to the Hoffman Triangle Neighborhood Knowledge Center.</description>        <dc:publisher>No publisher</dc:publisher>        <dc:creator>admin</dc:creator>        <dc:rights></dc:rights>                    <dc:subject>Blog</dc:subject>                    <dc:subject>HTNA</dc:subject>                <dc:date>2009-04-09T15:12:24Z</dc:date>        <dc:type>News Item</dc:type>    </item>
+
+
+
+</rdf:RDF>

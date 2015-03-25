@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:syn="http://purl.org/rss/1.0/modules/syndication/"
+         xmlns="http://purl.org/rss/1.0/">
+
+
+
+
+    
+
+
+
+<channel rdf:about="http://payson.webfactional.com/hoffman/search_rss">
+  <title>Hoffman Triangle Knowledge Center</title>
+  <link>http://payson.webfactional.com/hoffman</link>
+  
+  <description>
+    
+            These are the search results for the query, showing results 1 to 1.
+        
+  </description>
+  
+  
+  
+  
+  <image rdf:resource="http://payson.webfactional.com/hoffman/masthead2.png"/>
+
+  <items>
+    <rdf:Seq>
+        
+            <rdf:li rdf:resource="http://payson.webfactional.com/hoffman/news-and-events/test-news"/>
+        
+    </rdf:Seq>
+  </items>
+
+</channel>
+
+    <item rdf:about="http://payson.webfactional.com/hoffman/news-and-events/test-news">        <title>Welcome</title>        <link>http://payson.webfactional.com/hoffman/news-and-events/test-news</link>        <description>Welcome to the Hoffman Triangle Neighborhood Knowledge Center.</description>        <dc:publisher>No publisher</dc:publisher>        <dc:creator>admin</dc:creator>        <dc:rights></dc:rights>                    <dc:subject>Blog</dc:subject>                    <dc:subject>HTNA</dc:subject>                <dc:date>2009-04-09T15:12:24Z</dc:date>        <dc:type>News Item</dc:type>    </item>
+
+
+
+</rdf:RDF>

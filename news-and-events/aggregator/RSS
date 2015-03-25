@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:syn="http://purl.org/rss/1.0/modules/syndication/"
+         xmlns="http://purl.org/rss/1.0/">
+
+
+
+
+    
+
+
+
+<channel rdf:about="http://payson.webfactional.com/hoffman/news-and-events/aggregator/RSS">
+  <title>News</title>
+  <link>http://payson.webfactional.com/hoffman</link>
+  
+  <description>
+    
+       Site News
+       
+  </description>
+  
+  
+  
+            <syn:updatePeriod>daily</syn:updatePeriod>
+            <syn:updateFrequency>1</syn:updateFrequency>
+            <syn:updateBase>2008-01-12T03:20:07Z</syn:updateBase>
+        
+  
+  <image rdf:resource="http://payson.webfactional.com/hoffman/masthead2.png"/>
+
+  <items>
+    <rdf:Seq>
+        
+            <rdf:li rdf:resource="http://payson.webfactional.com/hoffman/news/hoffman-triangle-in-city-business"/>
+        
+        
+            <rdf:li rdf:resource="http://payson.webfactional.com/hoffman/news-and-events/hoffman-triangle-extravaganza-2009-a-success"/>
+        
+        
+            <rdf:li rdf:resource="http://payson.webfactional.com/hoffman/news-and-events/katrina-cottages-in-hoffman-htna-responds"/>
+        
+        
+            <rdf:li rdf:resource="http://payson.webfactional.com/hoffman/news-and-events/more-katrina-cottage-in-hoffman-news"/>
+        
+        
+            <rdf:li rdf:resource="http://payson.webfactional.com/hoffman/news-and-events/test-news"/>
+        
+    </rdf:Seq>
+  </items>
+
+</channel>
+
+    <item rdf:about="http://payson.webfactional.com/hoffman/news/hoffman-triangle-in-city-business">        <title>Hoffman Triangle in City Business!</title>        <link>http://payson.webfactional.com/hoffman/news/hoffman-triangle-in-city-business</link>        <description>paste this in your browser:
+http://www.neworleanscitybusiness.com/uptotheminute.cfm?recid=26986</description>        <dc:publisher>No publisher</dc:publisher>        <dc:creator>webmaster</dc:creator>        <dc:rights></dc:rights>                    <dc:subject>News Folder</dc:subject>                <dc:date>2009-09-26T01:07:43Z</dc:date>        <dc:type>News Item</dc:type>    </item>
+    <item rdf:about="http://payson.webfactional.com/hoffman/news-and-events/hoffman-triangle-extravaganza-2009-a-success">        <title>Hoffman Triangle Extravaganza 2009 a Success!</title>        <link>http://payson.webfactional.com/hoffman/news-and-events/hoffman-triangle-extravaganza-2009-a-success</link>        <description>More than 15 community organizations and over 100 Hoffman residents enjoyed a sunny, breezy day with food, music and helpful information.</description>        <dc:publisher>No publisher</dc:publisher>        <dc:creator>webmaster</dc:creator>        <dc:rights></dc:rights>                <dc:date>2009-05-20T19:56:02Z</dc:date>        <dc:type>News Item</dc:type>    </item>
+    <item rdf:about="http://payson.webfactional.com/hoffman/news-and-events/katrina-cottages-in-hoffman-htna-responds">        <title>Katrina Cottages in Hoffman? HTNA Responds</title>        <link>http://payson.webfactional.com/hoffman/news-and-events/katrina-cottages-in-hoffman-htna-responds</link>        <description>The New Orleans Redevelopment Authority met with the HTNA about putting Katrina Cottages in the Hoffman Triangle, read the the HTNA's official response below!</description>        <dc:publisher>No publisher</dc:publisher>        <dc:creator>mheaney</dc:creator>        <dc:rights></dc:rights>                <dc:date>2009-04-09T15:10:11Z</dc:date>        <dc:type>News Item</dc:type>    </item>
+    <item rdf:about="http://payson.webfactional.com/hoffman/news-and-events/more-katrina-cottage-in-hoffman-news">        <title>More Katrina Cottages in Hoffman News</title>        <link>http://payson.webfactional.com/hoffman/news-and-events/more-katrina-cottage-in-hoffman-news</link>        <description>If you see any construction activity on the following sites please contact the Board President via email at brigidareid@yahoo.com or leave a message at (504 638 7236) daytime or (504 858 6573) evenings
+
+ </description>        <dc:publisher>No publisher</dc:publisher>        <dc:creator>mheaney</dc:creator>        <dc:rights></dc:rights>                <dc:date>2009-04-09T15:10:46Z</dc:date>        <dc:type>News Item</dc:type>    </item>
+    <item rdf:about="http://payson.webfactional.com/hoffman/news-and-events/test-news">        <title>Welcome</title>        <link>http://payson.webfactional.com/hoffman/news-and-events/test-news</link>        <description>Welcome to the Hoffman Triangle Neighborhood Knowledge Center.</description>        <dc:publisher>No publisher</dc:publisher>        <dc:creator>admin</dc:creator>        <dc:rights></dc:rights>                    <dc:subject>Blog</dc:subject>                    <dc:subject>HTNA</dc:subject>                <dc:date>2009-04-09T15:12:24Z</dc:date>        <dc:type>News Item</dc:type>    </item>
+
+
+
+
+</rdf:RDF>
