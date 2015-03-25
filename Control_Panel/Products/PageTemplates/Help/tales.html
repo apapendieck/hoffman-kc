@@ -1,0 +1,129 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tales.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>TALES Overview</h3>
+<p>  The <em>Template Attribute Language Expression Syntax</em> (TALES) standard
+  describes expressions that supply <a href="tal.html">TAL</a> and
+  <a href="metal.html">METAL</a> with data.  TALES is <em>one</em> possible expression
+  syntax for these languages, but they are not bound to this
+  definition.  Similarly, TALES could be used in a context having
+  nothing to do with TAL or METAL.</p>
+<p>  TALES expressions are described below with any delimiter or quote
+  markup from higher language layers removed.  Here is the basic
+  definition of TALES syntax:
+<pre>
+    Expression  ::= [type_prefix ':'] String
+    type_prefix ::= Name
+</pre>
+</p>
+<p>  Here are some simple examples:
+<pre>
+    a/b/c
+    path:a/b/c
+    nothing
+    path:nothing
+    python: 1 + 2
+    string:Hello, ${user/getUserName}
+</pre>
+</p>
+<p>  The optional <em>type prefix</em> determines the semantics and syntax of
+  the <em>expression string</em> that follows it.  A given implementation of
+  TALES can define any number of expression types, with whatever
+  syntax you like. It also determines which expression type is
+  indicated by omitting the prefix.</p>
+<p>  If you do not specify a prefix, Zope assumes that the expression is
+  a <em>path</em> expression.</p>
+<h4>  TALES Expression Types</h4>
+<p>    These are the TALES expression types supported by Zope:</p>
+
+<ul>
+<li><a href="tales-path.html">path</a> expressions - locate a value by its path.</li>
+<li><a href="tales-exists.html">exists</a> expressions - test whether a path is valid.</li>
+<li><a href="tales-nocall.html">nocall</a> expressions - locate an object by its path.</li>
+<li><a href="tales-not.html">not</a> expressions - negate an expression</li>
+<li><a href="tales-string.html">string</a> expressions - format a string</li>
+<li><a href="tales-python.html">python</a> expressions - execute a Python
+      expression</li>
+
+</ul>
+<h4>  Built-in Names</h4>
+<p>    These are the names that always available to TALES expressions in Zope:</p>
+
+<ul>
+<li><em>nothing</em> - special value used by to represent 
+       a <em>non-value</em> (e.g. void, None, Nil, NULL).</li>
+<li><em>default</em> - special value used to specify that
+      existing text should not be replaced. See the documentation for
+      individual TAL statements for details on how they interpret
+      <em>default</em>.</li>
+<li><em>options</em> - the <em>keyword</em> arguments passed to the template. These
+      are generally available when a template is called from Methods
+      and Scripts, rather than from the web.</li>
+<li><em>repeat</em> - the <code>repeat</code> variables; see the
+      <a href="tal-repeat.html">tal:repeat</a> documentation.</li>
+<li><em>attrs</em> - a dictionary containing the initial values of the
+      attributes of the current statement tag.</li>
+<li><em>CONTEXTS</em> - the list of standard names (this list).  This can be
+      used to access a built-in variable that has been hidden by a local
+      or global variable with the same name.</li>
+<li><em>root</em> - the system's top-most object: the Zope root folder.</li>
+<li><em>here</em> - the object to which the template is being applied.</li>
+<li><em>container</em> - The folder in which the template is located.</li>
+<li><em>template</em> - the template itself.</li>
+<li><em>request</em> - the publishing request object.</li>
+<li><em>user</em> - the authenticated user object.</li>
+<li><em>modules</em> - a collection through which Python modules and
+      packages can be accessed.  Only modules which are approved by
+      the Zope security policy can be accessed.</li>
+
+</ul>
+<p>    Note the names <code>root</code>, <code>here</code>, <code>container</code>, <code>template</code>, <code>request</code>,
+    <code>user</code>, and <code>modules</code> are optional names supported by Zope, but
+    are not required by the TALES standard.</p>
+<h4>  See Also</h4>
+<p>    <a href="tal.html">TAL Overview</a></p>
+<p>    <a href="metal.html">METAL Overview</a></p>
+<p>    <a href="tales-exists.html">exists</a> expressions</p>
+<p>    <a href="tales-nocall.html">nocall</a> expressions</p>
+<p>    <a href="tales-not.html">not</a> expressions</p>
+<p>    <a href="tales-string.html">string</a> expressions</p>
+<p>    <a href="tales-path.html">path</a> expressions</p>
+<p>    <a href="tales-python.html">python</a> expressions</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tales.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:13 GMT -->
+</html>

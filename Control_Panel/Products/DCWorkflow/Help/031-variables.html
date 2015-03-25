@@ -1,0 +1,86 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/DCWorkflow/Help/031-variables.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>DCWorkflow</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Variables Tab</h3>
+<p> Variables are used to handle the state of various workflow related
+ information that doesn't justify a state of it's own. The default 
+ CMF workflows use variables to track status history comments, and 
+ store the the last transition, who initiated it and when, for example.
+ From the variables tab it's possible to add new variables, and rename
+ and delete existing variables.</p>
+<p> The list of existing variables also displays a summary of each
+ variable's description, catalog availability, workflow status, default
+ value or expression and any access guards. You can click through to
+ each variable to configure it's details.</p>
+<p> In each variable's property tab you can set the variable's
+ description and a collection of properties the define the variable's
+ behaviour, as follows:<dl>
+<dt>  Make available to catalog</dt>
+<dd>Just as it says, it makes this variable
+  available to the catalog for indexing, however it doesn't
+  automatically create an index for it - you have to create one by
+  hand that reflects the content of the variable. Once indexed, you can
+  query the catalog for content that has a particular value in is
+  variable, and update the variable by workflow actions.</dd>
+<dt>  Store in workflow status</dt>
+<dd>The workflow status is a mapping that
+  exists in the state_change object that is passed to scripts and
+  available to expressions. </dd>
+<dt>  Variable update mode</dt>
+<dd>Select whether the variable is updated on
+  every transition (in which case, you should set a default
+  expression), or whether it should only update if a transition or
+  state sets a value.</dd>
+<dt>  Default value</dt>
+<dd>Set the default value to some string.</dd>
+<dt>  Default expression</dt>
+<dd>This is a TALES expression (as described in
+  Expressions) and overrides the default value.</dd>
+<dt>  Guards</dt>
+<dd>See the "Guards" section. </dd>
+</dl>
+</p>
+<p> State variable - stores the name of the variable the current state of
+the content is stored in. CMF uses <code>review_state</code> by default, and will
+have already created a FieldIndex for it. The state variable is
+effectively a variable with "Make available to catalog" set, a default
+value of whatever the initial state is and a default expression that
+sets to the new state on every transition.</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/DCWorkflow/Help/031-variables.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:24 GMT -->
+</html>

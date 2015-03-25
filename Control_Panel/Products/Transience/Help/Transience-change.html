@@ -1,0 +1,123 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/Transience/Help/Transience-change.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>TransientObjectContainer - Manage</h3>
+<h4>  Transient Object Containers</h4>
+<p>     A Transient Object Container contains objects which expire after
+     a user-settable period of time.  Items placed into transient object
+     must have string keys, but may have any type of value.</p>
+<h4>  Common Usages</h4>
+<p>     A Transient Object Container is used by Session Data Mangers to store
+     session data.</p>
+<h4>  Editing Form</h4>
+
+<ul>
+<li><strong>Id</strong><p>       The Zope id of the Transient Object Container.</p>
+</li>
+<li><strong>Title</strong><p>       <em>Optional</em></p>
+<p>       The title of the object.</p>
+</li>
+<li><strong>Data object timeout (in minutes)</strong><p>       The minimum number of minutes that objects in the container will
+       persist for.  Objects in the container are passively deleted, so
+       they may not be deleted exactly after this number of minutes elapses.</p>
+<p>       If you change the timeout value, all objects in the transient
+       container will be flushed.</p>
+<p>       If the timeout value is "0", objects will not time out.</p>
+</li>
+<li><strong>Timeout resolution (in seconds)</strong><p>       Defines what the "resolution" of item timeout is. Setting this
+       higher allows the transience machinery to do fewer "writes" at
+       the expense of causing items to time out later than the "Data
+       object timeout value" by a factor of (at most) this many
+       seconds. This number must divide evenly into the number of
+       timeout seconds ("Data object timeout value" * 60) and cannot
+       be set higher than the timeout value in seconds.</p>
+</li>
+<li><strong>Maximum number of subobjects </strong><p>       The maximum number of subobjects that this container may
+       simultaneously hold. Since transient objects normally hold
+       session data, this number is this is the effective limit for
+       the number of simultaneous sessions.</p>
+<p>       If the value is "0", the number of objects addable to the container
+       will be not be artificially limited.</p>
+<p>       This setting is useful to prevent accidental or deliberate denial
+       of service due to RAM shortage if the transient object container is
+       instantiated in a storage which is backed solely by RAM, such
+       as a Temporary Folder.</p>
+</li>
+<li><strong>Script to call when objects are added</strong><p>       <em>Optional</em></p>
+<p>       The physical path of of a Zope script which will receive notifications
+       when objects are added to the Transient Object Container.</p>
+<p>       Ex: <code>/path/to/add/script</code>.</p>
+<p>       For more information, see "Add and Delete Scripts" below.</p>
+</li>
+<li><strong>Script to call when objects are deleted</strong><p>       <em>Optional</em></p>
+<p>       The physical path of a Zope script which will receive notifications
+       when objects are deleted from the Transient Object Container, either
+       explicitly or through timeout-related expiration.</p>
+<p>       Ex: <code>/path/to/delete/script</code></p>
+<p>       For more information, see "Add and Delete Scripts" below.</p>
+</li>
+
+</ul>
+<h4>  Add and Delete Scripts</h4>
+<p>        Add and Delete scripts are Zope scripts which are called,
+        respectively, when an object is added or removed from a
+        Transient Object Container.   An add or delete script is specified
+        by naming it by its full Zope object path with slash separators,
+        e.g. "/path/to/method".</p>
+<p>        Add and delete scripts are called with two arguments.  The first
+        argument is the item being added or removed from the container;
+        the second argument is the Transient Object Container itself.
+        The container will be acquisition wrapped, allowing the
+        it to be used as a context to reference other Zope objects.</p>
+<p>        An example of an External Method used as a delete script:
+<pre>
+             def deleteScript(item, container):
+                 from logging import getLogger
+                 LOG = getLogger('test')
+                 LOG.info('id: %s' % item.getId())
+</pre>
+</p>
+<h4>  See Also</h4>
+
+<ul>
+<li><a href="TransienceInterfaces.html">Transience API</a></li>
+
+</ul>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/Transience/Help/Transience-change.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:43 GMT -->
+</html>

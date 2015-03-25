@@ -1,0 +1,82 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tales-string.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:16 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>TALES String expressions</h3>
+<h4>  Syntax</h4>
+<p>    String expression syntax:
+<pre>
+      string_expression ::= ( plain_string | [ varsub ] )*
+      varsub            ::= ( '$' Path ) | ( '${' Path '}' )
+      plain_string      ::= ( '$$' | non_dollar )*
+      non_dollar        ::= any character except '$'
+</pre>
+</p>
+<h4>  Description</h4>
+<p>    String expressions interpret the expression string as text. If no
+    expression string is supplied the resulting string is <em>empty</em>. The
+    string can contain variable substitutions of the form <code>$name</code> or
+    <code>${path}</code>, where <code>name</code> is a variable name, and <code>path</code> is a
+    <a href="tales-path.html">path expression</a>.
+    The escaped string value of the path expression is inserted into
+    the string. To prevent a <code>$</code> from being interpreted this way, it
+    must be escaped as <code>$$</code>.</p>
+<h4>  Examples</h4>
+<p>    Basic string formatting:
+<pre>
+      &lt;span tal:replace="string:$this and $that"&gt;
+        Spam and Eggs
+      &lt;/span&gt;
+</pre>
+</p>
+<p>    Using paths:
+<pre>
+      &lt;p tal:content="total: ${request/form/total}"&gt;
+        total: 12
+      &lt;/p&gt;
+</pre>
+</p>
+<p>    Including a dollar sign:
+<pre>
+      &lt;p tal:content="cost: $$$cost"&gt;
+        cost: $42.00
+      &lt;/p&gt;
+</pre>
+</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tales-string.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:16 GMT -->
+</html>

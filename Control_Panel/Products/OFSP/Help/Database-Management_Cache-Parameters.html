@@ -1,0 +1,90 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Database-Management_Cache-Parameters.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Database Management - Cache Parameters: Zope database cache.</h3>
+<h4>  Description</h4>
+<p>    This view allows you to view Zope database cache statistics and
+    set cache parameters. The Zope database cache operates by keeping
+    recently used objects in memory to improve performance. A large
+    cache improves object access speed, but increases memory usage. A
+    small cache reduces memory usage but may slow down object access
+    speed.</p>
+<h4>  Information</h4>
+<dl>
+<dt>    <code>Total number of objects in the database</code></dt>
+<dd>Indicates the
+    number of persistent objects in the Zope database. All of these
+    objects are stored on disk, some of them are in memory too.</dd>
+<dt>    <code>Total number of objects in memory from all caches</code></dt>
+<dd>Indicates the number of objects which are currently
+    cached in memory. This is a good indication of the amount
+    of memory used by Zope.</dd>
+<dt>    <code>Target number of objects in memory per cache</code></dt>
+<dd>Indicates
+    the target number of objects to have in each cache at any
+    given time. Zope will allow the number of objects to grow
+    above this number while processing a request, but will always
+    reduce the level to this number at the end of each request.<p>     This parameter is one factor affecting the amount of memory
+     use by Zope. It controls the amount of memory used per cache,
+     the other factor is the number of caches. In general,
+     Zope uses one cache per worker thread (specified by the <code>-t</code>
+     switch on the command line)</p>
+</dd>
+<dt>    <code>Total number of objects in each cache</code></dt>
+<dd>This table displays
+    one row for each object cache.<dl>
+<dt>     <code>Number of objects in memory</code></dt>
+<dd>This value should not stay
+     larger than the configured target size for longer than one
+     transaction.<p>      Note that the total number at the bottom of this column
+      should be the same as the figure in the top half of the
+      page. It may be slightly different because there is a small
+      time interval between the calculation of the two totals.</p>
+</dd>
+<dt>     <code>Number of ghost objects</code></dt>
+<dd>Ghost objects are those
+     which only have a tiny memory footprint because their full
+     state has not been loaded. You generally do not need to
+     worry about the number of ghost objects because they are
+     so small.</dd>
+</dl>
+</dd>
+</dl>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Database-Management_Cache-Parameters.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:42 GMT -->
+</html>

@@ -1,0 +1,565 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/Transience/Help/TransienceInterfaces.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<base  />
+
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+
+<h1>API Documentation</h1>
+
+<h3>Classes</h3>
+<dl><dd>
+<h2 class="api">
+<a href="#TransientObjectContainer">TransientObjectContainer</a>
+ , <a href="#TransientObject">TransientObject</a>
+ , <a href="#MaxTransientObjectsExceeded">MaxTransientObjectsExceeded</a>
+</h2>
+</dd></dl>
+
+
+<p>Transient Objects</p>
+
+<hr noshade>
+
+    <a name="TransientObjectContainer"></a>
+<h2 class="api">class
+  TransientObjectContainer</h2>
+
+<dl>
+<dd>
+<p>TransientObjectContainers hold transient objects, most often,
+session data.</p>
+<p>You will rarely have to script a transient object
+container. You'll almost always deal with a TransientObject
+itself which you'll usually get as <code>REQUEST.SESSION</code>.</p>
+
+</dd>
+</dl>
+
+
+<hr>
+
+  <a name="__module__"></a>
+<h2 class="attribute">__module__ = __builtin__
+</h2>
+
+
+<h3>Methods</h3>
+  <a name="getDelNotificationTarget"></a>
+<h2 class="method">getDelNotificationTarget(self):
+</h2>
+
+<dl><dd>
+<p>Returns the current <code>before destruction</code> function, or None.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>View management screens</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getAddNotificationTarget"></a>
+<h2 class="method">getAddNotificationTarget(self):
+</h2>
+
+<dl><dd>
+<p>Returns the current <code>after add</code> function, or None.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>View management screens</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="get"></a>
+<h2 class="method">get(self,
+k, default=None):
+</h2>
+
+<dl><dd>
+<p>Return value associated with key k.  If value associated with k does
+not exist, return default.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Access Transient Objects</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="new_or_existing"></a>
+<h2 class="method">new_or_existing(self,
+k):
+</h2>
+
+<dl><dd>
+<p>If an object already exists in the container with key "k", it
+is returned.</p>
+<p>Otherwiser, create a new subobject of the type supported by this
+container with key "k" and return it.</p>
+<p>"k" must be a string, else a TypeError is raised.</p>
+<p>If the container is <code>full</code>, a MaxTransientObjectsExceeded exception
+be raised.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Create Transient Objects</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getId"></a>
+<h2 class="method">getId(self):
+</h2>
+
+<dl><dd>
+<p>Returns a meaningful unique id for the object.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="setAddNotificationTarget"></a>
+<h2 class="method">setAddNotificationTarget(self,
+f):
+</h2>
+
+<dl><dd>
+<p>Cause the <code>after add</code> function to be <code>f</code>.</p>
+<p>If <code>f</code> is not callable and is a string, treat it as a Zope path to
+a callable function.</p>
+<p><code>after add</code> functions need accept a single argument: <code>item</code>, which
+is the item being added to the container.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Manage Transient Object Container</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="has_key"></a>
+<h2 class="method">has_key(self,
+k):
+</h2>
+
+<dl><dd>
+<p>Return true if container has value associated with key k, else
+return false.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Access Transient Objects</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getTimeoutMinutes"></a>
+<h2 class="method">getTimeoutMinutes(self):
+</h2>
+
+<dl><dd>
+<p>Return the number of minutes allowed for subobject inactivity
+before expiration.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>View management screens</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="setTimeoutMinutes"></a>
+<h2 class="method">setTimeoutMinutes(self,
+timeout_mins, period=20):
+</h2>
+
+<dl><dd>
+<p>Set the number of minutes of inactivity allowable for subobjects
+before they expire (timeout_mins) as well as the <code>timeout resolution</code>
+in seconds (period).  <code>timeout_mins</code> * 60 must be evenly divisible
+by the period.  Period must be less than <code>timeout_mins</code> * 60.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Manage Transient Object Container</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="new"></a>
+<h2 class="method">new(self,
+k):
+</h2>
+
+<dl><dd>
+<p>Creates a new subobject of the type supported by this container
+with key "k" and returns it.</p>
+<p>If an object already exists in the container with key "k", a
+KeyError is raised.</p>
+<p>"k" must be a string, else a TypeError is raised.</p>
+<p>If the container is <code>full</code>, a MaxTransientObjectsExceeded will
+be raised.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Create Transient Objects</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getPeriodSeconds"></a>
+<h2 class="method">getPeriodSeconds(self):
+</h2>
+
+<dl><dd>
+<p>Return the <code>timeout resolution</code> in seconds.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>View management screens</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="setDelNotificationTarget"></a>
+<h2 class="method">setDelNotificationTarget(self,
+f):
+</h2>
+
+<dl><dd>
+<p>Cause the <code>before destruction</code> function to be <code>f</code>.</p>
+<p>If <code>f</code> is not callable and is a string, treat it as a Zope path to
+a callable function.</p>
+<p><code>before destruction</code> functions need accept a single argument: <code>item</code>,
+which is the item being destroyed.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Manage Transient Object Container</code></dd>
+</dl>
+
+</dd></dl>
+
+
+
+
+      <hr noshade>
+      <a name="TransientObject"></a>
+<h2 class="api">class
+  TransientObject</h2>
+
+<dl>
+<dd>
+<p>A transient object is a temporary object contained in a transient
+object container.</p>
+<p>Most of the time you'll simply treat a transient object as a
+dictionary. You can use Python sub-item notation:
+<pre>
+  SESSION['foo']=1
+  foo=SESSION['foo']
+  del SESSION['foo']
+</pre>
+</p>
+<p>When using a transient object from Python-based Scripts or DTML
+you can use the <code>get</code>, <code>set</code>, and <code>delete</code> methods instead.</p>
+<p>Methods of transient objects are not protected by security
+assertions.</p>
+<p>It's necessary to reassign mutuable sub-items when you change
+them. For example:
+<pre>
+  l=SESSION['myList']
+  l.append('spam')
+  SESSION['myList']=l
+</pre>
+</p>
+<p>This is necessary in order to save your changes.  Note that this caveat
+is true even for mutable subitems which inherit from the
+Persistence.Persistent class.</p>
+
+</dd>
+</dl>
+
+
+<hr>
+
+  <a name="__module__"></a>
+<h2 class="attribute">__module__ = __builtin__
+</h2>
+
+
+<h3>Methods</h3>
+  <a name="getContainerKey"></a>
+<h2 class="method">getContainerKey(self):
+</h2>
+
+<dl><dd>
+<p>Returns the key under which the object is "filed" in its container.
+getContainerKey will often return a differnt value than the value
+returned by getId.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="set"></a>
+<h2 class="method">set(self,
+k,
+v):
+</h2>
+
+<dl><dd>
+<p>Call __setitem__ with key k, value v.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="invalidate"></a>
+<h2 class="method">invalidate(self):
+</h2>
+
+<dl><dd>
+<p>Invalidate (expire) the transient object.</p>
+<p>Causes the transient object container's "before destruct" method
+related to this object to be called as a side effect.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="keys"></a>
+<h2 class="method">keys(self):
+</h2>
+
+<dl><dd>
+<p>Return sequence of key elements.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="items"></a>
+<h2 class="method">items(self):
+</h2>
+
+<dl><dd>
+<p>Return sequence of (key, value) elements.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="clear"></a>
+<h2 class="method">clear(self):
+</h2>
+
+<dl><dd>
+<p>Remove all key/value pairs.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="get"></a>
+<h2 class="method">get(self,
+k, default=marker):
+</h2>
+
+<dl><dd>
+<p>Return value associated with key k.  If k does not exist and default
+is not marker, return default, else raise KeyError.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="update"></a>
+<h2 class="method">update(self,
+d):
+</h2>
+
+<dl><dd>
+<p>Merge dictionary d into ourselves.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getId"></a>
+<h2 class="method">getId(self):
+</h2>
+
+<dl><dd>
+<p>Returns a meaningful unique id for the object.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getLastAccessed"></a>
+<h2 class="method">getLastAccessed(self):
+</h2>
+
+<dl><dd>
+<p>Return the time the transient object was last accessed in
+integer seconds-since-the-epoch form.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="has_key"></a>
+<h2 class="method">has_key(self,
+k):
+</h2>
+
+<dl><dd>
+<p>Return true if item referenced by key k exists.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="values"></a>
+<h2 class="method">values(self):
+</h2>
+
+<dl><dd>
+<p>Return sequence of value elements.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getCreated"></a>
+<h2 class="method">getCreated(self):
+</h2>
+
+<dl><dd>
+<p>Return the time the transient object was created in integer
+seconds-since-the-epoch form.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="setLastAccessed"></a>
+<h2 class="method">setLastAccessed(self):
+</h2>
+
+<dl><dd>
+<p>Cause the last accessed time to be set to now.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="delete"></a>
+<h2 class="method">delete(self,
+k):
+</h2>
+
+<dl><dd>
+<p>Call __delitem__ with key k.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+
+
+
+      <hr noshade>
+      <a name="MaxTransientObjectsExceeded"></a>
+<h2 class="api">class
+  MaxTransientObjectsExceeded</h2>
+
+<dl>
+<dd>
+<p>An exception importable from the Products.Transience.Transience module
+which is raised when an attempt is made to add an item to a
+TransientObjectContainer that is <code>full</code>.</p>
+<p>This exception may be caught in PythonScripts through a normal import.
+A successful import of the exception can be achieved via:
+<pre>
+  from Products.Transience import MaxTransientObjectsExceeded
+</pre>
+</p>
+
+</dd>
+</dl>
+
+
+<hr>
+
+  <a name="__module__"></a>
+<h2 class="attribute">__module__ = __builtin__
+</h2>
+
+
+
+
+
+  
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/Transience/Help/TransienceInterfaces.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+</html>
+

@@ -1,0 +1,86 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-with.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>with: Controls DTML variable look up</h3>
+<p>  The <code>with</code> tag pushes an object onto the DTML namespace. Variables
+  will be looked up in the pushed object first.</p>
+<h4>  Syntax</h4>
+<p>    <code>with</code> tag syntax:
+<pre>
+      &lt;dtml-with Variable|expr="Expression"&gt;
+      &lt;/dtml-with&gt;
+</pre>
+</p>
+<p>    The <code>with</code> tag is a block tag. It pushes the named variable or
+    variable expression onto the DTML namespace for the duration of
+    the <code>with</code> block. Thus names are looked up in the pushed object
+    first. </p>
+<h4>  Attributes</h4>
+<dl>
+<dt>    only</dt>
+<dd>Limits the DTML namespace to only include the one defined
+    in the <code>with</code> tag.</dd>
+<dt>    mapping</dt>
+<dd>Indicates that the variable or expression is a mapping
+    object. This ensures that variables are looked up correctly in the
+    mapping object.</dd>
+</dl>
+<h4>  Examples</h4>
+<p>    Looking up a variable in the REQUEST:
+<pre>
+      &lt;dtml-with REQUEST only&gt;
+        &lt;dtml-if id&gt;
+          &lt;dtml-var id&gt;
+        &lt;dtml-else&gt;
+          'id' was not in the request.
+        &lt;/dtml-if&gt;
+      &lt;/dtml-with&gt;
+</pre>
+</p>
+<p>    Pushing the first child on the DTML namespace:
+<pre>
+      &lt;dtml-with expr="objectValues()[0]"&gt;
+        First child's id: &lt;dtml-var id&gt;
+      &lt;/dtml-with&gt;
+</pre>
+</p>
+<h4>  See Also</h4>
+<p>    <a href="dtml-let.html">let tag</a></p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-with.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+</html>

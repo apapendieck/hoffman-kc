@@ -1,0 +1,67 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-unless.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>unless: Tests a condition</h3>
+<p>  The <code>unless</code> tag provides a shortcut for testing negative
+  conditions. For more complete condition testing use the <code>if</code> tag. </p>
+<h4>  Syntax</h4>
+<p>    <code>unless</code> tag syntax:
+<pre>
+      &lt;dtml-unless ConditionVariable|expr="ConditionExpression"&gt;
+      &lt;/dtml-unless&gt;
+</pre>
+</p>
+<p>    The <code>unless</code> tag is a block tag. If the condition variable or
+    expression evaluates to false, then the contained block is
+    executed. Like the <code>if</code> tag, variables that are not present are
+    considered false.</p>
+<h4>  Examples</h4>
+<p>    Testing a variable:
+<pre>
+      &lt;dtml-unless testMode&gt;
+        &lt;dtml-call dangerousOperation&gt;
+      &lt;/dtml-unless&gt;
+</pre>
+</p>
+<p>    The block will be executed if <code>testMode</code> does not exist, or exists
+    but is false.</p>
+<h4>  See Also</h4>
+<p>    <a href="dtml-if.html">if tag</a></p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-unless.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+</html>

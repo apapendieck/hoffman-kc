@@ -1,0 +1,73 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/metal-fill-slot.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>fill-slot: Customize a macro</h3>
+<h4>  Syntax</h4>
+<p>    <code>metal:fill-slot</code> syntax:
+<pre>
+      argument ::= Name
+</pre>
+</p>
+<h4>  Description</h4>
+<p>    The <code>metal:fill-slot</code> statement customizes a macro by replacing a
+    <em>slot</em> in the macro with the statement element (and its content).</p>
+<p>    The <code>metal:fill-slot</code> statement must be used inside a
+    <code>metal:use-macro</code> statement.</p>
+<p>    Slot names must be unique within a macro.</p>
+<p>    If the named slot does not exist within the macro, the slot
+    contents will be silently dropped.</p>
+<h4>  Examples</h4>
+<p>   Given this macro:
+<pre>
+      &lt;p metal:define-macro="hello"&gt;
+        Hello &lt;b metal:define-slot="name"&gt;World&lt;/b&gt;
+      &lt;/p&gt;
+</pre>
+</p>
+<p>    You can fill the <code>name</code> slot like so:
+<pre>
+      &lt;p metal:use-macro="container/master.html/macros/hello"&gt;
+        Hello &lt;b metal:fill-slot="name"&gt;Kevin Bacon&lt;/b&gt;
+      &lt;/p&gt;
+</pre>
+</p>
+<h4>  See Also</h4>
+<p>    <a href="metal-define-slot.html">metal:define-slot</a></p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/metal-fill-slot.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+</html>

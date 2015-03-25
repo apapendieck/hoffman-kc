@@ -1,0 +1,90 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Ownership.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Ownership: Manage ownership.</h3>
+<h4>  Description</h4>
+<p>    This view allows you to set the ownership of an object.</p>
+<p>    On the top of the page Zope will tell you whether the 
+    object has an owner and who it is.</p>
+<p>    All Zope objects except objects within the Control Panel support 
+    ownership. When an object is created, copied or imported in Zope, 
+    the logged-in user performing the operation becomes the owner of 
+    the resulting object(s). Note that simply moving or renaming an 
+    object does not change its ownership.</p>
+<p>    Ownership is most important for Zope objects that "execute" 
+    content supplied through the web, such as DTML Methods, DTML 
+    Documents and SQL Methods. The abilities of these  executable 
+    objects are constrained by the abilities of the object's owner
+    as well as the user causing the object to execute from a Zope
+    security point of view. In other words, an executable cannot 
+    perform operations that its owner could not perform directly.</p>
+<p>    While most Zope objects support ownership, objects may not always
+    have an owner assigned. Objects that do not have an assigned owner
+    are <em>unowned</em>. An unowned executable object executes with the
+    permissions of the user running the object.</p>
+<p>    It is possible to remove a user in your Zope installation while
+    objects that were owned by that user remain (for instance, someone
+    in your organization moves on, so you remove his account on your
+    Zope server). When you remove a Zope user, objects that were owned
+    by that user still have ownership information that refers to that
+    user. This will not cause an error, but it is important to
+    understand what happens to Zope objects whose owners no longer
+    exist.  This is most important for "executable" objects. Usually,
+    the abilities of executable objects are constrained by the
+    abilities of the object's owner as well as the user causing the
+    object to execute. If Zope cannot find the user that the
+    executable's ownership information refers to when it tries to
+    execute the object, it will use the special <code>nobody</code> or anonymous
+    user instead. The <code>nobody</code> user has very minimal privileges, so
+    you should take this into account when deciding what to do about a
+    user's owned objects when you delete the user. If the user had
+    DTML documents or other executable objects that depended upon
+    their owner to have a higher level of privilege than the <code>nobody</code>
+    user, they will not work correctly until their ownership has been
+    reassigned to another user with sufficient privileges.</p>
+<h4>  Controls</h4>
+<dl>
+<dt>    <code>Take ownership</code></dt>
+<dd>Gives you ownership of this object.<p>      **Note: For this operation you have the <code>Take ownership</code> role.**</p>
+</dd>
+<dt>    <code>Also take ownership of all sub-objects</code></dt>
+<dd>Gives you ownership of all the current object's sub-objects when you take ownership of the current object. Normally you should leave this option checked.</dd>
+</dl>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Ownership.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:43 GMT -->
+</html>

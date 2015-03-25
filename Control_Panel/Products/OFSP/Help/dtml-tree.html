@@ -1,0 +1,162 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-tree.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>tree: Inserts a tree widget</h3>
+<p>  The <code>tree</code> tag displays a dynamic tree widget by querying Zope
+  objects.</p>
+<h4>  Syntax</h4>
+<p>    <code>tree</code> tag syntax:
+<pre>
+      &lt;dtml-tree [VariableName|expr="VariableExpression"]&gt;
+      &lt;/dtml-tree&gt;
+</pre>
+</p>
+<p>    The <code>tree</code> tag is a block tag. It renders a dynamic tree widget in
+    HTML. The root of the tree is given by variable name or
+    expression, if present, otherwise it defaults to the current
+    object. The <code>tree</code> block is rendered for each tree node, with the
+    current node pushed onto the DTML namespace.</p>
+<p>    Tree state is set in HTTP cookies. Thus for trees to work, cookies
+    must be enabled. Also you can only have one tree per page.</p>
+<h4>  Attributes</h4>
+<dl>
+<dt>    branches=string</dt>
+<dd>Finds tree branches by calling the named
+    method. The default method is <code>tpValues</code> which most Zope objects
+    support. </dd>
+<dt>    branches_expr=string</dt>
+<dd>Finds tree branches by evaluating the
+    expression.</dd>
+<dt>    id=string</dt>
+<dd>The name of a method or id to determine tree
+    state. It defaults to <code>tpId</code> which most Zope objects support. This
+    attribute is for advanced usage only.</dd>
+<dt>    url=string</dt>
+<dd>The name of a method or attribute to determine tree
+    item URLs. It defaults to <code>tpURL</code> which most Zope objects
+    support. This attribute is for advanced usage only.</dd>
+<dt>    leaves=string</dt>
+<dd>The name of a DTML Document or Method used to
+    render nodes that don't have any children. Note: this document
+    should begin with <code>&lt;dtml-var standard_html_header&gt;</code> and end with
+    <code>&lt;dtml-var standard_html_footer&gt;</code> in order to ensure proper
+    display in the tree.</dd>
+<dt>    header=string</dt>
+<dd>The name of a DTML Document or Method displayed
+    before expanded nodes. If the header is not found, it is skipped.</dd>
+<dt>    footer=string</dt>
+<dd>The name of a DTML Document or Method displayed
+    after expanded nodes. If the footer is not found, it is skipped.</dd>
+<dt>    nowrap=boolean</dt>
+<dd>If true then rather than wrap, nodes may be
+    truncated to fit available space.</dd>
+<dt>    sort=string</dt>
+<dd>Sorts the branches by the named attribute.</dd>
+<dt>    reverse</dt>
+<dd>Reverses the order of the branches.</dd>
+<dt>    assume_children=boolean</dt>
+<dd>Assumes that nodes have children. This
+    is useful if fetching and querying child nodes is a costly
+    process. This results in plus boxes being drawn next to all nodes.</dd>
+<dt>    single=boolean</dt>
+<dd>Allows only one branch to be expanded at a
+    time. When you expand a new branch, any other expanded branches
+    close. </dd>
+<dt>    skip_unauthorized</dt>
+<dd>Skips nodes that the user is unauthorized to
+    see, rather than raising an error.</dd>
+<dt>    urlparam=string</dt>
+<dd>A query string which is included in the
+    expanding and contracting widget links. This attribute is for
+    advanced usage only.</dd>
+<dt>    prefix=string</dt>
+<dd>Provide versions of the tag variables that start
+    with this prefix instead of "tree", and that use underscores
+    (<u>) instead of hyphens (-).  The prefix must start with a letter and
+    contain only alphanumeric characters and underscores (</u>).</dd>
+</dl>
+<h4>  Tag Variables</h4>
+<dl>
+<dt>    tree-item-expanded</dt>
+<dd>True if the current node is expanded.</dd>
+<dt>    tree-item-url</dt>
+<dd>The URL of the current node.</dd>
+<dt>    tree-root-url</dt>
+<dd>The URL of the root node.</dd>
+<dt>    tree-level</dt>
+<dd>The depth of the current node. Top-level nodes have
+    a depth of zero.</dd>
+<dt>    tree-colspan</dt>
+<dd>The number of levels deep the tree is being
+    rendered. This variable along with the <code>tree-level</code> variable can
+    be used to calculate table rows and colspan settings when
+    inserting table rows into the tree table.</dd>
+<dt>    tree-state</dt>
+<dd>The tree state expressed as a list of ids and
+    sub-lists of ids. This variable is for advanced usage only.</dd>
+</dl>
+<h4>  Tag Control Variables</h4>
+<p>    You can control the tree tag by setting
+    these variables.<dl>
+<dt>      expand_all</dt>
+<dd>If this variable is true then the entire tree is
+      expanded. </dd>
+<dt>      collapse_all</dt>
+<dd>If this variable is true then the entire tree is
+      collapsed.</dd>
+</dl>
+</p>
+<h4>  Examples</h4>
+<p>    Display a tree rooted in the current object:
+<pre>
+      &lt;dtml-tree&gt;
+        &lt;dtml-var title_or_id&gt;
+      &lt;/dtml-tree&gt;
+</pre>
+</p>
+<p>    Display a tree rooted in another object, using a custom branches
+    method:
+<pre>
+      &lt;dtml-tree expr="folder.object" branches="objectValues"&gt;
+        Node id : &lt;dtml-var getId&gt;
+      &lt;/dtml-tree&gt;
+</pre>
+</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-tree.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+</html>

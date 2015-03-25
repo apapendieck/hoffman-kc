@@ -1,0 +1,80 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Debug-Information_Profile.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Debug Management - Profile: Performance testing.</h3>
+<h4>  Description</h4>
+<p>    Zope can provide real-time profiling information.  Profiling helps
+    product authors to speed up sections of code that are taking too
+    long to perform their tasks. </p>
+<p>    In order to use profiling Zope has to be started with the
+    <code>PROFILE_PUBLISHER</code> environment variable set to a non-empty
+    value. If the variable is set to a valid filesystem path, then the
+    accumulated profile information will be dumped to the named file
+    when Zope is shut down. If the variable is simply set to a
+    non-empty value that is not a valid filesystem path then Zope will
+    still run in profiling mode, but profile information will only be
+    available through the web interface.</p>
+<p>    <strong>Note: Profiling will slow Zope performance significantly.</strong> </p>
+<p>    Once Zope has started in profiling mode visit your site with your Web
+    browser - Zope will accumulate profiling information as you are
+    working with your site.  When you want to view the profiling
+    information, visit the Control Panel, click on the <code>Debugging
+    information</code> link and select the <code>Profiling</code> tab.</p>
+<p>    The profiling screen will show a list of methods and the amount of
+    time each method is taking. Multiple views are available by
+    changing the sort order and pushing the "update" button. The
+    online profiler is based on the standard Python profile module.
+    For specific information on the meaning of the profile
+    information, see the standard Python documentation for the
+    <code>profile</code> module.</p>
+<p>    When you are done profiling turn profiling off by restarting Zope
+    without the <code>PROFILE_PUBLISHER</code> environment variable set.</p>
+<h4>  Controls</h4>
+<dl>
+<dt>    <code>Sort</code></dt>
+<dd>How to sort function calls.</dd>
+<dt>    <code>Limit</code></dt>
+<dd>How many function calls to display.</dd>
+<dt>    <code>Update</code></dt>
+<dd>Updates the profiling information.</dd>
+</dl>
+<h4>  See Also</h4>
+<p>    <a href="http://www.python.org/doc/current/lib/module-profile.html">Python profiler documentation</a></p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Debug-Information_Profile.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:42 GMT -->
+</html>

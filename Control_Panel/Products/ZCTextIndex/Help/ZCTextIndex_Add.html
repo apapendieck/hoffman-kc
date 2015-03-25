@@ -1,0 +1,82 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/ZCTextIndex/Help/ZCTextIndex_Add.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>ZCTextIndex  Add: Create a new ZCTextIndex</h3>
+<h4>    Description</h4>
+<p>        A ZCTextIndex is an index for performing full text searches over
+        bodies of text. It includes the following features:</p>
+
+<ul>
+<li>Boolean query operators with parenthetical grouping</li>
+<li>Globbing (partial word) and phrase matching</li>
+<li>Two selectable relevance scoring algorithms</li>
+
+</ul>
+<p>        ZCTextIndex is designed as a replacement for standard TextIndex, and
+        has several advantages over it.</p>
+<h4>    Controls</h4>
+<dl>
+<dt>        <code>Id</code></dt>
+<dd>The id of the ZCTextIndex, must be unique for this ZCatalog.</dd>
+<dt>        <code>Field Name</code></dt>
+<dd>The name of the field (object attribute) to be indexed.</dd>
+</dl>
+<p>        <code>Ranking Strategy</code></p>
+
+<ul>
+<li><strong>Okapi BM25 Rank</strong> A relevance scoring technique that seems to
+          work well when the document text is considerably longer than the
+          query string, which is often the case with user specified query
+          strings.</li>
+<li><strong>Cosine Measure</strong> A relevance scoring technique derived from the
+          <a href="http://www.cs.mu.oz.au/mg/"><em>Managing Gigabytes</em></a> book. It seems
+          to work best when the queries are similar in size and content to
+          the text they are searching.</li>
+
+</ul>
+<dl>
+<dt>        <code>Lexicon</code></dt>
+<dd>The ZCTextIndex Lexicon to be used by this ZCTextIndex.
+                     Lexicons process and store the words from the text and
+                     help in processing queries. You must define a ZCTextIndex
+                     Lexicon before you can create a ZCTextIndex. Several
+                     ZCTextIndexes can share the same Lexicon if desired.</dd>
+</dl>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/ZCTextIndex/Help/ZCTextIndex_Add.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:43 GMT -->
+</html>

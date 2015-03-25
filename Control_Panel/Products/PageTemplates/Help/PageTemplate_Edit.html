@@ -1,0 +1,83 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/PageTemplate_Edit.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Edit View: Edit A Page Template</h3>
+<h4>    Description</h4>
+<p>        This view allows you to edit the template's text, upload new
+        text, or change the content type and title of the template.</p>
+<h4>    Template Text</h4>
+<p>        The text in a template must be well-formed HTML if the content
+        type is <code>text/html</code>.  Otherwise, it must be well-formed XML.
+        Either way, it may include <a href="tal.html">TAL</a> or <a href="metal.html">METAL</a>
+        markup containing <a href="tales.html">TALES</a> expressions.</p>
+<h4>    Controls</h4>
+<dl>
+<dt>        <code>Title</code></dt>
+<dd>Allows you to specify the Zope title of the template.</dd>
+<dt>        <code>Content-Type</code></dt>
+<dd>Allows you to specify the content-type that
+        will be given to renderings of this template.  Also, if the
+        content type is <code>text/html</code> (the default) then the template is
+        assumed to contain HTML, not XML.  This affects both parsing
+        and rendering of the template, and can be overridden by giving
+        the template an <code>is_html</code> property. In HTML mode you don't
+        need to explicitly declare <code>tal</code> and <code>metal</code> XML namespaces. In
+        XML mode you must explicitly declare <code>tal</code> and <code>metal</code> XML
+        namespaces, and Zope assumes that your template contains
+        well-formed XML.</dd>
+<dt>        <code>Expand macros when editing</code></dt>
+<dd>Allows you to turn the expansion
+        of METAL macros on or off.  This only affects viewing of the
+        source code, not rendering.</dd>
+</dl>
+<h4>    Buttons and Other Form Elements</h4>
+<dl>
+<dt>        <code>Save Changes</code></dt>
+<dd>saves changes you make to the body, title, or
+          content type.</dd>
+<dt>        <code>Taller</code>/<code>Shorter</code>/<code>Wider</code>/<code>Narrower</code></dt>
+<dd>make the body textarea
+          taller, shorter, wider, or narrower.</dd>
+<dt>        <code>File</code></dt>
+<dd>upload a file into this template.</dd>
+</dl>
+<h4>    File Upload Details</h4>
+<p>        Files uploaded into a template must be valid HTML or XML text.</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/PageTemplate_Edit.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:43 GMT -->
+</html>

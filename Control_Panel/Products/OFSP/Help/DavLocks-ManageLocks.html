@@ -1,0 +1,77 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/DavLocks-ManageLocks.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>WebDAV Lock Management - Manage Locks</h3>
+<h4> Description</h4>
+<p>  This view allows you to manage WebDAV WriteLocks.  WebDAV, as an
+  extension to the HTTP Protocol, allows the users to create <em>Write
+  Locks</em> as a way of trying to avoid the "lost updates problem".
+  However, sometimes WriteLocks may become abandoned.  This may be due 
+  to users forgetting to unlock their resources, software failures
+  such as crashes, etc.  In many cases, locks might just time out
+  before this becomes a problem.  In cases where it's not, this
+  control panel object may be used to locate locked resources inside
+  of Zope and clear <em>ALL</em> of their WebDAV writelocks.  <strong>This does not 
+  clear locks caused by use of Versions</strong>.</p>
+<h4> Controls</h4>
+<dl>
+<dt>  <code>Path</code></dt>
+<dd>This lets you enter a path (based off the root of the Zope 
+  site) to filter down the list of locked objects.  Clicking <code>Go</code>
+  executes the filter.</dd>
+</dl>
+<p>  When locked objects are found, they are listed one per line with a
+  checkbox that can be used to select the item.  Also listed in each
+  line is information about the lock(s) on the object - the user who
+  created the lock (identified by the path to the user folder the user 
+  is defined in), and the locktoken that identifies the lock.  In the
+  majority of cases, there should only be one lock per object.</p>
+<dl>
+<dt>  <code>[Checkbox]</code></dt>
+<dd>Selects locked items.</dd>
+<dt>  <code>Select All</code></dt>
+<dd>This button marks all items displayed as selected.</dd>
+<dt>  <code>Deselect All</code></dt>
+<dd>After <code>Select All</code> has been clicked, it changes to 
+  say <code>Deselect All</code>.  Clicking this deselects all displayed items.</dd>
+<dt>  <code>Unlock objects</code></dt>
+<dd>Unlocks the selected items.</dd>
+</dl>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/DavLocks-ManageLocks.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:42 GMT -->
+</html>

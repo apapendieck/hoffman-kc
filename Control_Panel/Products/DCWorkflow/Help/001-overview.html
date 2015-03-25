@@ -1,0 +1,111 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/DCWorkflow/Help/001-overview.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>DCWorkflow</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Overview</h3>
+<p> DCWorkflows provide workflow objects that are fully customizable via
+ the Zope Management Interface. You can specify the states, and the
+ permissions they set on content that is in that state, the transitions 
+ between those states, and other things like variables for things that
+ aren't well represented by states, work lists for reviewers, and
+ scripts to embody complex guards and to extend pre and post transition
+ behaviour.</p>
+<p> The process for creating a workflow runs something 
+ like this:
+<ul>
+<li>Draw a state diagram with the nodes (bubbles) as states and the
+  arcs (arrows) as transitions. Remember to consider all the states
+  your content can be in, and for each state, consider who should
+  have permission to access and change the content. Consider what
+  actions the users will perform to make the transitions between states,
+  and not only who will be allowed to perform them, but who will be
+  <em>required</em> to perform them.<p>    It's often a good idea to start on paper, then transfer
+    the diagram to a digital copy using a diagram/flowchart tool, such as
+    <code>dia</code>, so that you have an image to go with later documentation. This
+    process tends to make it easier to spot corner cases before you
+    actually create the workflow object.</p>
+</li>
+<li>Start by creating an example DCworkflow, rather than a new one, as it's 
+  faster to delete all the states and transitions than it is to create all the 
+  standard variables that tend to be used by the CMF. [<strong>Note:</strong>
+  Perhaps we should have a bare dcworkflow, a workflow with standard
+  variables, and the couple of standard examples.]</li>
+<li>In the permissions tab, select all the permissions that you want the 
+  workflow to govern. These will be dependent on the types of content
+  you'll be using with the workflow; <code>Access contents information</code>,
+  <code>Modify portal content</code>, and <code>View</code> are the standard permissions for 
+  the default portal content types.</li>
+<li>Define any extra variables that you need for information that isn't
+  well represented by states. [<strong>Note:</strong> generic examples? I can think of
+  a few that could appear in some use cases, but they're all
+  idiosyncratic of particular publishing needs]</li>
+<li>Set up the states for your workflow, one for each node in your state 
+  diagram. Try to stick to the standard names for a publication workflow, as 
+  some badly behaved products have states like <code>published</code> hardcoded into
+  their searches (ie CalendarTool, last I looked) [<strong>Note</strong>: Maybe I
+  should just file some bug reports rather than casting aspersions :-)].
+  Set up the permissions on the states now, as well, though see the 
+  "State Tab" section for advice.</li>
+<li>Set up any scripts that you will be using in your transitions, such
+  as pre and post transition scripts and to handle complex guard
+  conditions. Just set up skeletons for now, if you haven't though
+  through all the details.</li>
+<li>Create your transitions from all the arcs on your state diagram. You
+  should be able to pick the right destination state as all your states
+  are already defined, and set up the right scripts to run, as you've
+  defined those as well. It's worth noting that the guard behaviour is
+  such that if any guard matches, the transition can occur. You can
+  specify more than one permission, role or expression by separating
+  them with a semicolon.</li>
+<li>Go back to the states tab and, for each state, set the possible
+  transitions from the list of all available transitions in each state.</li>
+<li>Finally, in the work lists tab, create any work lists for any states
+  that need them. Work lists are actions that indicate how many objects
+  of a given state are present, and usually link to some search page
+  that lists the actual object instances. You typically use them to list
+  all the pending content waiting for review. Work lists have several
+  unusual behaviours, however, so check the specific notes in the
+  "Worklists" section.</li>
+
+</ul>
+</p>
+<p> By working in this order, you will tend to step through the 
+ creation process one tab at a time, rather than switching back and
+ forth between them, which tends to be slower and somewhat confusing.</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/DCWorkflow/Help/001-overview.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:24 GMT -->
+</html>

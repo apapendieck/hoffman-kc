@@ -1,0 +1,350 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/Sessions/Help/SessionInterfaces.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<base  />
+
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+
+<h1>API Documentation</h1>
+
+<h3>Classes</h3>
+<dl><dd>
+<h2 class="api">
+<a href="#SessionDataManagerInterface">SessionDataManagerInterface</a>
+ , <a href="#BrowserIdManagerInterface">BrowserIdManagerInterface</a>
+ , <a href="#BrowserIdManagerErr">BrowserIdManagerErr</a>
+ , <a href="#SessionDataManagerErr">SessionDataManagerErr</a>
+</h2>
+</dd></dl>
+
+
+<h3>Session APIs</h3>
+<h4>  See Also</h4>
+
+<ul>
+<li><a href="../Transience/Help/TransienceInterfaces.py">Transient Object API</a></li>
+
+</ul>
+
+<hr noshade>
+
+    <a name="SessionDataManagerInterface"></a>
+<h2 class="api">class
+  SessionDataManagerInterface</h2>
+
+<dl>
+<dd>
+<p>Zope Session Data Manager interface.</p>
+<p>A Zope Session Data Manager is responsible for maintaining Session
+Data Objects, and for servicing requests from application code
+related to Session Data Objects.  It also communicates with a Browser
+Id Manager to provide information about browser ids.</p>
+
+</dd>
+</dl>
+
+
+<hr>
+
+
+<h3>Methods</h3>
+  <a name="hasSessionData"></a>
+<h2 class="method">hasSessionData():
+</h2>
+
+<dl><dd>
+<p>Returns true if a Session Data Object associated with the
+current browser id is found in the Session Data Container.  Does
+not create a Session Data Object if one does not exist.</p>
+<p>Permission required: Access session data</p>
+
+</dd></dl>
+
+  <a name="getBrowserIdManager"></a>
+<h2 class="method">getBrowserIdManager():
+</h2>
+
+<dl><dd>
+<p>Returns the nearest acquirable browser id manager.</p>
+<p>Raises SessionDataManagerErr if no browser id manager can be found.</p>
+<p>Permission required: Access session data</p>
+
+</dd></dl>
+
+  <a name="getSessionData"></a>
+<h2 class="method">getSessionData(create=1):
+</h2>
+
+<dl><dd>
+<p>Returns a Session Data Object associated with the current
+browser id.  If there is no current browser id, and create is true,
+returns a new Session Data Object.  If there is no current
+browser id and create is false, returns None.</p>
+<p>Permission required: Access session data</p>
+
+</dd></dl>
+
+  <a name="getSessionDataByKey"></a>
+<h2 class="method">getSessionDataByKey(key):
+</h2>
+
+<dl><dd>
+<p>Returns a Session Data Object associated with <code>key</code>.  If there is
+no Session Data Object associated with <code>key</code> return None.</p>
+<p>Permission required: Access arbitrary user session data</p>
+
+</dd></dl>
+
+
+
+
+      <hr noshade>
+      <a name="BrowserIdManagerInterface"></a>
+<h2 class="api">class
+  BrowserIdManagerInterface</h2>
+
+<dl>
+<dd>
+<p>Zope Browser Id Manager interface.</p>
+<p>A Zope Browser Id Manager is responsible for assigning ids to site
+visitors, and for servicing requests from Session Data Managers
+related to the browser id.</p>
+
+</dd>
+</dl>
+
+
+<hr>
+
+
+<h3>Methods</h3>
+  <a name="hasBrowserId"></a>
+<h2 class="method">hasBrowserId():
+</h2>
+
+<dl><dd>
+<p>Returns true if there is a browser id for this request.</p>
+<p>Permission required: Access contents information</p>
+
+</dd></dl>
+
+  <a name="getHiddenFormField"></a>
+<h2 class="method">getHiddenFormField():
+</h2>
+
+<dl><dd>
+<p>Returns a string in the form:</p>
+<p><input type="hidden" name="_ZopeId" value="H7HJGYUFGFyHKH*"></p>
+<p>Where the name and the value represent the current browser id
+name and current browser id.</p>
+
+</dd></dl>
+
+  <a name="isBrowserIdFromForm"></a>
+<h2 class="method">isBrowserIdFromForm():
+</h2>
+
+<dl><dd>
+<p>Returns true if browser id comes from a form variable (query
+string or post).</p>
+<p>Permission required: Access contents information</p>
+<p>Raises:  BrowserIdManagerErr.  If there is no current browser id.</p>
+
+</dd></dl>
+
+  <a name="isBrowserIdNew"></a>
+<h2 class="method">isBrowserIdNew():
+</h2>
+
+<dl><dd>
+<p>Returns true if browser id is <code>new</code>.  A browser id is <code>new</code>
+when it is first created and the client has therefore not sent it
+back to the server in any request.</p>
+<p>Permission required: Access contents information</p>
+<p>Raises:  BrowserIdManagerErr.  If there is no current browser id.</p>
+
+</dd></dl>
+
+  <a name="isBrowserIdFromCookie"></a>
+<h2 class="method">isBrowserIdFromCookie():
+</h2>
+
+<dl><dd>
+<p>Returns true if browser id comes from a cookie.</p>
+<p>Permission required: Access contents information</p>
+<p>Raises:  BrowserIdManagerErr.  If there is no current browser id.</p>
+
+</dd></dl>
+
+  <a name="setBrowserIdCookieByForce"></a>
+<h2 class="method">setBrowserIdCookieByForce(bid):
+</h2>
+
+<dl><dd>
+<p>Sets the browser id cookie to browser id <code>bid</code> by force.
+Useful when you need to <code>chain</code> browser id cookies across domains
+for the same user (perhaps temporarily using query strings).</p>
+<p>Permission required: Access contents information</p>
+<p>Raises:  BrowserIdManagerErr.  If the <code>cookies</code> namespace isn't
+a browser id namespace at the time of the call.</p>
+
+</dd></dl>
+
+  <a name="getBrowserIdName"></a>
+<h2 class="method">getBrowserIdName():
+</h2>
+
+<dl><dd>
+<p>Returns a string with the name of the cookie/form variable which is
+used by the current browser id manager as the name to look up when
+attempting to obtain the browser id value.  For example, <code>_ZopeId</code>.</p>
+<p>Permission required: Access contents information</p>
+
+</dd></dl>
+
+  <a name="flushBrowserIdCookie"></a>
+<h2 class="method">flushBrowserIdCookie():
+</h2>
+
+<dl><dd>
+<p>Deletes the browser id cookie from the client browser, iff the
+<code>cookies</code> browser id namespace is being used.</p>
+<p>Permission required: Access contents information</p>
+<p>Raises:  BrowserIdManagerErr.  If the <code>cookies</code> namespace isn't
+a browser id namespace at the time of the call.</p>
+
+</dd></dl>
+
+  <a name="encodeUrl"></a>
+<h2 class="method">encodeUrl(url, style=querystring):
+</h2>
+
+<dl><dd>
+<p>Encodes a provided URL with the current request's browser id
+and returns the result.  Two forms of URL-encoding are supported:
+<code>querystring</code> and <code>inline</code>.  <code>querystring</code> is the default.</p>
+<p>If the <code>querystring</code> form is used, the browser id name/value pair
+are postfixed onto the URL as a query string.  If the <code>inline</code>
+form is used, the browser id name/value pair are prefixed onto
+the URL as the first two path segment elements.</p>
+<h3>For example:</h3>
+<p> The call encodeUrl(<code>http://foo.com/amethod</code>, style=<code>querystring</code>)
+ might return <code>http://foo.com/amethod?_ZopeId=as9dfu0adfu0ad</code>.</p>
+<p> The call encodeUrl('http://foo.com/amethod, style=<code>inline</code>)
+ might return <code>http://foo.com/_ZopeId/as9dfu0adfu0ad/amethod</code>.</p>
+<p>Permission required: Access contents information</p>
+<p>Raises:  BrowserIdManagerErr.  If there is no current browser id.</p>
+
+</dd></dl>
+
+  <a name="getBrowserId"></a>
+<h2 class="method">getBrowserId(create=1):
+</h2>
+
+<dl><dd>
+<p>If create=0, returns a the current browser id or None if there
+is no browser id associated with the current request.  If create=1,
+returns the current browser id or a newly-created browser id if
+there is no browser id associated with the current request.  This
+method is useful in conjunction with getBrowserIdName if you wish to
+embed the browser-id-name/browser-id combination as a hidden value in
+a POST-based form.  The browser id is opaque, has no business meaning,
+and its length, type, and composition are subject to change.</p>
+<p>Permission required: Access contents information</p>
+<p>Raises:  BrowserIdManagerErr.  If ill-formed browser id
+is found in REQUEST.</p>
+
+</dd></dl>
+
+
+
+
+      <hr noshade>
+      <a name="BrowserIdManagerErr"></a>
+<h2 class="api">class
+  BrowserIdManagerErr</h2>
+
+<dl>
+<dd>
+<p>Error raised during some browser id manager operations, as
+explained in the API documentation of the Browser Id Manager.</p>
+<p>This exception may be caught in PythonScripts.  A successful
+import of the exception for PythonScript use would need to be:
+<pre>
+   from Products.Sessions import BrowserIdManagerErr
+</pre>
+</p>
+
+</dd>
+</dl>
+
+
+
+
+
+
+
+      <hr noshade>
+      <a name="SessionDataManagerErr"></a>
+<h2 class="api">class
+  SessionDataManagerErr</h2>
+
+<dl>
+<dd>
+<p>Error raised during some session data manager operations, as
+explained in the API documentation of the Session Data Manager.</p>
+<p>This exception may be caught in PythonScripts.  A successful
+import of the exception for PythonScript use would need to be:
+<pre>
+   from Products.Sessions import SessionDataManagerErr
+</pre>
+</p>
+
+</dd>
+</dl>
+
+
+
+
+
+
+
+  
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/Sessions/Help/SessionInterfaces.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+</html>
+

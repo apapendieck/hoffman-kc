@@ -1,0 +1,70 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Undo.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Undo - Undo management actions.</h3>
+<h4>  Description</h4>
+<p>    This view allows you to undo changes to Zope's database.</p>
+<p>    Zope allows you to undo changes to its database. Changes are
+    defined in terms of transactions which group together related
+    changes. Each transaction has a URL and a user associated with
+    it. In general the URL of a transaction indicates the URL that was
+    called to initiate the changes.</p>
+<p>    If an object was changed several times and you want to recover a
+    version several changes back, you have to undo all the
+    intermediary transactions as well.</p>
+<h4>  Controls</h4>
+<dl>
+<dt>    <code>[Checkbox]</code></dt>
+<dd>Selects one or more transactions. Each line shows one
+    transaction. The transactions are sorted by date and time. The
+    checkbox in the front allows you to check the transactions you
+    would like to undo. The next entry on the line is the URL that
+    caused the transaction, followed by the user who committed the
+    transaction and the time transaction was performed.</dd>
+<dt>    <code>Earlier Transactions</code></dt>
+<dd>Allows you to see transactions that were
+    performed earlier then the ones you currently see.</dd>
+<dt>    <code>Later Transactions</code></dt>
+<dd>Allows you to see transactions that were
+    performed later then the ones you currently see.</dd>
+<dt>    <code>Undo</code></dt>
+<dd>Undo the selected transactions.</dd>
+</dl>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Undo.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:43 GMT -->
+</html>

@@ -1,0 +1,57 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Cacheable-properties.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:41 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Cacheable objects</h3>
+<p>  For background information, see the
+  <a href="Caching.html">description of cache management</a>.</p>
+<p>  The <code>Cache</code> tab allows you to associate a cacheable object with a
+  cache manager.  It is only available when at least one cache manager
+  exists somewhere in the current context.</p>
+<p>  Use the drop-down box to select which cache manager should be
+  associated with the object.  Some types of objects provide
+  additional caching options.</p>
+<p>  DTML methods can be cached according to the DTML namespace.  The entry
+  box on the <code>Cache</code> tab allows you to enter the names
+  (one per line) that Zope should look up in the namespace to create the
+  cache key.  Note, however, that the namespace lookup operation can be
+  expensive, so use this feature with care.  Also note that it is not
+  possible for accelerated HTTP cache managers to make use of this feature.</p>
+<p>  (TODO) Python scripts and SQL methods may also provide further options.</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Cacheable-properties.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:41 GMT -->
+</html>

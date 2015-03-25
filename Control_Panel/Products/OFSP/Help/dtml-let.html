@@ -1,0 +1,88 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-let.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>let: Defines DTML variables</h3>
+<p>  The <code>let</code> tag defines variables in the DTML namespace.</p>
+<h4>  Syntax</h4>
+<p>    <code>let</code> tag syntax:
+<pre>
+      &lt;dtml-let [Name=Variable][Name="Expression"]...&gt;
+      &lt;/dtml-let&gt;
+</pre>
+</p>
+<p>    The <code>let</code> tag is a block tag. Variables are defined by tag
+    arguments. Defined variables are pushed onto the DTML namespace
+    while the <code>let</code> block is executed.  Variables are defined by
+    attributes. The <code>let</code> tag can have one or more attributes with
+    arbitrary names. If the attributes are defined with double quotes
+    they are considered expressions, otherwise they are looked up by
+    name.  Attributes are processed in order, so later attributes can
+    reference, and/or overwrite earlier ones.</p>
+<h4>  Examples</h4>
+<p>   Basic usage:
+<pre>
+    &lt;dtml-let name="'Bob'" ids=objectIds&gt;
+      name: &lt;dtml-var name&gt;
+      ids: &lt;dtml-var ids&gt;
+    &lt;/dtml-let&gt;
+</pre>
+</p>
+<p>   Using the <code>let</code> tag with the <code>in</code> tag:
+<pre>
+     &lt;dtml-in expr="(1,2,3,4)"&gt;
+       &lt;dtml-let num=sequence-item
+                 index=sequence-index
+                 result="num*index"&gt;
+         &lt;dtml-var num&gt; * &lt;dtml-var index&gt; = &lt;dtml-var result&gt;
+       &lt;/dtml-let&gt;
+     &lt;/dtml-in&gt;
+</pre>
+</p>
+<p>   This yields:
+<pre>
+      1 * 0 = 0
+      2 * 1 = 2
+      3 * 2 = 6
+      4 * 3 = 12
+</pre>
+</p>
+<h4>  See Also</h4>
+<p>    <a href="dtml-with.html">with tag</a></p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-let.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+</html>

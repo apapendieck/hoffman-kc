@@ -1,0 +1,81 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tal-define.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>define: Define variables</h3>
+<h4>  Syntax</h4>
+<p>    <code>tal:define</code> syntax:
+<pre>
+      argument       ::= define_scope [';' define_scope]*
+      define_scope   ::= (['local'] | 'global') define_var
+      define_var     ::= variable_name expression
+      variable_name  ::= Name
+</pre>
+</p>
+<p>    *Note: If you want to include a semi-colon (;) in an <code>expression</code>,
+    it must be escaped by doubling it (;;).*</p>
+<h4>  Description</h4>
+<p>    The <code>tal:define</code> statement defines variables.  You can define two
+    different kinds of TAL variables: local and global.  When you
+    define a local variable in a statement element, you can only use
+    that variable in that element and the elements it contains.  If
+    you redefine a local variable in a contained element, the new
+    definition hides the outer element's definition within the inner
+    element.  When you define a global variables, you can use it in
+    any element processed after the defining element.  If you redefine
+    a global variable, you replace its definition for the rest of the
+    template.</p>
+<p>    <em>Note: local variables are the default</em></p>
+<p>    If the expression associated with a variable evaluates to
+    <em>nothing</em>, then that variable has the value <em>nothing</em>, and may be
+    used as such in further expressions. Likewise, if the expression
+    evaluates to <em>default</em>, then the variable has the value <em>default</em>,
+    and may be used as such in further expressions.</p>
+<h4>  Examples</h4>
+<p>    Defining a global variable:
+<pre>
+      tal:define="global company_name string:Zope Corp, Inc."
+</pre>
+</p>
+<p>    Defining two variables, where the second depends on the first:
+<pre>
+      tal:define="mytitle template/title; tlen python:len(mytitle)"
+</pre>
+</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tal-define.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+</html>

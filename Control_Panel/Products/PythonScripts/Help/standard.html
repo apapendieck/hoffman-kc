@@ -1,0 +1,297 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PythonScripts/Help/standard.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<base  />
+
+<title>Script (Python)</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+
+<h1>API Documentation</h1>
+
+<h3>Classes</h3>
+<dl><dd>
+<h2 class="api">
+<a href="#DTML">DTML</a>
+</h2>
+</dd></dl>
+
+<h3>Functions</h3>
+<dl><dd>
+<h2 class="api">
+<a href="#urlencode">urlencode</a>
+ , <a href="#newline_to_br">newline_to_br</a>
+ , <a href="#thousand_commas">thousand_commas</a>
+ , <a href="#url_quote">url_quote</a>
+ , <a href="#url_unquote_plus">url_unquote_plus</a>
+ , <a href="#url_unquote">url_unquote</a>
+ , <a href="#whole_dollars">whole_dollars</a>
+ , <a href="#sql_quote">sql_quote</a>
+ , <a href="#dollars_and_cents">dollars_and_cents</a>
+ , <a href="#url_quote_plus">url_quote_plus</a>
+ , <a href="#html_quote">html_quote</a>
+ , <a href="#structured_text">structured_text</a>
+</h2>
+</dd></dl>
+
+<h3>Products.PythonScripts.standard: Utility functions and classes</h3>
+<p>  The functions and classes in this module are available from
+  Python-based scripts, DTML, and Page Templates.</p>
+
+<hr noshade>
+
+      <h2>Classes</h2>
+    <a name="DTML"></a>
+<h2 class="api">class
+  DTML</h2>
+
+<dl>
+<dd>
+<p>DTML - temporary, security-restricted DTML objects</p>
+
+</dd>
+</dl>
+
+
+<hr>
+
+  <a name="__module__"></a>
+<h2 class="attribute">__module__ = __builtin__
+</h2>
+
+
+<h3>Methods</h3>
+  <a name="call"></a>
+<h2 class="method">call(client=None, REQUEST={}, **kw):
+</h2>
+
+<dl><dd>
+<p>Render the DTML.</p>
+<p>To accomplish its task, DTML often needs to resolve various
+names into objects.  For example, when the code &lt;dtml-var
+spam&gt; is executed, the DTML engine tries to resolve the
+name <code>spam</code>.</p>
+<p>In order to resolve names, you must be pass a namespace to the
+DTML.  This can be done several ways:</p>
+
+<ul>
+<li>By passing a <code>client</code> object - If the argument <code>client</code> is
+  passed, then names are looked up as attributes on the
+  argument.</li>
+<li>By passing a <code>REQUEST</code> mapping - If the argument <code>REQUEST</code>
+  is passed, then names are looked up as items on the
+  argument.  If the object is not a mapping, an TypeError
+  will be raised when a name lookup is attempted.</li>
+<li>By passing keyword arguments -- names and their values can
+  be passed as keyword arguments to the Method.</li>
+
+</ul>
+<p>The namespace given to a DTML object is the composite of these
+three methods.  You can pass any number of them or none at
+all. Names will be looked up first in the keyword argument,
+next in the client and finally in the mapping.</p>
+
+</dd></dl>
+
+  <a name="__init__"></a>
+<h2 class="method">__init__(source, **kw):
+</h2>
+
+<dl><dd>
+<p>Create a DTML object with source text and keyword
+variables. The source text defines the DTML source
+content. The optinal keyword arguments define variables.</p>
+
+</dd></dl>
+
+
+
+
+      <hr noshade>
+  
+      <h2>Functions</h2>
+    <a name="urlencode"></a>
+<h2 class="method">urlencode(query, doseq=0):
+</h2>
+
+<dl><dd>
+<p>Convert a mapping object (such as a dictionary) or a sequence of 
+two-element  tuples to a URL encoded query string. Useful for generating 
+query strings programmatically.</p>
+<h3>See Also</h3>
+<p>  "Python <code>urllib</code> module":http://www.python.org/doc/current/lib/module-urllib.html
+  <code>urlencode</code> function.</p>
+
+</dd></dl>
+
+      <hr noshade>
+      <a name="newline_to_br"></a>
+<h2 class="method">newline_to_br(s):
+</h2>
+
+<dl><dd>
+<p>Convert newlines and carriage-return and newline combinations to
+break tags.</p>
+
+</dd></dl>
+
+      <hr noshade>
+      <a name="thousand_commas"></a>
+<h2 class="method">thousand_commas(number):
+</h2>
+
+<dl><dd>
+<p>Insert commas every three digits to the left of a decimal point in
+values containing numbers.  For example, the value, "12000
+widgets" becomes "12,000 widgets".</p>
+
+</dd></dl>
+
+      <hr noshade>
+      <a name="url_quote"></a>
+<h2 class="method">url_quote(s):
+</h2>
+
+<dl><dd>
+<p>Convert characters that have special meaning in URLS to HTML
+character entities using decimal values.</p>
+<h3>See Also</h3>
+<p>   "Python <code>urllib</code> module":http://www.python.org/doc/current/lib/module-urllib.html
+   <code>quote</code> function.</p>
+
+</dd></dl>
+
+      <hr noshade>
+      <a name="url_unquote_plus"></a>
+<h2 class="method">url_unquote_plus(s):
+</h2>
+
+<dl><dd>
+<p>Like url_unquote but also replace <code>+</code> characters with blank spaces.</p>
+<h3>See Also</h3>
+<p>  "Python <code>urllib</code> module":http://www.python.org/doc/current/lib/module-urllib.html
+  <code>unquote_plus</code> function.</p>
+
+</dd></dl>
+
+      <hr noshade>
+      <a name="url_unquote"></a>
+<h2 class="method">url_unquote(s):
+</h2>
+
+<dl><dd>
+<p>Convert HTML %xx character entities into the characters they
+represent.  (Undoes the affects of url_quote).</p>
+<h3>See Also</h3>
+<p>   "Python <code>urllib</code> module":http://www.python.org/doc/current/lib/module-urllib.html
+   <code>unquote</code> function.</p>
+
+</dd></dl>
+
+      <hr noshade>
+      <a name="whole_dollars"></a>
+<h2 class="method">whole_dollars(number):
+</h2>
+
+<dl><dd>
+<p>Show a numeric value with a dollar symbol.</p>
+
+</dd></dl>
+
+      <hr noshade>
+      <a name="sql_quote"></a>
+<h2 class="method">sql_quote(s):
+</h2>
+
+<dl><dd>
+<p>Convert single quotes to pairs of single quotes. This is needed to
+safely include values in Standard Query Language (SQL) strings.</p>
+
+</dd></dl>
+
+      <hr noshade>
+      <a name="dollars_and_cents"></a>
+<h2 class="method">dollars_and_cents(number):
+</h2>
+
+<dl><dd>
+<p>Show a numeric value with a dollar symbol and two decimal places.</p>
+
+</dd></dl>
+
+      <hr noshade>
+      <a name="url_quote_plus"></a>
+<h2 class="method">url_quote_plus(s):
+</h2>
+
+<dl><dd>
+<p>Like url_quote but also replace blank space characters with
+<code>+</code>. This is needed for building query strings in some cases.</p>
+<h3>See Also</h3>
+<p>  "Python <code>urllib</code> module":http://www.python.org/doc/current/lib/module-urllib.html
+  <code>quote_plus</code> function.</p>
+
+</dd></dl>
+
+      <hr noshade>
+      <a name="html_quote"></a>
+<h2 class="method">html_quote(s):
+</h2>
+
+<dl><dd>
+<p>Convert characters that have special meaning in HTML to HTML
+character entities.</p>
+<h3>See Also</h3>
+<p>  "Python <code>cgi</code> module":http://www.python.org/doc/current/lib/Functions_in_cgi_module.html
+  <code>escape</code> function.</p>
+
+</dd></dl>
+
+      <hr noshade>
+      <a name="structured_text"></a>
+<h2 class="method">structured_text(s):
+</h2>
+
+<dl><dd>
+<p>Convert a string in structured-text format to HTML.</p>
+<h3>See Also</h3>
+<p>  <a href="http://dev.zope.org/Members/jim/StructuredTextWiki/StructuredTextNGRules">Structured-Text Rules</a></p>
+
+</dd></dl>
+
+  
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PythonScripts/Help/standard.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:13 GMT -->
+</html>
+

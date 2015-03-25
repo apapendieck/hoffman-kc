@@ -1,0 +1,79 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tal-replace.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>replace: Replace an element</h3>
+<h4>  Syntax</h4>
+<p>    <code>tal:replace</code> syntax:
+<pre>
+      argument ::= (['text'] | 'structure') expression
+</pre>
+</p>
+<h4>  Description  </h4>
+<p>    The <code>tal:replace</code> statement replaces an element with dynamic
+    content.  It replaces the statement element with either text or a
+    structure (unescaped markup).  The body of the statement is an
+    expression with an optional type prefix.  The value of the
+    expression is converted into an escaped string if you prefix the
+    expression with <code>text</code> or omit the prefix, and is inserted
+    unchanged if you prefix it with <code>structure</code>.  Escaping consists of
+    converting "&amp;" to "&amp;amp;", "&lt;" to "&amp;lt;", and
+    "&gt;" to "&amp;gt;".</p>
+<p>    If the value is <em>nothing</em>, then the element is simply removed.  If
+    the value is <em>default</em>, then the element is left unchanged.</p>
+<h4>  Examples</h4>
+<p>    The two ways to insert the title of a template:
+<pre>
+      &lt;span tal:replace="template/title"&gt;Title&lt;/span&gt;
+      &lt;span tal:replace="text template/title"&gt;Title&lt;/span&gt;
+</pre>
+</p>
+<p>    Inserting HTML/XML:
+<pre>
+      &lt;div tal:replace="structure table" /&gt;
+</pre>
+</p>
+<p>    Inserting nothing:
+<pre>
+      &lt;div tal:replace="nothing"&gt;This element is a comment.&lt;/div&gt;
+</pre>
+</p>
+<h4>  See Also</h4>
+<p>    <a href="tal-content.html"><code>tal:content</code></a></p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tal-replace.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+</html>

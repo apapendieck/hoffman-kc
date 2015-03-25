@@ -1,0 +1,183 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/File.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<base  />
+
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+
+<h1>API Documentation</h1>
+
+<h3>Classes</h3>
+<dl><dd>
+<h2 class="api">
+<a href="#File">File</a>
+</h2>
+</dd></dl>
+
+<h3>Functions</h3>
+<dl><dd>
+<h2 class="api">
+<a href="#manage_addFile">manage_addFile</a>
+</h2>
+</dd></dl>
+
+
+      <h2>Classes</h2>
+    <a name="File"></a>
+<h2 class="api">class
+  File(<a href="ObjectManagerItem.html#ObjectManagerItem">ObjectManagerItem</a>, <a href="PropertyManager.html#PropertyManager">PropertyManager</a>)
+</h2>
+
+<dl>
+<dd>
+<p>A File is a Zope object that contains file content.  A File object
+can be used to upload or download file information with Zope.</p>
+<p>Using a File object in Zope is easy.  The most common usage is
+to display the contents of a file object in a web page.  This is
+done by simply referencing the object from DTML:
+<pre>
+  &lt;dtml-var standard_html_header&gt;
+    &lt;dtml-var FileObject&gt;
+  &lt;dtml-var standard_html_footer&gt;
+</pre>
+</p>
+<p>A more complex example is presenting the File object for
+download by the user.  The next example displays a link to every
+File object in a folder for the user to download:
+<pre>
+  &lt;dtml-var standard_html_header&gt;
+  &lt;ul&gt;
+    &lt;dtml-in "ObjectValues('File')"&gt;
+      &lt;li&gt;&lt;a href="&lt;dtml-var absolute_url&gt;"&gt;&lt;dtml-var
+      id&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/dtml-in&gt;
+  &lt;/ul&gt;
+  &lt;dtml-var standard_html_footer&gt;
+</pre>
+</p>
+<p>In this example, the <code>absolute_url</code> method and <code>id</code> are used to
+create a list of HTML hyperlinks to all of the File objects in
+the current Object Manager.</p>
+<p>Also see ObjectManager for details on the <code>objectValues</code>
+method.</p>
+
+</dd>
+</dl>
+
+<hr>
+<h3>Product Constructor</h3>
+      <a name="manage_addFile"></a>
+<h2 class="method">manage_addFile(id, file=, title=, precondition=, content_type=):
+</h2>
+
+<dl><dd>
+<p>Add a new File object.</p>
+<p>Creates a new File object <code>id</code> with the contents of <code>file</code></p>
+
+</dd></dl>
+
+  
+<hr>
+
+  <a name="__module__"></a>
+<h2 class="attribute">__module__ = __builtin__
+</h2>
+
+
+<h3>Methods</h3>
+  <a name="update_data"></a>
+<h2 class="method">update_data(data, content_type=None, size=None):
+</h2>
+
+<dl><dd>
+<p>Updates the contents of the File with <code>data</code>.</p>
+<p>The <code>data</code> argument must be a string. If <code>content_type</code> is not
+provided, then a content type will not be set. If size is not
+provided, the size of the file will be computed from <code>data</code>.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Python only</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getSize"></a>
+<h2 class="method">getSize():
+</h2>
+
+<dl><dd>
+<p>Returns the size of the file in bytes.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>View</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getContentType"></a>
+<h2 class="method">getContentType():
+</h2>
+
+<dl><dd>
+<p>Returns the content type of the file.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>View</code></dd>
+</dl>
+
+</dd></dl>
+
+
+
+
+      <hr noshade>
+  
+      <h2>Functions</h2>
+    <a name="manage_addFile"></a>
+<h2 class="method">manage_addFile(id, file=, title=, precondition=, content_type=):
+</h2>
+
+<dl><dd>
+<p>Add a new File object.</p>
+<p>Creates a new File object <code>id</code> with the contents of <code>file</code></p>
+
+</dd></dl>
+
+  
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/File.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+</html>
+

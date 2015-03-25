@@ -1,0 +1,80 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/CMFDefault/Help/Syndication-Tool_Properties.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>CMF Default Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>SyndicationTool - Properties: Manage the properties of a Site's Syndication Instance.</h3>
+<h4>  Description</h4>
+<p>    View and manage the properties of a sitewide syndication instance. </p>
+<h4>  Controls</h4>
+<dl>
+<dt>    <code>Enable/Disable Syndication</code></dt>
+<dd>Turns enables/disables sitewide syndication.
+    All methods check whether site syndication is enabled to ensure a sitewide policy 
+    is enforceable.</dd>
+<dt>    <code>Syndication Module</code></dt>
+<dd>The RSS sy XMLNS is supported in this tool by default.
+    The following properties are editable on the tool for sitewide configuring of each
+    of the elements of the syndication module.  In this release, they are over-rideable;
+    these will be configurable in version 1.1 to enable a sitewide policy.</dd>
+<dt>    <code>UpdatePeriod</code></dt>
+<dd>Describes the period over which the channel format is updated. 
+    Acceptable values are: hourly, daily, weekly, monthly, yearly.
+    If omitted, daily is assumed.</dd>
+<dt>    <code>UpdateFrequency</code></dt>
+<dd>Used to describe the frequency of updates in relation to the 
+    update period. A positive integer indicates how many times in that period the channel 
+    is updated. For example, an updatePeriod of daily, and an updateFrequency of 2
+    indicates the channel format is updated twice daily. 
+    If omitted a value of 1 is assumed</dd>
+<dt>    <code>UpdateBase</code></dt>
+<dd>Defines a base date to be used in concert with updatePeriod and 
+    updateFrequency to calculate the publishing schedule. By default the sitewide
+    date is the DateTime of the tool initialization.  The UpdateBase in the RSS XML 
+    takes this DateTime object and sringify's it through DateTime.HTML4()
+    The date format takes the form: yyyy-mm-ddThh:mm</dd>
+<dt>    <code>Max Items</code></dt>
+<dd>Defines the max number of items which are included in the syndication.
+    The RSS Specification recommends this not exceed 15, which is the default.</dd>
+<dt>    <code>DublinCore Module</code></dt>
+<dd>The RSS dc XMLNS is supported in this tool by default.
+    The sitewide properties will be editable on the tool for sitewide configuring of each
+    of the elements of the dublin core module.  In this release, they are over-rideable;
+    these will be configurable in version 1.1 to enable a sitewide policy. </dd>
+</dl>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/CMFDefault/Help/Syndication-Tool_Properties.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:23 GMT -->
+</html>

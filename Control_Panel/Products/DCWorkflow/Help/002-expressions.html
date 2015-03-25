@@ -1,0 +1,96 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/DCWorkflow/Help/002-expressions.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>DCWorkflow</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Expressions</h3>
+<p> Expressions in DCWorkflow are TALES expressions. See 
+ <a href="../../PageTemplates/Help/tales.html">TALES Overview</a>
+ for general TALES information. They are used as access guards and for
+ the setting variable values. </p>
+<p> [<strong>Note:</strong> I haven't figured out what all these contexts actually are
+ and what you can use them for. Explanations are is welcome!]</p>
+<p> Some of the contexts have slightly different meanings from what is provided
+ for expressions in page templates:<dl>
+<dt>  <code>here</code></dt>
+<dd>The content object (rather than the workflow object)
+  <code>container</code> -- The content object's container</dd>
+</dl>
+</p>
+<p> Several other contexts are also 
+ provided:<dl>
+<dt>  <code>state_change</code></dt>
+<dd>A special object containing information about the
+  state change (see below)
+  <code>transition</code> -- The transition object being executed
+  <code>status</code> -- The former status
+  <code>workflow</code> -- The workflow definition object
+  <code>scripts</code> -- The scripts in the workflow definition object</dd>
+</dl>
+</p>
+<p> <code>state_change</code> objects provide the following attributes, some of which
+ are duplicates of the above information:
+<ul>
+<li><code>status</code> is a mapping containing the workflow status. This
+   includes all the variables defined in the variable tab with "store
+   in state" checked.</li>
+<li><code>object</code> is the object being modified by workflow.
+     (Same as the <code>here</code> variable above.)</li>
+<li><code>workflow</code> is the workflow definition object.  (Same as the
+   <code>workflow</code> variable above.)</li>
+<li><code>transition</code> is the transition object being executed.  (Same
+   as the <code>transition</code> variable above.)</li>
+<li><code>old_state</code> is the former state object.  The name of the former state,
+   for example "published", is available as <code>old_state.getId()</code>.  (Note
+   that DCWorkflow defines <code>state</code> and <code>status</code> as different entities;
+   the name of the current <code>state</code> is stored in the <code>status</code>.  The word
+   clash is unfortunate; patches welcome.)</li>
+<li><code>new_state</code> is the destination state object.  Use <code>new_state.getId()</code>
+   to access the new state name.</li>
+<li><code>kwargs</code> is the keyword arguments passed to the doActionFor() method.</li>
+<li><code>getHistory()</code>, a method that returns a copy of the object's workflow
+   history.</li>
+<li><code>getPortal()</code>, which returns the root of the portal.</li>
+<li><code>ObjectDeleted</code> and <code>ObjectMoved</code>, exceptions that can be raised by
+   scripts to indicate to the workflow that an object has been moved or
+   deleted.</li>
+<li><code>getDateTime</code> is a method that returns the DateTime of the transition.</li>
+
+</ul>
+</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/DCWorkflow/Help/002-expressions.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:24 GMT -->
+</html>

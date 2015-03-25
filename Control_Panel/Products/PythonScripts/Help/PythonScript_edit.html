@@ -1,0 +1,151 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PythonScripts/Help/PythonScript_edit.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:27 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Script (Python)</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Edit View: Edit A Script (Python)</h3>
+<h4>    Description</h4>
+<p>        This view allows you to edit the logic which composes a script
+        in Python.  Script instances execute in a restricted
+        context, bounded by your user's privilege level in Zope, and
+        certain global restrictions of all through-the-web code.  For
+        information about what you "can" and "cannot" do in a Script
+        instance as opposed to non-through-the-web Python,
+        see the API Reference documentation for "Script (Python)" in
+        this help system.</p>
+<h4>    Controls</h4>
+<dl>
+<dt>        <code>Title</code></dt>
+<dd>Allows you to specify the Zope title of the script.</dd>
+<dt>        <code>Id</code></dt>
+<dd>Allows you to specify the id of the script.</dd>
+<dt>        <code>Parameter List</code></dt>
+<dd>Enter function parameters for this script
+          separated by commas.  For example: <em>foo, bar, baz</em></dd>
+</dl>
+<h4>    Status Elements</h4>
+<dl>
+<dt>        <code>Bound Names</code></dt>
+<dd>the names used by this script for bindings.
+         You may use these names in the body of the script to refer to
+         bound elements.  The defaults are:
+<pre>
+          context -- the script's "parent" respective to acquisition.
+
+          container -- the script's "parent" respective to containment.
+
+          script -- the script object itself.
+
+          traverse_subpath -- if the script is called directly from a URL,
+           this is the portion of the URL path after the script's name,
+           split at slash separators, into a list of strings.  If the script
+           was not called directly from a URL, this will be an empty list.
+</pre>
+</dd>
+</dl>
+<p>         Another possible name binding, to the "namespace" object, is
+         not set by default.  If this was set, if the Script was
+         called from DTML, it would represent the namespace of the
+         calling DTML object.</p>
+<p>         More information about bindings can be found by visiting the
+         help screens of the "Bindings" tab of a Script (Python)
+         instance.</p>
+<h4>   Buttons and Other Form Elements</h4>
+<dl>
+<dt>        <code>Save Changes</code></dt>
+<dd>saves changes you make to the body, title, or
+          parameter list.</dd>
+<dt>        <code>Taller</code>/<code>Shorter</code>/<code>Wider</code>/<code>Narrower</code></dt>
+<dd>make the body textarea
+          taller, shorter, wider, or narrower.</dd>
+<dt>        <code>File</code></dt>
+<dd>upload a file into this Script (Python) instance.</dd>
+</dl>
+<h5>   File Upload Details</h5>
+<p>        Files uploaded into a Script (Python) instance may either
+        consist only of the actual body of the function, or the file
+        containing the function body may contain at its head a set of
+        lines starting with "##" which describe bindings, parameters,
+        and the title.  For example, a file uploaded into a Script
+        (Python) instance might be simply:
+<pre>
+            return "Hello"
+</pre>
+</p>
+<p>        If you upload this file into a Script (Python) instance, the
+        existing settings (or default settings) for bindings,
+        parameters, and title will remain.</p>
+<p>        However, if you wished to, you could develop a Script (Python)
+        on disk which looked like:
+<pre>
+            ## Script (Python) "foo"
+            ##bind container=container
+            ##bind context=context
+            ##bind namespace=
+            ##bind script=script
+            ##bind subpath=traverse_subpath
+            ##parameters=goop, fudge
+            ##title=
+            ##
+            return "Fudge was %s, goop was %s" % (fudge, goop)
+</pre>
+</p>
+<p>        The lines preceded by "##" are metadata about the Script
+        (Python) instance which can survive a round trip via FTP or
+        through the web interface.  When these lines are encountered
+        by the parser after an upload (or webform save), they serve to
+        <em>modify</em> the settings of the Script (Python) instance with the
+        metadata contained within the blocked area.</p>
+<p>        Lines beginning with "##" without any spaces after the "##"
+        are contextually meaningful to the file upload parser.  There
+        are three keywords which can directly follow a "##": "bind",
+        "parameters", and "title".</p>
+<p>        The "bind" keyword following a "##" binds a name to a object
+        in the context this Script (Python) instance's body.  For
+        example, the line "##bind container=goober" binds the name
+        "goober" to the acquisition parent of the script, allowing you
+        to refer to "goober" in the script body.  Legal objects to
+        which to bind are: container, context, namespace, script, and
+        subpath.  See the help available from the "bindings" tab of
+        Script (Python) instances for more details about what bindings
+        mean.</p>
+<p>        The "title" keyword following a "##" provides a title to the
+        script.  E.g. "title=A Really Neat Script"</p>
+<p>        The "parameters" keyword following a "##" provides parameters
+        to the Script (Python) instance.  E.g. "parameters=foo,bar,baz".</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PythonScripts/Help/PythonScript_edit.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:27 GMT -->
+</html>

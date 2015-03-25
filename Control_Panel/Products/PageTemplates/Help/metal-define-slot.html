@@ -1,0 +1,70 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/metal-define-slot.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>define-slot: Define a macro customization point</h3>
+<h4>  Syntax</h4>
+<p>    <code>metal:define-slot</code> syntax:
+<pre>
+      argument ::= Name
+</pre>
+</p>
+<h4>  Description</h4>
+<p>    The <code>metal:define-slot</code> statement defines a macro customization
+    point or <em>slot</em>. When a macro is used, its slots can be replaced,
+    in order to customize the macro. Slot definitions provide default
+    content for the slot. You will get the default slot contents if
+    you decide not to customize the macro when using it.</p>
+<p>    The <code>metal:define-slot</code> statement must be used inside a
+    <code>metal:define-macro</code> statement.</p>
+<p>    Slot names must be unique within a macro.</p>
+<h4>  Examples</h4>
+<p>    Simple macro with slot:
+<pre>
+      &lt;p metal:define-macro="hello"&gt;
+        Hello &lt;b metal:define-slot="name"&gt;World&lt;/b&gt;
+      &lt;/p&gt;
+</pre>
+</p>
+<p>    This example defines a macro with one slot named <code>name</code>. When you
+    use this macro you can customize the <code>b</code> element by filling the
+    <code>name</code> slot.</p>
+<h4>  See Also</h4>
+<p>    <a href="metal-fill-slot.html">metal:fill-slot</a></p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/metal-define-slot.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+</html>

@@ -1,0 +1,128 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/PropertySheets.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<base  />
+
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+
+<h1>API Documentation</h1>
+
+
+
+
+    <a name="PropertySheets"></a>
+<h2 class="api">class
+  PropertySheets</h2>
+
+<dl>
+<dd>
+<p>A PropertySheet is an abstraction for organizing and working with
+a set of related properties. Conceptually it acts like a container
+for a set of related properties and meta-data describing those
+properties. PropertySheet objects are accessed through a
+PropertySheets object that acts as a collection of PropertySheet
+instances.</p>
+<p>Objects that support property sheets (objects that support the
+PropertyManager interface or ZClass objects) have a
+<code>propertysheets</code> attribute (a PropertySheets instance) that is the
+collection of PropertySheet objects. The PropertySheets object
+exposes an interface much like a Python mapping, so that
+individual PropertySheet objects may be accessed via
+dictionary-style key indexing.</p>
+
+</dd>
+</dl>
+
+
+<hr>
+
+  <a name="__module__"></a>
+<h2 class="attribute">__module__ = __builtin__
+</h2>
+
+
+<h3>Methods</h3>
+  <a name="items"></a>
+<h2 class="method">items():
+</h2>
+
+<dl><dd>
+<p>Return a sequence containing an <code>(id, object)</code> tuple for
+each PropertySheet object in the collection.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Python only</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="values"></a>
+<h2 class="method">values():
+</h2>
+
+<dl><dd>
+<p>Return a sequence of all of the PropertySheet objects
+in the collection.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Python only</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="get"></a>
+<h2 class="method">get(name, default=None):
+</h2>
+
+<dl><dd>
+<p>Return the PropertySheet identified by <code>name</code>, or the value
+given in <code>default</code> if the named PropertySheet is not found.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Python only</dd>
+</dl>
+
+</dd></dl>
+
+
+
+
+  
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/PropertySheets.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+</html>
+

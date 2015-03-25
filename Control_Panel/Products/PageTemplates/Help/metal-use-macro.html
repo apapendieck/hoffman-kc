@@ -1,0 +1,82 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/metal-use-macro.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>use-macro: Use a macro</h3>
+<h4>  Syntax</h4>
+<p>    <code>metal:use-macro</code> syntax:
+<pre>
+      argument ::= expression
+</pre>
+</p>
+<h4>  Description</h4>
+<p>    The <code>metal:use-macro</code> statement replaces the statement element
+    with a macro. The statement expression describes a macro
+    definition. </p>
+<p>    In Zope the expression will generally be a path expression
+    referring to a macro defined in another template. See
+    "metal:define-macro" for more information.</p>
+<p>    The effect of expanding a macro is to graft a subtree from another
+    document (or from elsewhere in the current document) in place of
+    the statement element, replacing the existing sub-tree.  Parts of
+    the original subtree may remain, grafted onto the new subtree, if
+    the macro has <em>slots</em>. See
+    <a href="metal-define-slot.html">metal:define-slot</a> for more information. If
+    the macro body uses any macros, they are expanded first.</p>
+<p>    When a macro is expanded, its <code>metal:define-macro</code> attribute is
+    replaced with the <code>metal:use-macro</code> attribute from the statement
+    element.  This makes the root of the expanded macro a valid
+    <code>use-macro</code> statement element.</p>
+<h4>  Examples</h4>
+<p>    Basic macro usage:
+<pre>
+      &lt;p metal:use-macro="container/other.html/macros/header"&gt;
+        header macro from defined in other.html template
+      &lt;/p&gt;
+</pre>
+</p>
+<p>    This example refers to the <code>header</code> macro defined in the
+    <code>other.html</code> template which is in the same folder as the current
+    template. When the macro is expanded, the <code>p</code> element and its
+    contents will be replaced by the macro. Note: there will still be
+    a <code>metal:use-macro</code> attribute on the replacement element.</p>
+<h4>  See Also</h4>
+<p>    <a href="metal-define-macro.html">metal:define-macro</a></p>
+<p>    <a href="metal-fill-slot.html">metal:fill-slot</a></p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/metal-use-macro.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+</html>

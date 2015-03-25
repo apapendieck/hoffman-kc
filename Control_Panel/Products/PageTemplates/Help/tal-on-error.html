@@ -1,0 +1,109 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tal-on-error.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>on-error: Handle errors</h3>
+<h4>  Syntax</h4>
+<p>    <code>tal:on-error</code> syntax:
+<pre>
+      argument ::= (['text'] | 'structure') expression
+</pre>
+</p>
+<h4>  Description</h4>
+<p>    The <code>tal:on-error</code> statement provides error handling for your
+    template.  When a TAL statement produces an error, the TAL
+    interpreter searches for a <code>tal:on-error</code> statement on the same
+    element, then on the enclosing element, and so forth. The first
+    <code>tal:on-error</code> found is invoked. It is treated as a <code>tal:content</code>
+    statement.</p>
+<p>    A local variable <code>error</code> is set. This variable has these
+    attributes:<dl>
+<dt>      <code>type</code></dt>
+<dd>the exception type</dd>
+<dt>      <code>value</code></dt>
+<dd>the exception instance</dd>
+<dt>      <code>traceback</code></dt>
+<dd>the traceback object</dd>
+</dl>
+</p>
+<p>    The simplest sort of <code>tal:on-error</code> statement has a literal error
+    string or <em>nothing</em> for an expression.  A more complex handler may
+    call a script that examines the error and either emits error text
+    or raises an exception to propagate the error outwards.  </p>
+<h4>  Examples</h4>
+<p>    Simple error message:
+<pre>
+      &lt;b tal:on-error="string: Username is not defined!" 
+         tal:content="here/getUsername"&gt;Ishmael&lt;/b&gt;
+</pre>
+</p>
+<p>    Removing elements with errors:
+<pre>
+      &lt;b tal:on-error="nothing"
+         tal:content="here/getUsername"&gt;Ishmael&lt;/b&gt;
+</pre>
+</p>
+<p>    Calling an error-handling script:
+<pre>
+      &lt;div tal:on-error="structure here/errorScript"&gt;
+        ...
+      &lt;/div&gt;
+</pre>
+</p>
+<p>    Here's what the error-handling script might look like:
+<pre>
+      ## Script (Python) "errHandler"
+      ##bind namespace=_
+      ##
+      error=_['error']
+      if error.type==ZeroDivisionError:
+          return "&lt;p&gt;Can't divide by zero.&lt;/p&gt;"
+      else
+          return """&lt;p&gt;An error ocurred.&lt;/p&gt;
+                    &lt;p&gt;Error type: %s&lt;/p&gt;
+                    &lt;p&gt;Error value: %s&lt;/p&gt;""" % (error.type,
+                                                 error.value)
+</pre>
+</p>
+<h4>  See Also</h4>
+<p>    <a href="http://www.python.org/doc/current/tut/node10.html">Python Tutorial: Errors and
+    Exceptions</a></p>
+<p>    <a href="http://www.python.org/doc/current/lib/module-exceptions.html">Python Built-in
+    Exceptions</a></p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tal-on-error.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+</html>

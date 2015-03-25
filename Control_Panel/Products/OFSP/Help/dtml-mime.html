@@ -1,0 +1,112 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-mime.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>mime: Formats data with MIME</h3>
+<p>  The <code>mime</code> tag allows you to create MIME encoded data. It is chiefly
+  used to format email inside the <code>sendmail</code> tag.</p>
+<h4>  Syntax</h4>
+<p>    <code>mime</code> tag syntax:
+<pre>
+      &lt;dtml-mime&gt;
+      [&lt;dtml-boundry&gt;]
+      ...
+      &lt;/dtml-mime&gt;
+</pre>
+</p>
+<p>    The <code>mime</code> tag is a block tag. The block is can be divided by one
+    or more <code>boundry</code> tags to create a multi-part MIME message. <code>mime</code>
+    tags may be nested. The <code>mime</code> tag is most often used inside the
+    <code>sendmail</code> tag.</p>
+<h4>  Attributes</h4>
+<p>    Both the <code>mime</code> and <code>boundry</code> tags
+    have the same attributes.<dl>
+<dt>      encode=string</dt>
+<dd>MIME Content-Transfer-Encoding header, defaults
+      to <code>base64</code>.  Valid encoding options include <code>base64</code>,
+      <code>quoted-printable</code>, <code>uuencode</code>, <code>x-uuencode</code>, <code>uue</code>, <code>x-uue</code>,
+      and <code>7bit</code>.  If the <code>encode</code> attribute is set to <code>7bit</code> no
+      encoding is done on the block and the data is assumed to be in a
+      valid MIME format.</dd>
+<dt>      type=string</dt>
+<dd>MIME Content-Type header.</dd>
+<dt>      type_expr=string</dt>
+<dd>MIME Content-Type header as a variable
+      expression. You cannot use both <code>type</code> and <code>type_expr</code>.</dd>
+<dt>      name=string</dt>
+<dd>MIME Content-Type header name.</dd>
+<dt>      name_expr=string</dt>
+<dd>MIME Content-Type header name as a variable
+      expression. You cannot use both <code>name</code> and <code>name_expr</code>.</dd>
+<dt>      disposition=string</dt>
+<dd>MIME Content-Disposition header.</dd>
+<dt>      disposition_expr=string</dt>
+<dd>MIME Content-Disposition header as a
+      variable expression. You cannot use both <code>disposition</code> and
+      <code>disposition_expr</code>.</dd>
+<dt>      filename=string</dt>
+<dd>MIME Content-Disposition header filename.</dd>
+<dt>      filename_expr=string</dt>
+<dd>MIME Content-Disposition header filename
+      as a variable expression. You cannot use both <code>filename</code> and
+      <code>filename_expr</code>.</dd>
+<dt>      skip_expr=string</dt>
+<dd>A variable expression that if true, skips
+      the block. You can use this attribute to selectively include
+      MIME blocks.</dd>
+</dl>
+</p>
+<h4>  Examples</h4>
+<p>    Sending a file attachment:
+<pre>
+      &lt;dtml-sendmail&gt;
+      To: &lt;dtml-recipient&gt;
+      Subject: Resume
+      &lt;dtml-mime type="text/plain" encode="7bit"&gt;
+
+      Hi, please take a look at my resume.
+
+      &lt;dtml-boundary type="application/octet-stream" disposition="attachment" 
+      encode="base64" filename_expr="resume_file.getId()"&gt;&lt;dtml-var expr="resume_file.read()"&gt;&lt;/dtml-mime&gt;
+      &lt;/dtml-sendmail&gt;
+</pre>
+</p>
+<h4>  See Also</h4>
+<p>    <a href="http://www.python.org/doc/current/lib/module-mimetools.html">Python Library: mimetools</a></p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-mime.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+</html>

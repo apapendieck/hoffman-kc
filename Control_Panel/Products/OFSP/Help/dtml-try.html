@@ -1,0 +1,132 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-try.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>try: Handles exceptions</h3>
+<p>  The <code>try</code> tag allows exception handling in DTML, mirroring the
+  Python <code>try/except</code> and <code>try/finally</code> constructs.</p>
+<h4>  Syntax</h4>
+<p>    The <code>try</code> tag has two different syntaxes, <code>try/except/else</code> and
+    <code>try/finally</code>.</p>
+<p>    <code>try/except/else</code> Syntax:
+<pre>
+      &lt;dtml-try&gt;
+        &lt;dtml-except [ExceptionName] [ExceptionName]...&gt;
+        ... 
+        [&lt;dtml-else&gt;]
+      &lt;/dtml-try&gt;
+</pre>
+</p>
+<p>    The <code>try</code> tag encloses a block in which exceptions can be caught and
+    handled. There can be one or more <code>except</code> tags that handles
+    zero or more exceptions. If an <code>except</code> tag does not specify an
+    exception, then it handles all exceptions.</p>
+<p>    When an exception is raised, control jumps to the first <code>except</code>
+    tag that handles the exception. If there is no <code>except</code> tag to
+    handle the exception, then the exception is raised normally.</p>
+<p>    If no exception is raised, and there is an <code>else</code> tag, then the
+    <code>else</code> tag will be executed after the body of the <code>try</code> tag.</p>
+<p>    The <code>except</code> and <code>else</code> tags are optional.</p>
+<p>    <code>try/finally</code> Syntax:
+<pre>
+      &lt;dtml-try&gt;
+        &lt;dtml-finally&gt;
+      &lt;/dtml-try&gt;
+</pre>
+</p>
+<p>    The <code>finally</code> tag cannot be used in the same <code>try</code> block as the
+    <code>except</code> and <code>else</code> tags. If there is a <code>finally</code> tag, its block
+    will be executed whether or not an exception is raised in the
+    <code>try</code> block.</p>
+<h4>  Attributes</h4>
+<dl>
+<dt>    except</dt>
+<dd>Zero or more exception names. If no exceptions are
+    listed then the except tag will handle all exceptions.</dd>
+</dl>
+<h4>  Tag Variables</h4>
+<p>    Inside the <code>except</code> block these variables
+    are defined.<dl>
+<dt>      error_type</dt>
+<dd>The exception type.</dd>
+<dt>      error_value</dt>
+<dd>The exception value.</dd>
+<dt>      error_tb</dt>
+<dd>The traceback.</dd>
+</dl>
+</p>
+<h4>  Examples</h4>
+<p>    Catching a math error:
+<pre>
+      &lt;dtml-try&gt;
+        &lt;dtml-var expr="1/0"&gt;
+      &lt;dtml-except ZeroDivisionError&gt;
+        You tried to divide by zero.
+      &lt;/dtml-try&gt;
+</pre>
+</p>
+<p>    Returning information about the handled exception:
+<pre>
+      &lt;dtml-try&gt;
+        &lt;dtml-call dangerousMethod&gt;
+      &lt;dtml-except&gt;
+        An error occurred.
+        Error type: &lt;dtml-var error_type&gt;
+        Error value: &lt;dtml-var error_value&gt;
+      &lt;/dtml-try&gt;
+</pre>
+</p>
+<p>    Using finally to make sure to perform clean up regardless
+    of whether an error is raised or not:
+<pre>
+      &lt;dtml-call acquireLock&gt;
+      &lt;dtml-try&gt;
+        &lt;dtml-call someMethod&gt;
+      &lt;dtml-finally&gt;
+        &lt;dtml-call releaseLock&gt;
+      &lt;/dtml-try&gt;
+</pre>
+</p>
+<h4>  See Also</h4>
+<p>    <a href="dtml-raise.html">raise tag</a></p>
+<p>    <a href="http://www.python.org/doc/current/tut/node10.html">Python Tutorial: Errors and
+    Exceptions</a></p>
+<p>    <a href="http://www.python.org/doc/current/lib/module-exceptions.html">Python Built-in
+    Exceptions</a></p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-try.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+</html>

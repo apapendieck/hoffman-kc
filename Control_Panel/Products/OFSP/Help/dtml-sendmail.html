@@ -1,0 +1,97 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-sendmail.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>sendmail: Sends email with SMTP</h3>
+<p>  The <code>sendmail</code> tag sends an email message
+  using SMTP.</p>
+<h4>  Syntax</h4>
+<p>    <code>sendmail</code> tag syntax:
+<pre>
+      &lt;dtml-sendmail&gt;
+      &lt;/dtml-sendmail&gt;
+</pre>
+</p>
+<p>    The <code>sendmail</code> tag is a block tag. It either requires a <code>mailhost</code>
+    or a <code>smtphost</code> argument, but not both. The tag block is sent as
+    an email message. The beginning of the block describes the email
+    headers. The headers are separated from the body by a blank
+    line. Alternately the <code>To</code>, <code>From</code> and <code>Subject</code> headers can be
+    set with tag arguments.</p>
+<h4>  Attributes</h4>
+<dl>
+<dt>    mailhost</dt>
+<dd>The name of a Zope MailHost object
+    to use to send email. You cannot specify both a mailhost and a smtphost.</dd>
+<dt>    smtphost</dt>
+<dd>The name of a SMTP server used to send email. You
+    cannot specify both a mailhost and a smtphost.</dd>
+<dt>    port</dt>
+<dd>If the smtphost attribute is used, then the port attribute
+    is used to specify a port number to connect to. If not specified,
+    then port 25 will be used.</dd>
+<dt>    mailto</dt>
+<dd>The recipient address or a list of recipient addresses
+    separated by commas. This can also be specified with the <code>To</code> header.</dd>
+<dt>    mailfrom</dt>
+<dd>The sender address. This can also be specified with
+    the <code>From</code> header.</dd>
+<dt>    subject</dt>
+<dd>The email subject. This can also be specified with the
+    <code>Subject</code> header.</dd>
+</dl>
+<h4>  Examples</h4>
+<p>    Sending an email message using a Mail Host:
+<pre>
+      &lt;dtml-sendmail mailhost="mailhost"&gt;
+      To: &lt;dtml-var recipient&gt;
+      From: &lt;dtml-var sender&gt;
+      Subject: &lt;dtml-var subject&gt;
+
+      Dear &lt;dtml-var recipient&gt;,
+
+      You order number &lt;dtml-var order_number&gt; is ready.
+      Please pick it up at your soonest convenience.
+      &lt;/dtml-sendmail&gt;
+</pre>
+</p>
+<h4>  See Also</h4>
+<p>    <a href="../../../../../www.ietf.org/rfc/rfc0821.txt">RFC 821 (SMTP Protocol)</a></p>
+<p>    <a href="dtml-mime.html">mime tag</a></p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-sendmail.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+</html>

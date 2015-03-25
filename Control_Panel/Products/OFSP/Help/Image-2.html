@@ -1,0 +1,170 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Image.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<base  />
+
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+
+<h1>API Documentation</h1>
+
+<h3>Classes</h3>
+<dl><dd>
+<h2 class="api">
+<a href="#Image">Image</a>
+</h2>
+</dd></dl>
+
+<h3>Functions</h3>
+<dl><dd>
+<h2 class="api">
+<a href="#manage_addImage">manage_addImage</a>
+</h2>
+</dd></dl>
+
+
+      <h2>Classes</h2>
+    <a name="Image"></a>
+<h2 class="api">class
+  Image(<a href="File-2.html#File">File</a>)
+</h2>
+
+<dl>
+<dd>
+<p>An Image is a Zope object that contains image content.  An Image
+object can be used to upload or download image information with
+Zope.</p>
+<p>Image objects have two properties the define their dimension,
+<code>height</code> and <code>width</code>. These are calculated when the image is
+uploaded. For image types that Zope does not understand, these
+properties may be undefined.</p>
+<p>Using a Image object in Zope is easy.  The most common usage is
+to display the contents of an image object in a web page.  This
+is done by simply referencing the object from DTML:
+<pre>
+  &lt;dtml-var standard_html_header&gt;
+    &lt;dtml-var ImageObject&gt;
+  &lt;dtml-var standard_html_footer&gt;
+</pre>
+</p>
+<p>This will generate an HTML IMG tag referencing the URL to the
+Image. This is equivalent to:
+<pre>
+  &lt;dtml-var standard_html_header&gt;
+    &lt;dtml-with ImageObject&gt;
+      &lt;img src="&lt;dtml-var absolute_url&gt;"&gt;
+    &lt;/dtml-with&gt;
+  &lt;dtml-var standard_html_footer&gt;
+</pre>
+</p>
+<p>You can control the image display more precisely with the <code>tag</code>
+method. For example:
+<pre>
+  &lt;dtml-var "ImageObject.tag(border='5', align='left')"&gt;
+</pre>
+</p>
+
+</dd>
+</dl>
+
+<hr>
+<h3>Product Constructor</h3>
+      <a name="manage_addImage"></a>
+<h2 class="method">manage_addImage(id,
+file, title=, precondition=, content_type=):
+</h2>
+
+<dl><dd>
+<p>Add a new Image object.</p>
+<p>Creates a new Image object <code>id</code> with the contents of <code>file</code>.</p>
+
+</dd></dl>
+
+  
+<hr>
+
+  <a name="__module__"></a>
+<h2 class="attribute">__module__ = __builtin__
+</h2>
+
+
+<h3>Methods</h3>
+  <a name="tag"></a>
+<h2 class="method">tag(height=None, width=None, alt=None, scale=0, xscale=0, yscale=0, **args):
+</h2>
+
+<dl><dd>
+<p>This method returns a string which contains an HTML IMG tag
+reference to the image.</p>
+<p>Optionally, the <code>height</code>, <code>width</code>, <code>alt</code>, <code>scale</code>, <code>xscale</code>
+and <code>yscale</code> arguments can be provided which are turned into
+HTML IMG tag attributes. Note, <code>height</code> and <code>width</code> are
+provided by default, and <code>alt</code> comes from the <code>title</code>
+property.</p>
+<p>Keyword arguments may be provided to support other or future IMG
+tag attributes.  The one exception to this is the HTML Cascading
+Style Sheet tag <code>class</code>.  Because the word <code>class</code> is a reserved
+keyword in Python, you must instead use the keyword argument
+<code>css_class</code>.  This will be turned into a <code>class</code> HTML tag attribute
+on the rendered <code>img</code> tag.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>View</code></dd>
+</dl>
+
+</dd></dl>
+
+
+
+
+      <hr noshade>
+  
+      <h2>Functions</h2>
+    <a name="manage_addImage"></a>
+<h2 class="method">manage_addImage(id,
+file, title=, precondition=, content_type=):
+</h2>
+
+<dl><dd>
+<p>Add a new Image object.</p>
+<p>Creates a new Image object <code>id</code> with the contents of <code>file</code>.</p>
+
+</dd></dl>
+
+  
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Image.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+</html>
+

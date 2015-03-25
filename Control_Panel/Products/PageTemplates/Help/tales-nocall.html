@@ -1,0 +1,74 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tales-nocall.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>TALES Nocall expressions</h3>
+<h4>  Syntax</h4>
+<p>    Nocall expression syntax:
+<pre>
+      nocall_expression ::= 'nocall:' path_expression
+</pre>
+</p>
+<h4>  Description</h4>
+<p>    Nocall expressions avoid rendering the results of a path
+    expression.</p>
+<p>    An ordinary path expression tries to render the object that it
+    fetches.  This means that if the object is a function, Script,
+    Method, or some other kind of executable thing, then expression
+    will evaluate to the result of calling the object.  This is
+    usually what you want, but not always.  For example, if you want
+    to put a DTML Document into a variable so that you can refer to
+    its properties, you can't use a normal path expression because it
+    will render the Document into a string.</p>
+<h4>  Examples</h4>
+<p>    Using nocall to get the properties of a document:
+<pre>
+      &lt;span tal:define="doc nocall:here/aDoc"
+            tal:content="string:${doc/getId}: ${doc/title}"&gt;
+      Id: Title&lt;/span&gt;
+</pre>
+</p>
+<p>    Using nocall expressions on a functions:
+<pre>
+      &lt;p tal:define="join nocall:modules/string/join"&gt;
+</pre>
+</p>
+<p>    This example defines a variable <code>join</code> which is bound to the
+    <code>string.join</code> function.</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tales-nocall.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+</html>

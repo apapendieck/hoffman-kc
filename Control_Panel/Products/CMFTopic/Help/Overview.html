@@ -1,0 +1,127 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/CMFTopic/Help/Overview.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>CMF Topic Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>PortalTopic Overview</h3>
+<p>  *Note: this help file is old and being updated (ney, replaced) as
+  <strong>CMF Topic Overview</strong>.*</p>
+<p>  PortalTopics present collections of portal items according to catalog
+  searches formulated by the PortalTopic creator/configurer.</p>
+<p>  Visitors to a portal topic see a brief description of the topic, its
+  criteria, available subtopics, and the batch-browsable results.
+  (Eventually the visitor will be able to sort and filter the results to
+  their liking.  Initially, we will be providing rudimentary batched
+  browsing.)  Visitors will also see links to subtopics which refine the</p>
+<p>  PortalTopic configurers (the creator and anyone generally enabled to
+  configure a portal topic, according to site policy) can toggle the
+  browsing view to adjust the topic query criteria, adding, deleting,
+  and modifying textual, numeric, and list criteria against the site's
+  standard content metadata fields.</p>
+<p>  PortalTopic configurers will also be able to add new topic objects to
+  the topic that will act as subtopics, with their queries refining the
+  results of the containing topic query.  Subtopic nesting, and the
+  cumulative refinement, is unlimited.</p>
+<h4>  Use Cases</h4>
+<dl>
+<dt>    <strong>Topic Visitor</strong> browses topic on PortalTopic page</dt>
+<dd>PortalTopics visitors see a (possibly empty) description of the
+      topic, its (possibly) empty collectino of subtopics, and
+      batch-browsable links to the topic contents.<dl>
+<dt>      Visitor visits topic</dt>
+<dd>... sees topic description, subtopics, and first batch of topic
+        contents links.<dl>
+<dt>        Visitor browses topic collection</dt>
+<dd>The visitor can follow a result link to the target contents,
+          advance bakwards and forward in the results batch (if it's
+          more than a single screenful),</dd>
+<dt>        <em>(Not in v1.0.) Visitor twiddles filtering and sorting parameters</em></dt>
+<dd><em>to adjust their view of the results.</em></dd>
+<dt>        Visitor navigates to subtopic</dt>
+<dd>... by following subtopic link.</dd>
+<dt>        Visitor gets help about PortalTopics purpose and navigation</dt>
+<dd>... by hitting help button.  <em>(Just this design doc, in v1.0.)</em></dd>
+</dl>
+
+<ul>
+<li>(Not in v1.0.)  Eventually, when returning to a topic, the
+        visitor's view resumes with batch, sort, and filter state as
+        they last left it.  For now, they return to start.*</li>
+
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>    <strong>Topic configurer</strong> configures topic
+      Configurers can toggle the view of the topic to reveal controls
+      for adjusting the topic description, subtopics, and topic query
+      criteria.<dl>
+<dt>      Topic configurer adjusts topic criteria</dt>
+<dd>Configurer hits a button that opens the configuration form,
+        showing a view of the same topic, with:
+<ul>
+<li>A text area for the filling in the topic description</li>
+<li>An add/delete/rename list of subtopics, for managing
+          their containment.</li>
+<li>A section for changing the topic criteria.<p>          The top of the section is a table with columns for string,
+          integer, and list criteria entries.  The bottom is a row of
+          buttons: "Submit Changes", "Delete Checked", and "Reset"</p>
+<p>          Table entries for already set criteria will consist of a
+          checkbox, the criterion field name, and an input box for the
+          value.  The checkbox indicates entries to be deleted.</p>
+<p>          The bottom of each column will have a "blank" entry, for
+          adding a new criterion.  It will be like the existing
+          entries but it will not have the checkbox, and its initial
+          value will be empty.</p>
+</li>
+<li><em>(Not in v1.0.) A control for designating whether or not to
+          apply the topic query.  (The topic may only be for
+          collecting and specifying the common aspects of a query for
+          it's subtopics).</em></li>
+
+</ul>
+</dd>
+</dl>
+<p>      The qeury results will display as they would for a regular visitor.</p>
+<dl>
+<dt>      Topic configurer gets help about configuring PortalTopics</dt>
+<dd>... by hitting help button.  <em>(Just this design doc, in v1.0.)</em></dd>
+</dl>
+</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/CMFTopic/Help/Overview.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:24 GMT -->
+</html>

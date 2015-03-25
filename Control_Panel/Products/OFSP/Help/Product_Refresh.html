@@ -1,0 +1,93 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Product_Refresh.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Product - Refresh: Reload a filesystem-based Python product.</h3>
+<h4>  Description</h4>
+<p>    This view allows you to reload filesystem-based product code
+    without restarting Zope.  This function is useful during
+    development of products.</p>
+<p>    To enable your product to be refreshed, it is required that you
+    put a file called <code>refresh.txt</code> in your product directory.
+    It can optionally contain a warning for others who might use
+    the refresh function.</p>
+<p>    (Producting refreshing is not perfect.  Some products, especially
+    "hotfix" style products which patch Zope, should not be refreshed.
+    That's why <code>refresh.txt</code> is required.  Most products are safe to
+    refresh, however.)</p>
+<p>    There are two modes of operation.  You can visit your product's
+    <code>Refresh</code> tab and manually push the refresh button.  Or you can
+    turn on "auto-refresh" mode, which causes Zope to periodically
+    scan the modification time of the Python files that make up your
+    product and execute a refresh operation in the background.</p>
+<p>    <strong>NOTE</strong>: Don't enable auto-refresh for too many products at once.
+    Scanning file modification times can take a lot of time per
+    request.</p>
+<p>    You can also select dependent refreshable products.  If you have
+    a product that subclasses from a product you're working on,
+    you'll want to enable refresh for both products and add the
+    product that subclasses as a dependent of the product you're
+    modifying.  This enables subclasses to be updated.</p>
+<h4>  Controls</h4>
+<dl>
+<dt>    <code>Refresh this product</code></dt>
+<dd>The manual refresh button.</dd>
+<dt>    <code>Auto refresh mode</code></dt>
+<dd>Check the checkbox to enable auto-refresh.</dd>
+<dt>    <code>Dependent auto-refreshable products</code></dt>
+<dd>A list of other products
+    which are auto-refreshable.</dd>
+</dl>
+<h4>  How it works</h4>
+<p>    To execute a refresh, Zope looks in the sys.modules dictionary
+    for modules with names that start with the prefix for your product.
+    It tries to scan for dependencies between the modules that make
+    up your product then uses Python's reload() function for each
+    module in order.  Then it sets a flag that will cause ZODB to dump
+    its cache on the next connection so that changes to persistent
+    classes will take effect.</p>
+<p>    To implement auto-refresh, Zope stores a PersistentMapping called
+    RefreshData on the database root object (below the Application
+    object).  The contents of the PersistentMapping are examined at the
+    moment a database connection is opened by ZApplication.  The
+    PersistentMapping contains a list of which products have auto-refresh
+    enabled.  For each product with auto-refresh enabled, Zope compares
+    the file mod times with the last recorded times and executes a
+    refresh if there are any changes.</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Product_Refresh.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:43 GMT -->
+</html>

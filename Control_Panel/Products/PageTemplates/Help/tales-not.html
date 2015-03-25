@@ -1,0 +1,75 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tales-not.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>TALES Not expressions</h3>
+<h4>  Syntax</h4>
+<p>    Not expression syntax:
+<pre>
+      not_expression ::= 'not:' expression
+</pre>
+</p>
+<h4>  Description</h4>
+<p>    Not expression evaluate the expression string (recursively) as a
+    full expression, and returns the boolean negation of its value. If
+    the expression supplied does not evaluate to a boolean value,
+    <em>not</em> will issue a warning and <em>coerce</em> the expression's value
+    into a boolean type based on the following rules:</p>
+
+<ol>
+<li> the number 0 is <em>false</em></li>
+<li> numbers > 0 are <em>true</em></li>
+<li> an empty string or other sequence is <em>false</em></li>
+<li> a non-empty string or other sequence is <em>true</em></li>
+<li> a <em>non-value</em> (e.g. void, None, Nil, NULL, etc) is <em>false</em></li>
+<li> all other values are implementation-dependent.</li>
+
+</ol>
+<p>    If no expression string is supplied, an error should be generated.</p>
+<p>    Zope considers all objects not specifically listed above as
+    <em>false</em> (including negative numbers) to be <em>true</em>.</p>
+<h4>  Examples</h4>
+<p>    Testing a sequence:
+<pre>
+      &lt;p tal:condition="not:here/objectIds"&gt;
+        There are no contained objects.
+      &lt;/p&gt;
+</pre>
+</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tales-not.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+</html>

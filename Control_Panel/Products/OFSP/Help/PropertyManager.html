@@ -1,0 +1,173 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/PropertyManager.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<base  />
+
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+
+<h1>API Documentation</h1>
+
+
+
+
+    <a name="PropertyManager"></a>
+<h2 class="api">class
+  PropertyManager</h2>
+
+<dl>
+<dd>
+<p>A Property Manager object has a collection of typed attributes
+called properties. Properties can be managed through the web or
+via DTML.</p>
+<p>In addition to having a type, properties can be writable or
+read-only and can have default values.</p>
+
+</dd>
+</dl>
+
+
+<hr>
+
+  <a name="__module__"></a>
+<h2 class="attribute">__module__ = __builtin__
+</h2>
+
+
+<h3>Methods</h3>
+  <a name="hasProperty"></a>
+<h2 class="method">hasProperty(id):
+</h2>
+
+<dl><dd>
+<p>Returns a true value if the Property Manager has the property
+<code>id</code>. Otherwise returns a false value.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Access contents information</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="propertyIds"></a>
+<h2 class="method">propertyIds():
+</h2>
+
+<dl><dd>
+<p>Returns a list of property ids.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Access contents information</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="propertyMap"></a>
+<h2 class="method">propertyMap():
+</h2>
+
+<dl><dd>
+<p>Returns a tuple of mappings, giving meta-data for properties.
+The meta-data includes <code>id</code>, <code>type</code>, and <code>mode</code>.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Access contents information</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getPropertyType"></a>
+<h2 class="method">getPropertyType(id):
+</h2>
+
+<dl><dd>
+<p>Get the type of property <code>id</code>. Returns None if no such
+property exists.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Access contents information</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getProperty"></a>
+<h2 class="method">getProperty(id, d=None):
+</h2>
+
+<dl><dd>
+<p>Return the value of the property <code>id</code>. If the property is not
+found the optional second argument or None is returned.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Access contents information</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="propertyValues"></a>
+<h2 class="method">propertyValues():
+</h2>
+
+<dl><dd>
+<p>Returns a list of property values.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Access contents information</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="propertyItems"></a>
+<h2 class="method">propertyItems():
+</h2>
+
+<dl><dd>
+<p>Return a list of (id, property) tuples.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Access contents information</code></dd>
+</dl>
+
+</dd></dl>
+
+
+
+
+  
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/PropertyManager.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+</html>
+

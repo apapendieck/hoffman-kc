@@ -1,0 +1,133 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-sqlgroup.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>sqlgroup: Formats complex SQL expressions</h3>
+<p>  The <code>sqlgroup</code> tag formats complex boolean SQL expressions. You can
+  use it along with the <code>sqltest</code> tag to build dynamic SQL queries
+  that tailor themselves to the environment. This tag is used in SQL
+  Methods.</p>
+<h4>  Syntax</h4>
+<p>    <code>sqlgroup</code> tag syntax:
+<pre>
+      &lt;dtml-sqlgroup&gt;
+      [&lt;dtml-or&gt;]
+      [&lt;dtml-and&gt;]
+      ...
+      &lt;/dtml-sqlgroup&gt;
+</pre>
+</p>
+<p>    The <code>sqlgroup</code> tag is a block tag. It is divided into blocks with
+    one or more optional <code>or</code> and <code>and</code> tags. <code>sqlgroup</code> tags can be
+    nested to produce complex logic.</p>
+<h4>  Attributes</h4>
+<dl>
+<dt>    required=boolean</dt>
+<dd>Indicates whether the group is required. If it
+    is not required and contains nothing, it is excluded from the DTML
+    output.</dd>
+<dt>    where=boolean</dt>
+<dd>If true, includes the string "where". This is
+    useful for the outermost <code>sqlgroup</code> tag in a SQL <code>select</code> query.</dd>
+</dl>
+<h4>  Examples</h4>
+<p>    Sample usage:
+<pre>
+      select * from employees 
+      &lt;dtml-sqlgroup where&gt;
+        &lt;dtml-sqltest salary op="gt" type="float" optional&gt;
+      &lt;dtml-and&gt;
+        &lt;dtml-sqltest first type="nb" multiple optional&gt;
+      &lt;dtml-and&gt;
+        &lt;dtml-sqltest last type="nb" multiple optional&gt;
+      &lt;/dtml-sqlgroup&gt;  
+</pre>
+</p>
+<p>    If <code>first</code> is <code>Bob</code> and <code>last</code> is <code>Smith, McDonald</code> it renders:
+<pre>
+      select * from employees
+      where
+      (first='Bob'
+       and
+       last in ('Smith', 'McDonald')
+      )
+</pre>
+</p>
+<p>    If <code>salary</code> is 50000 and <code>last</code> is <code>Smith</code> it renders:
+<pre>
+      select * from employees
+      where 
+      (salary &gt; 50000.0
+       and
+       last='Smith'
+      )
+</pre>
+</p>
+<p>    Nested <code>sqlgroup</code> tags:
+<pre>
+      select * from employees
+      &lt;dtml-sqlgroup where&gt;
+        &lt;dtml-sqlgroup&gt;
+           &lt;dtml-sqltest first op="like" type="nb"&gt;
+        &lt;dtml-and&gt;
+           &lt;dtml-sqltest last op="like" type="nb"&gt;
+        &lt;dtml-sqlgroup&gt;
+      &lt;dtml-or&gt;
+        &lt;dtml-sqltest salary op="gt" type="float"&gt;
+      &lt;/dtml-sqlgroup&gt;
+</pre>
+</p>
+<p>    Given sample arguments, this template renders to SQL like so:
+<pre>
+      select * form employees
+      where
+      (
+        (
+         name like 'A*'
+         and
+         last like 'Smith'
+         )
+       or
+       salary &gt; 20000.0
+      )
+</pre>
+</p>
+<h4>  See Also</h4>
+<p>    <a href="dtml-sqltest.html">sqltest tag</a></p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-sqlgroup.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+</html>

@@ -1,0 +1,123 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/OrderSupport_Contents.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>ObjectManager with OrderSupport - Contents: Edit contained objects.</h3>
+<h4>  Description</h4>
+<p>    This view displays the contained objects and allows you to add,
+    delete, change and order them.</p>
+<p>    Each contained object is displayed on a line and is identified by
+    an icon, an id and a title in parenthesis. Additionally, the size
+    (if applicable) and the date during which the object was last modified
+    are displayed.  You can manage an object by clicking on its identifying
+    link.</p>
+<h5>    Sorting vs. Ordering</h5>
+<p>      You can sort contained objects by type, name (id), size,
+      modification date or by position (fixed order, see below). To do so,
+      click on the appropriate column heading. Clicking a second time
+      on any column heading (except position) will reverse the sort
+      on that field. Sorting takes no actions on the contained
+      objects, but will only change the users personal point of view.</p>
+<p>      You can order contained objects with the controls on the bottom
+      of the page. The order of objects (<code>sort by position</code>) is stored
+      in the database and remains fixed until it is changed by another
+      user.</p>
+<h5>    Versions</h5>
+<p>      If you are currently working in a version there will be a
+      notice at the top of the list of objects indicating this.</p>
+<p>      If there is a red diamond following the name of an object this
+      indicates that the object has been modified in the version you
+      are currently working in. If there is a red diamond with a lock
+      after an object, this indicates the the object has been modified
+      in another version.</p>
+<h4>  Controls</h4>
+<dl>
+<dt>    <code>[Checkbox]</code></dt>
+<dd>Selects the object in order to perform operations
+    on it. The operations you can perform are rename, cut, copy,
+    delete, and export. Some operations may not be visible if they are
+    not allowed.</dd>
+<dt>    <code>Rename</code></dt>
+<dd>Changes the ids of the selected objects.</dd>
+<dt>    <code>Cut</code></dt>
+<dd>Cuts selected objects and place them into the
+    clipboard. This is similar to cut in most file managers. Cut
+    objects can be pasted in a new location. When cut objects are
+    pasted into another location the old objects are deleted.</dd>
+<dt>    <code>Copy</code></dt>
+<dd>Copies selected objects and place them in the
+    clipboard. This is similar to copy in most file managers. Copied
+    objects can be pasted in a new location.</dd>
+<dt>    <code>Paste</code></dt>
+<dd>Allows you to paste objects from the clipboard into
+    this object. <strong>Note: This option will only appear if objects have
+    previously been copied or cut.</strong></dd>
+<dt>    <code>Delete</code></dt>
+<dd>Deletes the selected objects. Deleted objects are
+    <em>not</em> placed in the clipboard.</dd>
+<dt>    <code>Import/Export</code></dt>
+<dd>Imports or exports a Zope object.</dd>
+<dt>    <code>Available Objects</code></dt>
+<dd>Selects a type of object to add.</dd>
+<dt>    <code>Add</code></dt>
+<dd>Adds an object specified in <code>Available Objects</code>.</dd>
+<dt>    <code>Select All (Deselect All)</code></dt>
+<dd>Toggles between selecting and
+    deselecting each item currently displayed in the contents view.
+    <strong>Note: This control will only appear if your browser is
+    javascript-enabled.</strong></dd>
+<dt>    <code>Set View as Default</code></dt>
+<dd>Sets current sorted view as default contents view
+    for this folder. <strong>Note: This option will only appear if your current
+    sorted view is not the default view.</strong></dd>
+</dl>
+<p>    <strong>The following options will only appear in Position view:</strong></p>
+<dl>
+<dt>    <code>Up</code></dt>
+<dd>Moves selected objects up by the selected amount of steps
+    (default is 1).</dd>
+<dt>    <code>Down</code></dt>
+<dd>Moves selected objects down by the selected amount of steps
+    (default is 1).</dd>
+<dt>    <code>Top</code></dt>
+<dd>Moves selected objects to the top of the page.</dd>
+<dt>    <code>Bottom</code></dt>
+<dd>Moves selected objects to the bottom of the page.</dd>
+</dl>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/OrderSupport_Contents.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:42 GMT -->
+</html>

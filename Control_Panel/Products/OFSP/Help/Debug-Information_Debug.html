@@ -1,0 +1,103 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Debug-Information_Debug.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Debug Information - Debugging Information: Online Zope debugging</h3>
+<h4>  Description</h4>
+<p>    This view provides simple debugging information to help product
+    authors find memory leaks in their products as well as Zope
+    itself.</p>
+<h5>    Debugging Information</h5>
+
+<ul>
+<li>The Zope version</li>
+<li>The Python version</li>
+<li>The system platform name</li>
+<li>The filesystem path of the Zope core software, add-on software,
+        and data files.</li>
+<li>The ID number of the Zope process (if available on your platform)</li>
+<li>The length of time Zope has been running</li>
+<li>The Python module search paths (sys.path).</li>
+<li>The top refcounts, including a table listing the changes since
+      * the last snapshot</li>
+<li>The open object database connections</li>
+
+</ul>
+<p>      The Zope version, Python version, and system platform name are
+      used to verify compatibility between Zope, Python, and your
+      system.  On platforms where the process ID number is available,
+      the Zope process can be managed using a more forceful means than
+      is available through the web.</p>
+<h5>    Refcounts</h5>
+<p>      The top refcounts list lets you take a look at what is being
+      stored by Zope in memory.  The scrollable list shows how many
+      instances of each type of object are currently in memory.</p>
+<p>      If there are items in the list with a very high refcount, there
+      is a good chance there is a memory leak in a product or in Zope.
+      Using the snapshot and refresh options allow you to determine
+      which operations are causing memory leaks.</p>
+<h5>    Open Connections</h5>
+<p>      A database connection usually corresponds with an HTTP request.
+      The left column shows the time at which the connection was
+      opened.  If there is a request that has been running for a long
+      time you may need to restart Zope to kill the corresponding
+      thread. The middle column usually shows the state of the REQUEST
+      object with size of the cache for that connection in
+      parentheses.  The right column shows information about the
+      version the user is working in.</p>
+<h4>  Controls</h4>
+<dl>
+<dt>    <code>Update Snapshot</code></dt>
+<dd>Takes the current refcounts and store them in
+    memory.  Then each time the debugging page is reloaded, the table
+    will show the difference in refcounts between the snapshot and the
+    current state.</dd>
+<dt>    <code>Refresh</code></dt>
+<dd>Reloads and updates the debugging information.</dd>
+<dt>    <code>Auto refresh interval</code></dt>
+<dd>The number of seconds to wait before
+    automatically refreshing the debugging information.</dd>
+<dt>    <code>Start auto refresh</code></dt>
+<dd>Begins automatically refreshing the
+    debugging information.</dd>
+<dt>    <code>Stop auto refresh</code></dt>
+<dd>Ends automatic refreshing of the debugging
+    information.</dd>
+</dl>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Debug-Information_Debug.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:42 GMT -->
+</html>

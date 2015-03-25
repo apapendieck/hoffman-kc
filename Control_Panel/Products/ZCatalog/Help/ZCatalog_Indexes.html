@@ -1,0 +1,97 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/ZCatalog/Help/ZCatalog_Indexes.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>ZCatalog - Indexes: Manage Catalog Indexes</h3>
+<h4>    Description</h4>
+<p>        This view allows you to manage the catalog indexes.</p>
+<p>        The catalog provides searching by indexing information about
+        cataloged objects. Indexes record information about object
+        attributes.</p>
+<h4>    Controls</h4>
+<dl>
+<dt>        <code>[List of Indexes]</code></dt>
+<dd>Each line contains one Index entry. The
+        checkbox in the front allows you to mark an index for
+        deletion. Next the Index name is listed which corresponds to
+        attribute names of various objects.</dd>
+<dt>        <code>Delete</code></dt>
+<dd>The checkmarked Index(es) will be deleted.</dd>
+<dt>        <code>Add Index</code> - Name</dt>
+<dd>Allows you to enter the name of a new
+        index.</dd>
+<dt>        <code>[Type of Index]</code></dt>
+<dd>You have the choice between four types of
+        Indexes, called <code>TextIndex</code>, <code>FieldIndex</code>, <code>KeywordIndex</code> and
+        <code>PathIndex</code>.  Please refer to the table below to see a
+        description of each Index.</dd>
+<dt>        <code>Add</code></dt>
+<dd>The new Index will be added to this catalog.</dd>
+</dl>
+<p>        This table lists the different Index types and describes their
+        purpose.</p>
+<dl>
+<dt>        <code>TextIndex</code></dt>
+<dd>TextIndexes break content up into individual
+        words. These indexes are often refered to as <em>full-text
+        indexes</em>. Text indexes sort results by score, meaning they
+        return <code>hits</code> in order from the most relevant to the lest
+        relevant.</dd>
+<dt>        <code>FieldIndex</code></dt>
+<dd>FieldIndexes treat the value of an objects
+        attribute atomically, and can be used, for example, to track
+        only a certain subset of object values, such as <code>meta_type</code>.</dd>
+<dt>        <code>KeywordIndex</code></dt>
+<dd>KeywordIndexes index a sequence of objects
+        that act as <code>keywords</code> for an object. A Keyword Index will
+        return any objects that have one or more keywords specified in
+        a search query.</dd>
+<dt>        <code>PathIndex</code></dt>
+<dd>Index the physical path of a sequence of
+        objects. A Path Index will return all objects that match a
+        partitial path specified in a search query.</dd>
+<dt>        <code>TopicIndex</code></dt>
+<dd>A TopicIndex is a container for so-called
+        FilteredSet.  A FilteredSet consists of an expression and a set
+        of internal ZCatalog document identifiers that represent a
+        pre-calculated result list for performance reasons. Instead of
+        executing the same query on a ZCatalog multiple times it is much
+        faster to use a TopicIndex instead.</dd>
+</dl>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/ZCatalog/Help/ZCatalog_Indexes.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:43 GMT -->
+</html>

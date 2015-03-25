@@ -1,0 +1,288 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/ObjectManagerItem.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<base  />
+
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+
+<h1>API Documentation</h1>
+
+
+
+
+    <a name="ObjectManagerItem"></a>
+<h2 class="api">class
+  ObjectManagerItem</h2>
+
+<dl>
+<dd>
+<p>A Zope object that can be contained within an Object Manager.
+Almost all Zope objects that can be managed through the web are
+Object Manager Items.</p>
+<p>ObjectMangerItems have these instance
+attributes:<dl>
+<dt>  <code>title</code></dt>
+<dd>The title of the object.<p>    This is an optional one-line string description of the object.</p>
+</dd>
+<dt>  <code>meta_type</code></dt>
+<dd>A short name for the type of the object.<p>    This is the name that shows up in product add list for the
+    object and is used when filtering objects by type.</p>
+<p>    This attribute is provided by the object's class and should
+    not be changed directly.</p>
+</dd>
+<dt>  <code>REQUEST</code></dt>
+<dd>The current web request.<p>    This object is acquired and should not be set.</p>
+</dd>
+</dl>
+</p>
+
+</dd>
+</dl>
+
+
+<hr>
+
+  <a name="__module__"></a>
+<h2 class="attribute">__module__ = __builtin__
+</h2>
+
+
+<h3>Methods</h3>
+  <a name="getPhysicalPath"></a>
+<h2 class="method">getPhysicalPath():
+</h2>
+
+<dl><dd>
+<p>Get the path of an object from the root, ignoring virtual
+hosts.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="virtual_url_path"></a>
+<h2 class="method">virtual_url_path():
+</h2>
+
+<dl><dd>
+<p>Return a URL for the object, relative to the site root.</p>
+<p>If a virtual host is configured, the URL is a path relative to
+the virtual host's root object.  Otherwise, it is the physical
+path.  In either case, the URL does not begin with a slash.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="title_and_id"></a>
+<h2 class="method">title_and_id():
+</h2>
+
+<dl><dd>
+<p>If the title is not blank, the return the title
+followed by the id in parentheses. Otherwise return the id.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="absolute_url"></a>
+<h2 class="method">absolute_url(relative=None):
+</h2>
+
+<dl><dd>
+<p>Return the absolute URL of the object.</p>
+<p>This a canonical URL based on the object's physical
+containment path.  It is affected by the virtual host
+configuration, if any, and can be used by external
+agents, such as a browser, to address the object.</p>
+<p>If the relative argument is provided, with a true value, then
+the value of virtual_url_path() is returned.</p>
+<p>Some Products incorrectly use '/'+absolute_url(1) as an
+absolute-path reference.  This breaks in certain virtual
+hosting situations, and should be changed to use
+absolute_url_path() instead.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="restrictedTraverse"></a>
+<h2 class="method">restrictedTraverse(path, default=None):
+</h2>
+
+<dl><dd>
+<p>Return the object obtained by traversing the given path from
+the object on which the method was called, performing security
+checks along the way.</p>
+<p>If an object is not found then the <code>default</code> argument will be
+returned.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getId"></a>
+<h2 class="method">getId():
+</h2>
+
+<dl><dd>
+<p>Returns the object's id.</p>
+<p>The <code>id</code> is the unique name of the object within its parent
+object manager. This should be a string, and can contain
+letters, digits, underscores, dashes, commas, and spaces.</p>
+<p>This method replaces direct access to the <code>id</code> attribute.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="title_or_id"></a>
+<h2 class="method">title_or_id():
+</h2>
+
+<dl><dd>
+<p>If the title is not blank, return it, otherwise
+return the id.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="this"></a>
+<h2 class="method">this():
+</h2>
+
+<dl><dd>
+<p>Return the object.</p>
+<p>This turns out to be handy in two situations. First, it
+provides a way to refer to an object in DTML expressions.</p>
+<p>The second use for this is rather deep. It provides a way to
+acquire an object without getting the full context that it was
+acquired from.  This is useful, for example, in cases where
+you are in a method of a non-item subobject of an item and you
+need to get the item outside of the context of the subobject.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getPhysicalRoot"></a>
+<h2 class="method">getPhysicalRoot():
+</h2>
+
+<dl><dd>
+<p>Returns the top-level Zope Application object.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Python only</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="manage_workspace"></a>
+<h2 class="method">manage_workspace():
+</h2>
+
+<dl><dd>
+<p>This is the web method that is called when a user selects an
+item in a object manager contents view or in the Zope
+Management navigation view.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>View management screens</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="unrestrictedTraverse"></a>
+<h2 class="method">unrestrictedTraverse(path, default=None):
+</h2>
+
+<dl><dd>
+<p>Return the object obtained by traversing the given path from
+the object on which the method was called. This method begins
+with "unrestricted" because (almost) no security checks are
+performed.</p>
+<p>If an object is not found then the <code>default</code> argument will be
+returned.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Python only</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="absolute_url_path"></a>
+<h2 class="method">absolute_url_path():
+</h2>
+
+<dl><dd>
+<p>Return the path portion of the absolute URL of the object.</p>
+<p>This includes the leading slash, and can be used as an
+<code>absolute-path reference</code> as defined in RFC 2396.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+
+
+
+  
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/ObjectManagerItem.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+</html>
+

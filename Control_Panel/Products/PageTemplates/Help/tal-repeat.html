@@ -1,0 +1,147 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tal-repeat.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>repeat: Repeat an element</h3>
+<h4>  Syntax</h4>
+<p>    <code>tal:repeat</code> syntax:
+<pre>
+      argument      ::= variable_name expression
+      variable_name ::= Name
+</pre>
+</p>
+<h4>  Description</h4>
+<p>    The <code>tal:repeat</code> statement replicates a sub-tree of your document
+    once for each item in a sequence. The expression should evaluate
+    to a sequence. If the sequence is empty, then the statement
+    element is deleted, otherwise it is repeated for each value in the
+    sequence.  If the expression is <em>default</em>, then the element is
+    left unchanged, and no new variables are defined.</p>
+<p>    The <code>variable_name</code> is used to define a local variable and a
+    repeat variable. For each repetition, the local variable is set to
+    the current sequence element, and the repeat variable is set to an
+    iteration object.</p>
+<h4>  Repeat Variables</h4>
+<p>    You use repeat variables to access information about the current
+    repetition (such as the repeat index).  The repeat variable has
+    the same name as the local variable, but is only accessible
+    through the built-in variable named <code>repeat</code>.</p>
+<h5>    The following information is available from the repeat variable:</h5>
+
+<ul>
+<li><em>index</em> - repetition number, starting from zero.</li>
+<li><em>number</em> - repetition number, starting from one.</li>
+<li><em>even</em> - true for even-indexed repetitions (0, 2, 4, ...).</li>
+<li><em>odd</em> - true for odd-indexed repetitions (1, 3, 5, ...).</li>
+<li><em>start</em> - true for the starting repetition (index 0).</li>
+<li><em>end</em> - true for the ending, or final, repetition.</li>
+<li><em>first</em> - true for the first item in a group - see note below</li>
+<li><em>last</em> - true for the last item in a group - see note below</li>
+<li><em>length</em> - length of the sequence, which will be the total number
+        of repetitions.</li>
+<li><em>letter</em> - repetition number as a lower-case letter: "a" -
+        "z", "aa" - "az", "ba" - "bz", ..., "za" - "zz", "aaa" - "aaz",
+        and so forth.</li>
+<li><em>Letter</em> - upper-case version of <em>letter</em>.</li>
+<li><em>roman</em> - repetition number as a lower-case roman numeral:
+        "i", "ii", "iii", "iv", "v", etc.</li>
+<li><em>Roman</em> - upper-case version of <em>roman</em>.</li>
+
+</ul>
+<p>    You can access the contents of the repeat variable using path
+    expressions or Python expressions.  In path expressions, you write
+    a three-part path consisting of the name <code>repeat</code>, the statement
+    variable's name, and the name of the information you want, for
+    example, <code>repeat/item/start</code>.  In Python expressions, you use
+    normal dictionary notation to get the repeat variable, then
+    attribute access to get the information, for example,
+    "python:repeat['item'].start".</p>
+<p>    Note that <code>first</code> and <code>last</code> are intended for use with sorted
+    sequences.  They try to divide the sequence into group of items
+    with the same value.  If you provide a path, then the value
+    obtained by following that path from a sequence item is used for
+    grouping, otherwise the value of the item is used.  You can
+    provide the path by passing it as a parameter, as in
+    "python:repeat['item'].first(<code>color</code>)", or by appending it to the
+    path from the repeat variable, as in "repeat/item/first/color".</p>
+<h4>  Examples</h4>
+<h5>    Iterating over a sequence of strings::    </h5>
+<p>      <p tal:repeat="txt python:<code>one</code>, <code>two</code>, 'three'">
+         <span tal:replace="txt" />
+      </p></p>
+<p>    Inserting a sequence of table rows, and using the repeat variable
+    to number the rows:
+<pre>
+      &lt;table&gt;
+        &lt;tr tal:repeat="item here/cart"&gt;
+            &lt;td tal:content="repeat/item/number"&gt;1&lt;/td&gt;
+            &lt;td tal:content="item/description"&gt;Widget&lt;/td&gt;
+            &lt;td tal:content="item/price"&gt;$1.50&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/table&gt;
+</pre>
+</p>
+<p>    Nested repeats:
+<pre>
+      &lt;table border="1"&gt;
+        &lt;tr tal:repeat="row python:range(10)"&gt;
+          &lt;td tal:repeat="column python:range(10)"&gt;
+            &lt;span tal:define="x repeat/row/number; 
+                              y repeat/column/number; 
+                              z python:x*y"
+                  tal:replace="string:$x * $y = $z"&gt;1 * 1 = 1&lt;/span&gt;
+          &lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/table&gt;
+</pre>
+</p>
+<p>    Insert objects. Seperates groups of objects by meta-type by
+    drawing a rule between them:
+<pre>
+      &lt;div tal:repeat="object objects"&gt;
+        &lt;h2 tal:condition="repeat/object/first/meta_type"
+            tal:content="object/meta_type"&gt;Meta Type&lt;/h2&gt;
+        &lt;p tal:content="object/getId"&gt;Object ID&lt;/p&gt;
+        &lt;hr tal:condition="repeat/object/last/meta_type" /&gt;
+      &lt;/div&gt;
+</pre>
+</p>
+<p>    Note, the objects in the above example should already be sorted by
+    meta-type.</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tal-repeat.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+</html>

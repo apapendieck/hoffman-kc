@@ -1,0 +1,110 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Caching.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:41 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Cache Management: Configurable Caching</h3>
+<p>  Performing some computations in Zope can take a long time or use
+  a lot of resources.  One way to deal with expensive tasks is to
+  cache them.  The first time the computation is requested, the results
+  are stored in a table or <em>cache</em>.  Subsequent requests get the results
+  from the cache.  This can result in a dramatic speed increase.</p>
+<p>  There are so many possible strategies for caching that no one could
+  possibly come up with them all.  Caches can be
+  stored in memory, on disk, on other computers, or by other means.
+  Caches can be limited in size or unconstrained.  They can be
+  made to work with only specific types of objects.  They can be
+  tuned in different ways.</p>
+<p>  So instead of trying to provide for every possible caching strategy,
+  Zope defines an API called <em>cache management</em> that lets developers
+  write their own caching strategies, or <em>cache managers</em>, and lets
+  site administrators easily connect cacheable objects to those cache
+  managers.</p>
+<p>  You can use caching to speed up access to often-requested pages,
+  reduce disk access and network traffic, and deal with heavy loads.
+  All these benefits come with risks of excessive caching, however,
+  so it's important to fine-tune the cache settings.  More on this
+  later.</p>
+<h3>How to set up caching</h3>
+<p>  The first thing you need to do is create a cache manager instance.
+  In the Zope management interface, go to a folder containing objects
+  that would benefit from caching.  From the add list, select a
+  cache manager type such as <code>RAM Cache Manager</code>.  Use an ID that
+  describes the purpose of the cache manager.</p>
+<p>  Next, visit one of the objects that you want to cache.  A new tab
+  labeled <code>Cache</code> should be visible.  Select it.  From the drop-down
+  box, select the cache manager you just created and press the
+  <code>Change</code> button.</p>
+<p>  The object is now ready to be cached.  Visit the <code>View</code> tab.  If
+  the object is a script that takes a long time to render, the first
+  view will still take just as long as before.  But if you're using
+  a RAM cache manager or similar, the second view should be much faster.
+  Press the <em>reload</em> button in your browser to try it out.</p>
+<p>  You can associate many objects to a cache manager at once using the
+  <code>Associate</code> tab of all cache managers.  Visit the cache manager
+  object you created and select the <code>Associate</code> tab.  Press the
+  <code>Locate</code> button.  Zope will locate all cacheable objects in the
+  folder.  Select the checkboxes next to the objects you want to
+  cache and press the <code>Save changes</code> button.</p>
+<h3>Inherent risks</h3>
+<p>  Cache managers generally don't know the nature of what is being
+  cached, so here are some issues that can surface:
+<ul>
+<li>Data that is intended for authorized viewers only can
+      be inadvertently cached in public caches.</li>
+<li>Data is cached for too long a time.</li>
+<li>If more than one cache is involved, data is purged from one
+      cache but not the other.</li>
+<li>A method that makes up part of the page sets the caching headers
+      for the entire response, fooling downstream caches into thinking
+      the whole response should be cached.</li>
+<li>Result data can depend on any number of objects.  Early on it was
+      decided that the standard cache managers will not try to deduce
+      dependencies, but instead rely on the user for configuration of
+      simple dependencies.</li>
+
+</ul>
+</p>
+<p>  Because of these risks, you should be careful when setting up caching.
+  You'll need to fine-tune the cache settings.  Sometimes you'll find
+  that you can't cache one of your major pages, but that you can cache
+  pieces of it.</p>
+<p>  Also remember that caching can actually slow down Zope if it is
+  applied unscrupulously.  You should perform speed tests to verify that
+  caching really does speed up your site.</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Caching.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:41 GMT -->
+</html>

@@ -1,0 +1,216 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/OrderSupport.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<base  />
+
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+
+<h1>API Documentation</h1>
+
+
+
+
+    <a name="OrderSupport"></a>
+<h2 class="api">class
+  OrderSupport</h2>
+
+<dl>
+<dd>
+<p>Ordered container mixin class.</p>
+<p>This is an extension to the regular ObjectManager. It saves the objects in
+order and lets you change the order of the contained objects. This is
+particular helpful, if the order does not depend on object attributes, but
+is totally user-specific.</p>
+
+</dd>
+</dl>
+
+
+<hr>
+
+  <a name="__module__"></a>
+<h2 class="attribute">__module__ = __builtin__
+</h2>
+
+
+<h3>Methods</h3>
+  <a name="moveObjectsToBottom"></a>
+<h2 class="method">moveObjectsToBottom(ids, subset_ids=None):
+</h2>
+
+<dl><dd>
+<p>Move specified sub-objects to bottom of container.</p>
+<p>See moveObjectsByDelta for more details.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Manage properties</dd>
+<dt>Returns</dt>
+<dd>Number of moved sub-objects</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="moveObjectToPosition"></a>
+<h2 class="method">moveObjectToPosition(id,
+position):
+</h2>
+
+<dl><dd>
+<p>Move specified object to absolute position.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Manage properties</dd>
+<dt>Returns</dt>
+<dd>Number of moved sub-objects</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="moveObjectsDown"></a>
+<h2 class="method">moveObjectsDown(ids, delta=1, subset_ids=None):
+</h2>
+
+<dl><dd>
+<p>Move specified sub-objects down by delta in container.</p>
+<p>If no delta is specified, delta is 1. See moveObjectsByDelta for more
+details.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Manage properties</dd>
+<dt>Returns</dt>
+<dd>Number of moved sub-objects</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="orderObjects"></a>
+<h2 class="method">orderObjects(key, reverse=None):
+</h2>
+
+<dl><dd>
+<p>Order sub-objects by key and direction.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Manage properties</dd>
+<dt>Returns</dt>
+<dd>Number of moved sub-objects</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="moveObjectsToTop"></a>
+<h2 class="method">moveObjectsToTop(ids, subset_ids=None):
+</h2>
+
+<dl><dd>
+<p>Move specified sub-objects to top of container.</p>
+<p>See moveObjectsByDelta for more details.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Manage properties</dd>
+<dt>Returns</dt>
+<dd>Number of moved sub-objects</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getObjectPosition"></a>
+<h2 class="method">getObjectPosition(id):
+</h2>
+
+<dl><dd>
+<p>Get the position of an object by its id.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Access contents information</dd>
+<dt>Returns</dt>
+<dd>Position</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="moveObjectsByDelta"></a>
+<h2 class="method">moveObjectsByDelta(ids,
+delta, subset_ids=None):
+</h2>
+
+<dl><dd>
+<p>Move specified sub-objects by delta.</p>
+<p>If delta is higher than the possible maximum, objects will be moved to
+the bottom. If delta is lower than the possible minimum, objects will
+be moved to the top.</p>
+<p>If subset_ids is not None, delta will be interpreted relative to the
+subset specified by a sequence of ids. The position of objects that
+are not part of this subset will not be changed.</p>
+<p>The order of the objects specified by ids will always be preserved. So
+if you don't want to change their original order, make sure the order
+of ids corresponds to their original order.</p>
+<p>If an object with id doesn't exist an error will be raised.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Manage properties</dd>
+<dt>Returns</dt>
+<dd>Number of moved sub-objects</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="moveObjectsUp"></a>
+<h2 class="method">moveObjectsUp(ids, delta=1, subset_ids=None):
+</h2>
+
+<dl><dd>
+<p>Move specified sub-objects up by delta in container.</p>
+<p>If no delta is specified, delta is 1. See moveObjectsByDelta for more
+details.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Manage properties</dd>
+<dt>Returns</dt>
+<dd>Number of moved sub-objects</dd>
+</dl>
+
+</dd></dl>
+
+
+
+
+  
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/OrderSupport.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+</html>
+

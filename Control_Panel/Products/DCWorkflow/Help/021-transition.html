@@ -1,0 +1,88 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/DCWorkflow/Help/021-transition.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>DCWorkflow</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Transitions Tab</h3>
+<p> Transitions are the actions that move content from one state in the
+ workflow to another. From the transitions tab it's possible to add new
+ transitions, and rename and delete existing transitions.</p>
+<p> The list of existing transitions also displays a summary of each
+ transition's title, description, destination state, trigger, guards, 
+ and action box entry. You can click through each transition to access 
+ their details.</p>
+<p> Within a transition's properties tab you can set the title, and 
+ a collection of properties the define the transtion's behaviour, as
+ follows:<dl>
+<dt>  Destination state</dt>
+<dd>selected from all the states defined in the 
+  states tab. A transition can remain in state, which is useful for a
+  reviewer adding comments to the review history, but not taking any
+  action, updating some variable, or invoking scripts.</dd>
+</dl>
+<h4>  Trigger type - There are two types:</h4>
+
+<ul>
+<li>User actions are the familiar user initiated transitions activated
+    by actions in the action box.</li>
+<li>Automatic transitions are executed any time other workflow
+    events occur; so if a user action results in the content moving
+    to a state that has automatic transitions, they will be executed.
+    (You should use mutually exclusive guards to prevent indeterminate
+    behavior.)</li>
+
+</ul>
+<p>  Scripts - Perform complicated behaviours either before or after the
+  transition takes place. Scripts of all kinds are defined in the
+  workflow's scripts tab. Scripts called from here must accept only
+  one argument; a <code>status_change</code> object. See Expressions for more
+  details.</p>
+<dl>
+<dt>  Guards and Action boxes</dt>
+<dd>See the "Guards" and "Action Boxes"
+  sections for specific details about those fields. Note that
+  automatic transitions don't need the action box fields to be filled out.</dd>
+</dl>
+<p>  What the action should link to.</p>
+</p>
+<p> In the transition's variables tab, you can add, change and delete
+ variables that you want to assign a value to, when the transition is
+ executed. The available variables are set in the workflow's variables
+ tab, and the value is a TALES expression (see Expressions for more
+ details).</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/DCWorkflow/Help/021-transition.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:24 GMT -->
+</html>

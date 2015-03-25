@@ -1,0 +1,270 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/ObjectManager.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<base  />
+
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+
+<h1>API Documentation</h1>
+
+
+
+
+    <a name="ObjectManager"></a>
+<h2 class="api">class
+  ObjectManager</h2>
+
+<dl>
+<dd>
+<p>An ObjectManager contains other Zope objects. The contained
+objects are Object Manager Items.</p>
+<p>To create an object inside an object manager use 'manage_addProduct':
+<pre>
+  self.manage_addProduct['OFSP'].manage_addFolder(id, title)
+</pre>
+</p>
+<p>In DTML this would be:
+<pre>
+    &lt;dtml-call "manage_addProduct['OFSP'].manage_addFolder(id, title)"&gt;
+</pre>
+</p>
+<p>These examples create a new Folder inside the current
+ObjectManager.</p>
+<p><code>manage_addProduct</code> is a mapping that provides access to product
+constructor methods. It is indexed by product id.</p>
+<p>Constructor methods are registered during product initialization
+and should be documented in the API docs for each addable
+object.</p>
+
+</dd>
+</dl>
+
+
+<hr>
+
+  <a name="__module__"></a>
+<h2 class="attribute">__module__ = __builtin__
+</h2>
+
+
+<h3>Methods</h3>
+  <a name="superValues"></a>
+<h2 class="method">superValues(type):
+</h2>
+
+<dl><dd>
+<p>This method returns a list of objects of a given meta_type(es)
+contained in the Object Manager and all its parent Object
+Managers.</p>
+<p>The type argument specifies the meta_type(es). It can be a string
+specifying one meta_type, or it can be a list of strings to
+specify many.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Python only</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="objectValues"></a>
+<h2 class="method">objectValues(type=None):
+</h2>
+
+<dl><dd>
+<p>This method returns a sequence of contained objects.</p>
+<p>Like objectItems and objectIds, it accepts one argument,
+either a string or a list to restrict the results to objects
+of a given meta_type or set of meta_types.</p>
+<p>Example:
+<pre>
+  &lt;dtml-in expr="objectValues('Folder')"&gt;
+    &lt;dtml-var icon&gt;
+    This is the icon for the: &lt;dtml-var id&gt; Folder&lt;br&gt;.
+  &lt;dtml-else&gt;
+    There are no Folders.
+  &lt;/dtml-in&gt;
+</pre>
+</p>
+<p>The results were restricted to Folders by passing a
+meta_type to <code>objectValues</code> method.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Access contents information</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="manage_delObjects"></a>
+<h2 class="method">manage_delObjects(ids):
+</h2>
+
+<dl><dd>
+<p>Removes one or more children from the Object Manager. The
+<code>ids</code> argument is either a list of child ids, or a single
+child id.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Delete objects</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="__getitem__"></a>
+<h2 class="method">__getitem__(id):
+</h2>
+
+<dl><dd>
+<p>Returns a child object given a child id. If there is no child
+with the given id, a KeyError is raised. This method makes it easy
+to refer to children that have id with file extensions. For
+example:
+<pre>
+  page=folder['index.html']
+</pre>
+</p>
+<p>Note: this function only finds children; it doesn't return
+properties or other non-child attributes.</p>
+<p>Note: this function doesn't use acquisition to find
+children. It only returns direct children of the Object
+Manager. By contrast, using dot notation or <code>getattr</code> will
+locate children (and other attributes) via acquisition if
+necessary.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Access contents information</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getBrowserDefaultId"></a>
+<h2 class="method">getBrowserDefaultId(acquire=0):
+</h2>
+
+<dl><dd>
+<p>Returns the id of the object or method used as the default when the
+object manager is published. By default, this setting is acquired. If
+the acquire argument is true, then the return value will be acquired
+from the parent if it is not set locally. Otherwise, None is returned
+if the default id is not set on this object manager.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>View</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="objectItems"></a>
+<h2 class="method">objectItems(type=None):
+</h2>
+
+<dl><dd>
+<p>This method returns a sequence of (id, object) tuples.</p>
+<p>Like objectValues and objectIds, it accepts one argument,
+either a string or a list to restrict the results to objects
+of a given meta_type or set of meta_types.</p>
+<p>Each tuple's first element is the id of an object contained in
+the Object Manager, and the second element is the object
+itself.</p>
+<p>Example:
+<pre>
+  &lt;dtml-in objectItems&gt;
+   id: &lt;dtml-var sequence-key&gt;,
+   type: &lt;dtml-var meta_type&gt;
+  &lt;dtml-else&gt;
+    There are no sub-objects.
+  &lt;/dtml-in&gt;
+</pre>
+</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Access contents information</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="objectIds"></a>
+<h2 class="method">objectIds(type=None):
+</h2>
+
+<dl><dd>
+<p>This method returns a list of the ids of the contained
+objects.</p>
+<p>Optionally, you can pass an argument specifying what object
+meta_type(es) to restrict the results to. This argument can be
+a string specifying one meta_type, or it can be a list of
+strings to specify many.</p>
+<p>Example:
+<pre>
+  &lt;dtml-in objectIds&gt;
+    &lt;dtml-var sequence-item&gt;
+  &lt;dtml-else&gt;
+    There are no sub-objects.
+  &lt;/dtml-in&gt;
+</pre>
+</p>
+<p>This DTML code will display all the ids of the objects
+contained in the current Object Manager.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Access contents information</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="setBrowserDefaultId"></a>
+<h2 class="method">setBrowserDefaultId(id=, acquire=0):
+</h2>
+
+<dl><dd>
+<p>Sets the id of the object or method used as the default method when
+the object manager is published. If acquire is set then the default
+method id will be acquired from the parent container.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Manage folderish settings</code></dd>
+</dl>
+
+</dd></dl>
+
+
+
+
+  
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/ObjectManager.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+</html>
+

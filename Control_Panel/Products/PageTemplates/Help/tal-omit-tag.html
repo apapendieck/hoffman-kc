@@ -1,0 +1,80 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tal-omit-tag.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>omit-tag: Remove an element, leaving its contents</h3>
+<h4>  Syntax</h4>
+<p>    <code>tal:omit-tag</code> syntax:
+<pre>
+      argument ::= [ expression ]
+</pre>
+</p>
+<h4>  Description</h4>
+<p>    The <code>tal:omit-tag</code> statement leaves the contents of a tag in place
+    while omitting the surrounding start and end tag.</p>
+<p>    If its expression evaluates to a <em>false</em> value, then normal
+    processing of the element continues and the tag is not omitted.
+    If the expression evaluates to a <em>true</em> value, or there is no
+    expression, the statement tag is replaced with its contents. </p>
+<p>    Zope treats empty strings, empty sequences, zero, None, <em>nothing</em>,
+    and <em>default</em> at false. All other values are considered true.</p>
+<h4>  Examples</h4>
+<p>    Unconditionally omitting a tag:
+<pre>
+      &lt;div tal:omit-tag="" comment="This tag will be removed"&gt;
+        &lt;i&gt;...but this text will remain.&lt;/i&gt;
+      &lt;/div&gt;
+</pre>
+</p>
+<p>    Conditionally omitting a tag:
+<pre>
+      &lt;b tal:omit-tag="not:bold"&gt;I may be bold.&lt;/b&gt;
+</pre>
+</p>
+<p>    The above example will omit the <code>b</code> tag if the variable <code>bold</code> is
+    false.</p>
+<p>    Creating ten paragraph tags, with no enclosing tag:
+<pre>
+      &lt;span tal:repeat="n python:range(10)"
+            tal:omit-tag=""&gt;
+        &lt;p tal:content="n"&gt;1&lt;/p&gt;
+      &lt;/span&gt;
+</pre>
+</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tal-omit-tag.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+</html>

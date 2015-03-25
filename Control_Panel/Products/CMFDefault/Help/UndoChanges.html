@@ -1,0 +1,77 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/CMFDefault/Help/UndoChanges.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>CMF Default Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Use Case:  Undo Changes to Content</h3>
+<h4>  Actor</h4>
+
+<ul>
+<li>Content Creator</li>
+
+</ul>
+<h4>  Assumptions</h4>
+
+<ul>
+<li>Content Creator has logged into the CMF (see <a href="LoginAsMember-2.html">Login to the
+      Site</a>).</li>
+<li>Content Creator has made changes to content which she wishes
+      to undo (see <a href="ChangeContent-2.html">Update existing content</a>).</li>
+<li>The changes are "undoable"<a href="#ref1">[1]</a>.</li>
+
+</ul>
+<h4>  Procedure</h4>
+
+<ol>
+<li> Select <code>Undo</code> from the actions box.  The system will present
+      a list of the transactions which you have permission to undo.</li>
+<li> Select the checkbox next to the transaction which you wish to
+      undo and click the undo button.  The system will undo that
+      transaction and redisplay the list of transactions.</li>
+
+</ol>
+<p>  Notes</p>
+<p>  ..<a href="#ref1">[1]</a> Transactions which involve changing content remain undoable
+        until one or more objects modified by the transaction are 
+        modified by a subsequent transaction.  Normally, this means
+        that only the latest transaction to an object is undoable,
+        unless the later transactions are also undone.<p>        It is also possible to have transactions above the
+        transaction in the list which do not effect the ability to
+        undo a change a user wishes to undo.</p>
+</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/CMFDefault/Help/UndoChanges.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:24 GMT -->
+</html>

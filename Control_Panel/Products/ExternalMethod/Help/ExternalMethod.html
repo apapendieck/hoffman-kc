@@ -1,0 +1,209 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/ExternalMethod/Help/ExternalMethod.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<base  />
+
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+
+<h1>API Documentation</h1>
+
+<h3>Classes</h3>
+<dl><dd>
+<h2 class="api">
+<a href="#ExternalMethod">ExternalMethod</a>
+</h2>
+</dd></dl>
+
+<h3>Functions</h3>
+<dl><dd>
+<h2 class="api">
+<a href="#manage_addExternalMethod">manage_addExternalMethod</a>
+</h2>
+</dd></dl>
+
+
+      <h2>Classes</h2>
+    <a name="ExternalMethod"></a>
+<h2 class="api">class
+  ExternalMethod</h2>
+
+<dl>
+<dd>
+<p>Web-callable functions that encapsulate external
+Python functions.</p>
+<p>The function is defined in an external file.  This file is treated
+like a module, but is not a module.  It is not imported directly,
+but is rather read and evaluated.  The file must reside in the
+<code>Extensions</code> subdirectory of the Zope installation, or in an
+<code>Extensions</code> subdirectory of a product directory.</p>
+<p>Due to the way ExternalMethods are loaded, it is not <em>currently</em>
+possible to import Python modules that reside in the <code>Extensions</code>
+directory.  It is possible to import modules found in the
+<code>lib/python</code> directory of the Zope installation, or in
+packages that are in the <code>lib/python</code> directory.</p>
+
+</dd>
+</dl>
+
+<hr>
+<h3>Product Constructor</h3>
+      <a name="manage_addExternalMethod"></a>
+<h2 class="method">manage_addExternalMethod(id,
+title,
+module,
+function):
+</h2>
+
+<dl><dd>
+<p>Add an external method to an
+<code>ObjectManager</code>.</p>
+<p>In addition to the standard object-creation arguments,
+<code>id</code> and title, the following arguments are defined:<dl>
+<dt>  function</dt>
+<dd>The name of the python function. This can be a
+    an ordinary Python function, or a bound method.</dd>
+<dt>  module</dt>
+<dd>The name of the file containing the function
+    definition.</dd>
+</dl>
+</p>
+<p>The module normally resides in the <code>Extensions</code>
+directory, however, the file name may have a prefix of
+<code>product.</code>, indicating that it should be found in a product
+directory.</p>
+<p>For example, if the module is: <code>ACMEWidgets.foo</code>, then an
+attempt will first be made to use the file
+<code>lib/python/Products/ACMEWidgets/Extensions/foo.py</code>. If this
+failes, then the file <code>Extensions/ACMEWidgets.foo.py</code> will be
+used.</p>
+
+</dd></dl>
+
+  
+<hr>
+
+  <a name="__module__"></a>
+<h2 class="attribute">__module__ = __builtin__
+</h2>
+
+
+<h3>Methods</h3>
+  <a name="__call__"></a>
+<h2 class="method">__call__(, *args, **kw):
+</h2>
+
+<dl><dd>
+<p>Call the
+External Method.</p>
+<p>Calling an External Method is roughly equivalent to calling
+the original actual function from Python.  Positional and
+keyword parameters can be passed as usual.  Note however that
+unlike the case of a normal Python method, the "self" argument
+must be passed explicitly.  An exception to this rule is made
+if:</p>
+
+<ul>
+<li>The supplied number of arguments is one less than the
+  required number of arguments, and</li>
+<li>The name of the function's first argument is <code>self</code>.</li>
+
+</ul>
+<p>In this case, the URL parent of the object is supplied as the
+first argument.</p>
+
+</dd></dl>
+
+  <a name="manage_edit"></a>
+<h2 class="method">manage_edit(title,
+module,
+function, REQUEST=None):
+</h2>
+
+<dl><dd>
+<p>Change the
+External Method.</p>
+<p>See the description of manage_addExternalMethod for a
+description of the arguments <code>module</code> and <code>function</code>.</p>
+<p>Note that calling <code>manage_edit</code> causes the "module" to be
+effectively reloaded.  This is useful during debugging to see
+the effects of changes, but can lead to problems of functions
+rely on shared global data.</p>
+
+</dd></dl>
+
+
+
+
+      <hr noshade>
+  
+      <h2>Functions</h2>
+    <a name="manage_addExternalMethod"></a>
+<h2 class="method">manage_addExternalMethod(id,
+title,
+module,
+function):
+</h2>
+
+<dl><dd>
+<p>Add an external method to an
+<code>ObjectManager</code>.</p>
+<p>In addition to the standard object-creation arguments,
+<code>id</code> and title, the following arguments are defined:<dl>
+<dt>  function</dt>
+<dd>The name of the python function. This can be a
+    an ordinary Python function, or a bound method.</dd>
+<dt>  module</dt>
+<dd>The name of the file containing the function
+    definition.</dd>
+</dl>
+</p>
+<p>The module normally resides in the <code>Extensions</code>
+directory, however, the file name may have a prefix of
+<code>product.</code>, indicating that it should be found in a product
+directory.</p>
+<p>For example, if the module is: <code>ACMEWidgets.foo</code>, then an
+attempt will first be made to use the file
+<code>lib/python/Products/ACMEWidgets/Extensions/foo.py</code>. If this
+failes, then the file <code>Extensions/ACMEWidgets.foo.py</code> will be
+used.</p>
+
+</dd></dl>
+
+  
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/ExternalMethod/Help/ExternalMethod.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+</html>
+

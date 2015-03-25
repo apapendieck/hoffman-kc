@@ -1,0 +1,77 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/CMFDefault/Help/MoveCopyContent.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>CMF Default Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Use Case:  Move / copy content between folders</h3>
+<h4>  Actor</h4>
+
+<ul>
+<li>Content Creator</li>
+
+</ul>
+<h4>  Assumptions</h4>
+
+<ul>
+<li>Content Creator has logged into the CMF (see <a href="LoginAsMember-2.html">Login to the
+      Site</a>).</li>
+
+</ul>
+<h4>  Procedure</h4>
+
+<ol>
+<li> Navigate to the folder containing the piece of content which
+       you would like to move (or copy) to another folder.<p>       To retrieve a list of the content you have authored, see
+       <a href="ViewMyContent-2.html">View personally authored content</a></p>
+</li>
+<li> In the "Folder contents" view of the folder, check the box next to
+       the content object(s) which you would like to move or copy.</li>
+<li> Click the "Cut" button (or the "Copy" button, if you wish to create
+       a copy in the new location rather than moving the content).</li>
+<li> The system will set a cookie on your browser (you must have cookies
+       enabled) representing the items you cut or copied.</li>
+<li> Navigate to the folder into which you wish to move or copy the
+       content (which might be the same folder).</li>
+<li> Click the "Paste" button.  The system will move or copy the content
+       into the folder;  new content whose IDs would conflict with exising
+       content in that folder will receive an auto-generated name, typically
+       <code>copy_of_</code> plus the original ID.</li>
+<li> To undo this action, see <a href="UndoChanges-2.html">Undo changes to content</a>.</li>
+
+</ol>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/CMFDefault/Help/MoveCopyContent.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:23 GMT -->
+</html>

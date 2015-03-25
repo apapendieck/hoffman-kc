@@ -1,0 +1,93 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/ZCatalog/Help/ZCatalog_Parameters.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>ZCatalog - searchResults: specifying parameters for a search query</h3>
+<p>    The searchResults() method of the ZCatalog accepts parameters that
+    define a query to be made on that catalog.  A query can either be
+    passed as keyword argument to searchResults(), as a mapping, or as
+    part of a Zope REQUEST object, typically from HTML forms.</p>
+<p>    The index of the catalog to query is either the name of the
+    keyword argument, a key in a mapping, or an attribute of a record
+    object.</p>
+<h4>    Attributes of record objects</h4>
+<dl>
+<dt>      <code>query</code></dt>
+<dd>either a sequence of objects or a single value to be
+      passed as query to the index (mandatory)</dd>
+<dt>      <code>operator</code></dt>
+<dd>specifies the combination of search results when
+      query is a sequence of values. (optional, default: <code>or</code>).<h5>        Allowed values:</h5>
+<dl>
+<dt>         <code>and</code>, <code>or</code></dt>
+<dd>for Keyword Indexes and Path Indexes</dd>
+<dt>         <code>and</code>, <code>or</code>, <code>andnot</code>, <code>near</code></dt>
+<dd>for Text Indexes</dd>
+</dl>
+</dd>
+<dt>      <code>range</code></dt>
+<dd>defines a range search on a Field Index (optional,
+      default: not set).<h5>        Allowed values:</h5>
+<dl>
+<dt>          <code>min</code></dt>
+<dd>Searches for all objects with values larger than
+          the minimum of the values passed in the <code>query</code> parameter.</dd>
+<dt>          <code>max</code></dt>
+<dd>Searches for all objects with values smaller than
+          the maximum of the values passed in the <code>query</code> parameter.</dd>
+<dt>          <code>minmax</code></dt>
+<dd>Searches for all objects with values smaller
+          than the maximum of the values passed in the <code>query</code>
+          parameter and larger than the minimum of the values passwd
+          in the <code>query</code> parameter.</dd>
+</dl>
+</dd>
+<dt>      <code>level</code></dt>
+<dd>only applies to Path Index. Specifies the directory
+      level to start searching. (optional, default: 0)</dd>
+</dl>
+<h4>    Parameters for searchResults():</h4>
+<dl>
+<dt>     <code>optimize</code></dt>
+<dd>ZCatalog performs a query optimization for queries
+     not passed through the web (either as dictionary or mapping). To
+     disable this optimization set optimize to 0 (optional, default: 1).
+     Optimization is disabled for searches through the web.</dd>
+</dl>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/ZCatalog/Help/ZCatalog_Parameters.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:43 GMT -->
+</html>

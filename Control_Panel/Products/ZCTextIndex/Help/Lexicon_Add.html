@@ -1,0 +1,75 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/ZCTextIndex/Help/Lexicon_Add.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>ZCTextIndex Lexicon - Add: Create a new ZCTextIndex Lexicon</h3>
+<h4>    Description</h4>
+<p>        This view allows you to create a new ZCTextIndex Lexicon object.
+        ZCTextIndex Lexicons store the words indexed by ZCTextIndexes in a
+        ZCatalog.</p>
+<h4>    Controls</h4>
+<dl>
+<dt>        <code>Id</code></dt>
+<dd>Allows you to specify the id of the ZCTextIndex Lexicon.</dd>
+<dt>        <code>Title</code></dt>
+<dd>Allows you to specify the title of the ZCTextIndex Lexicon.</dd>
+</dl>
+<h5>        Pipeline Stages</h5>
+<p>            The remaining controls allow you to select the desired processing
+            of text to index by selecting pipeline stages.</p>
+<p>            The default available stages are:</p>
+
+<ul>
+<li><strong>Word Splitter</strong> This is the only mandatory stage. The word
+              splitter breaks the text up into a list of words. Included is a
+              simple whitespace splitter, and a splitter that removes HTML
+              tags. The HTML aware splitter gives best results when all of
+              the incoming content to index is HTML.</li>
+<li><strong>Stop Words</strong> To conserve space in the vocabulary, and possibly
+              increase performance, you can select a stop word remover which
+              subtracts very common or single letter words from the Lexicon.
+              Bear in mind that you will not be able to search on removed stop
+              words, and they will also be removed from queries passed to
+              search ZCTextIndexes using the Lexicon.</li>
+<li><strong>Case Normalizer</strong> The case normalizer removes case information
+              from the words in the  Lexicon. If case-sensitive searching is
+              desires, then omit this element from the pipeline.</li>
+
+</ul>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/ZCTextIndex/Help/Lexicon_Add.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:42 GMT -->
+</html>

@@ -1,0 +1,402 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/ZCatalog/Help/ZCatalog.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<base  />
+
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+
+<h1>API Documentation</h1>
+
+<h3>Classes</h3>
+<dl><dd>
+<h2 class="api">
+<a href="#ZCatalog">ZCatalog</a>
+</h2>
+</dd></dl>
+
+<h3>Functions</h3>
+<dl><dd>
+<h2 class="api">
+<a href="#manage_addZCatalog">manage_addZCatalog</a>
+</h2>
+</dd></dl>
+
+
+      <h2>Classes</h2>
+    <a name="ZCatalog"></a>
+<h2 class="api">class
+  ZCatalog</h2>
+
+<dl>
+<dd>
+<p>ZCatalog object</p>
+<p>A ZCatalog contains arbitrary index like references to Zope
+objects.  ZCatalog's can index object attribute using a variety
+of "plug-in" index types.</p>
+<h3>Several index types are included, and others may be added.</h3>
+<dl>
+<dt>  Text</dt>
+<dd>Text indexes index textual content.  The index can be
+  used to search for objects containing certain words.</dd>
+<dt>  Field</dt>
+<dd>Field indexes index atomic values.  The index can be
+  used to search for objects that have certain properties.</dd>
+<dt>  Keyword</dt>
+<dd>Keyword indexes index sequences of values.  The index
+  can be used to search for objects that match one or more of the
+  search terms.</dd>
+<dt>  Path</dt>
+<dd>Path indexes index URI paths. They allow you to find objects
+  based on their placement in a hierarchy.</dd>
+<dt>  Date</dt>
+<dd>Date indexes index date and type data. They are a type of field
+  index specifically optimized for indexing dates.</dd>
+<dt>  Date Range</dt>
+<dd>Date range indexes index time intervals. They are designed
+  for efficient searching of dates falling between two boundaries
+  (such as effective / expiration dates).</dd>
+<dt>  Topic</dt>
+<dd>Topic indexes store prefiltered sets of documents. They are used
+  to optimize complex queries into a single fast query by prefiltering
+  documents by an expression</dd>
+</dl>
+<p>The ZCatalog can maintain a table of extra data about cataloged
+objects.  This information can be used on search result pages to
+show information about a search result.</p>
+<p>The meta-data table schema is used to build the schema for
+ZCatalog Result objects.  The objects have the same attributes
+as the column of the meta-data table.</p>
+<p>ZCatalog does not store references to the objects themselves, but
+rather to a unique identifier that defines how to get to the
+object.  In Zope, this unique identifier is the object's relative
+path to the ZCatalog (since two Zope objects cannot have the same
+URL, this is an excellent unique qualifier in Zope).</p>
+
+</dd>
+</dl>
+
+
+<hr>
+
+  <a name="__module__"></a>
+<h2 class="attribute">__module__ = __builtin__
+</h2>
+
+
+<h3>Methods</h3>
+  <a name="catalog_object"></a>
+<h2 class="method">catalog_object(obj,
+uid, idxs=None, update_metadata=1):
+</h2>
+
+<dl><dd>
+<p>Catalogs the object <code>obj</code> with the unique identifier <code>uid</code>.</p>
+<p>The uid must be a physical path, either absolute or relative to
+the catalog.</p>
+<p>If provided, idxs specifies the names of indexes to update.</p>
+<p>If update_metadata is specified (the default), the object's metadata
+is updated.  If it is not, the metadata is left untouched.  This
+flag has no effect if the object is not yet cataloged (metadata
+is always added for new objects).</p>
+
+</dd></dl>
+
+  <a name="reindexIndex"></a>
+<h2 class="method">reindexIndex(name,
+REQUEST, pghandler=None):
+</h2>
+
+<dl><dd>
+<p>Reindex a single index.</p>
+<dl>
+<dt>name</dt>
+<dd>id of index</dd>
+<dt>REQUEST</dt>
+<dd>REQUEST object</dd>
+<dt>pghandler</dt>
+<dd>optional Progresshandler as defined in ProgressHandler.py
+(see also README.txt)</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="uniqueValuesFor"></a>
+<h2 class="method">uniqueValuesFor(name):
+</h2>
+
+<dl><dd>
+<p>returns the unique values for a given FieldIndex named <code>name</code>.</p>
+
+</dd></dl>
+
+  <a name="searchResults"></a>
+<h2 class="method">searchResults(REQUEST=None, **kw):
+</h2>
+
+<dl><dd>
+<p>Search the catalog.</p>
+<p>Search terms can be passed in the REQUEST or as keyword
+arguments.</p>
+<p>Search queries consist of a mapping of index names to search
+parameters.  You can either pass a mapping to searchResults as
+the variable <code>REQUEST</code> or you can use index names and search
+parameters as keyword arguments to the method, in other words:
+<pre>
+  searchResults(title='Elvis Exposed',
+                author='The Great Elvonso')
+</pre>
+</p>
+<p>is the same as:
+<pre>
+  searchResults({'title' : 'Elvis Exposed',
+                 'author : 'The Great Elvonso'})
+</pre>
+</p>
+<p>In these examples, <code>title</code> and <code>author</code> are indexes.  This
+query will return any objects that have the title <em>Elvis
+Exposed</em> AND also are authored by <em>The Great Elvonso</em>.  Terms
+that are passed as keys and values in a searchResults() call
+are implicitly ANDed together. To OR two search results, call
+searchResults() twice and add concatenate the results like this:
+<pre>
+  results = ( searchResults(title='Elvis Exposed') +
+              searchResults(author='The Great Elvonso') )
+</pre>
+</p>
+<p>This will return all objects that have the specified title OR
+the specified author.</p>
+<p>There are some special index names you can pass to change the
+behavior of the search query:<dl>
+<dt>  sort_on</dt>
+<dd>This parameters specifies which index to sort the
+  results on.</dd>
+<dt>  sort_order</dt>
+<dd>You can specify <code>reverse</code> or <code>descending</code>.
+  Default behavior is to sort ascending.</dd>
+<dt>  sort_limit</dt>
+<dd>An optimization hint to tell the catalog how many
+  results you are really interested in. See the limit argument
+  to the search method for more details.</dd>
+</dl>
+</p>
+<h3>There are some rules to consider when querying this method:</h3>
+
+<ul>
+<li>an empty query mapping (or a bogus REQUEST) returns all
+      items in the catalog.</li>
+<li>results from a query involving only field/keyword
+      indexes, e.g.  {'id':'foo'} and no <code>sort_on</code> will be
+      returned unsorted.</li>
+<li>results from a complex query involving a field/keyword
+      index <em>and</em> a text index,
+      e.g. {'id':<code>foo</code>,'PrincipiaSearchSource':'bar'} and no
+      <code>sort_on</code> will be returned unsorted.</li>
+<li>results from a simple text index query
+      e.g.{'PrincipiaSearchSource':'foo'} will be returned
+      sorted in descending order by <code>score</code>.  A text index
+      cannot beused as a <code>sort_on</code> parameter, and attempting
+      to do so will raise an error.</li>
+
+</ul>
+<p>Depending on the type of index you are querying, you may be
+able to provide more advanced search parameters that can
+specify range searches or wildcards.  These features are
+documented in The Zope Book.</p>
+
+</dd></dl>
+
+  <a name="refreshCatalog"></a>
+<h2 class="method">refreshCatalog(clear=0, pghandler=None):
+</h2>
+
+<dl><dd>
+<p>Reindex every object we can find, removing the unreachable
+ones from the index.</p>
+<dl>
+<dt>clear</dt>
+<dd>values: 1|0  clear the catalog before reindexing</dd>
+<dt>pghandler</dt>
+<dd>optional Progresshandler as defined in ProgressHandler.py
+(see also README.txt)</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="search"></a>
+<h2 class="method">search(query_request, sort_index=None, reverse=0, limit=None, merge=1):
+</h2>
+
+<dl><dd>
+<p>Programmatic search interface, use for searching the catalog from
+scripts.</p>
+<dl>
+<dt>query_request</dt>
+<dd>Dictionary containing catalog query. This uses the
+same format as searchResults.</dd>
+<dt>sort_index</dt>
+<dd>Name of sort index</dd>
+<dt>reverse</dt>
+<dd>Boolean, reverse sort order (defaults to false)</dd>
+<dt>limit</dt>
+<dd>Limit sorted result count to the n best records. This is an
+optimization hint used in conjunction with a sort_index. If possible
+ZCatalog will use a different sort algorithm that uses much less memory
+and scales better then a full sort. The actual number of records
+returned is not guaranteed to be <= limit. You still need to apply the
+same batching to the results. Since the len() of the results will no
+longer be the actual result count, you can use the
+"actual_result_count" attribute of the lazy result object instead to
+determine the size of the full result set.</dd>
+<dt>merge</dt>
+<dd>Return merged, lazy results (like searchResults) or raw
+results for later merging. This can be used to perform multiple
+queries (even across catalogs) and merge and sort the combined results.</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getpath"></a>
+<h2 class="method">getpath(rid):
+</h2>
+
+<dl><dd>
+<p>Return the path to a cataloged object given a <code>data_record_id_</code></p>
+
+</dd></dl>
+
+  <a name="indexes"></a>
+<h2 class="method">indexes():
+</h2>
+
+<dl><dd>
+<p>Returns a sequence of names that correspond to indexes.</p>
+
+</dd></dl>
+
+  <a name="getobject"></a>
+<h2 class="method">getobject(rid, REQUEST=None):
+</h2>
+
+<dl><dd>
+<p>Return a cataloged object given a <code>data_record_id_</code></p>
+
+</dd></dl>
+
+  <a name="index_objects"></a>
+<h2 class="method">index_objects():
+</h2>
+
+<dl><dd>
+<p>Returns a sequence of actual index objects.</p>
+<p>NOTE: This returns unwrapped indexes! You should probably use
+getIndexObjects instead. Some indexes expect to be wrapped.</p>
+
+</dd></dl>
+
+  <a name="getIndexObjects"></a>
+<h2 class="method">getIndexObjects():
+</h2>
+
+<dl><dd>
+<p>Returns a list of acquisition wrapped index objects</p>
+
+</dd></dl>
+
+  <a name="__call__"></a>
+<h2 class="method">__call__(REQUEST=None, **kw):
+</h2>
+
+<dl><dd>
+<p>Search the catalog, the same way as <code>searchResults</code>.</p>
+
+</dd></dl>
+
+  <a name="uncatalog_object"></a>
+<h2 class="method">uncatalog_object(uid):
+</h2>
+
+<dl><dd>
+<p>Uncatalogs the object with the unique identifier <code>uid</code>.</p>
+<p>The uid must be a physical path, either absolute or relative to
+the catalog.</p>
+
+</dd></dl>
+
+  <a name="getrid"></a>
+<h2 class="method">getrid(rid):
+</h2>
+
+<dl><dd>
+<p>Return the <code>data_record_id_</code> to a cataloged object given a path</p>
+
+</dd></dl>
+
+  <a name="schema"></a>
+<h2 class="method">schema():
+</h2>
+
+<dl><dd>
+<p>Get the meta-data schema</p>
+<p>Returns a sequence of names that correspond to columns in the
+meta-data table.</p>
+
+</dd></dl>
+
+
+
+
+      <hr noshade>
+  
+      <h2>Functions</h2>
+    <a name="manage_addZCatalog"></a>
+<h2 class="method">manage_addZCatalog(id,
+title, vocab_id=None):
+</h2>
+
+<dl><dd>
+<p>Add a ZCatalog object.</p>
+<dl>
+<dt><code>vocab_id</code></dt>
+<dd>this argument is deprecated and ignored.</dd>
+</dl>
+
+</dd></dl>
+
+  
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/ZCatalog/Help/ZCatalog.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+</html>
+

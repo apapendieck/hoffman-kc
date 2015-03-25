@@ -1,0 +1,109 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tales-path.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>TALES Path expressions</h3>
+<h4>  Syntax</h4>
+<p>    Path expression syntax:
+<pre>
+      PathExpr  ::= Path [ '|' Path ]*
+      Path      ::= variable [ '/' URL_Segment ]*
+      variable  ::= Name
+</pre>
+</p>
+<h4>  Description</h4>
+<p>    A path expression consists of one or more <em>paths</em> separated by
+    vertical bars (|).  A path consists of one or more non-empty
+    strings separated by slashes. The first string must be a variable
+    name (built-in variable or a user defined variable), and the
+    remaining strings, the <em>path segments</em>, may contain letters,
+    digits, spaces, and the punctuation characters underscore, dash,
+    period, comma, and tilde.</p>
+<p>    For example:
+<pre>
+      request/cookies/oatmeal
+      nothing
+      here/some-file 2001_02.html.tar.gz/foo
+      root/to/branch | default
+      request/name | string:Anonymous Coward
+</pre>
+</p>
+<p>    When a path expression is evaluated, Zope attempts to traverse the
+    path, from left to right, until it succeeds or runs out of paths
+    segments.  To traverse a path, it first fetches the object stored
+    in the variable.  For each path segment, it traverses from the
+    current object to the subobject named by the path
+    segment. Subobjects are located according to standard Zope
+    traversal rules (via getattr, getitem, or traversal hooks).</p>
+<p>    Once a path has been successfully traversed, the resulting object
+    is the value of the expression.  If it is a callable object, such
+    as a method or template, it is called.</p>
+<p>    If a traversal step fails, evaluation immediately proceeds to the next
+    path.  If there are no further paths, an error results.</p>
+<p>    The expression in a series of paths seperated by vertical bars can
+    be any TALES expression. For example, <code>request/name |
+    string:Anonymous Coward</code>. This is useful chiefly for providing
+    default values such as strings and numbers which are not
+    expressable as path expressions.</p>
+<p>    If no path is given the result is <em>nothing</em>.</p>
+<p>    Since every path must start with a variable name, you need a set
+    of starting variables that you can use to find other objects and
+    values.  See the <a href="tales.html">TALES overview</a> for a list of
+    built-in variables.  Since variable names are looked up first in
+    locals, then in globals, then in this list, these names act just
+    like built-ins in Python; They are always available, but they can
+    be shadowed by a global or local variable declaration. You can
+    always access the built-in names explicitly by prefixing them with
+    <em>CONTEXTS</em>. (e.g. CONTEXTS/root, CONTEXTS/nothing, etc).</p>
+<h4>  Examples</h4>
+<p>    Inserting a cookie variable or a property:
+<pre>
+      &lt;span tal:replace="request/cookies/pref | here/pref"&gt;
+        preference
+      &lt;/span&gt;
+</pre>
+</p>
+<p>    Inserting the user name:
+<pre>
+      &lt;p tal:content="user/getUserName"&gt;
+        User name
+      &lt;/p&gt;
+</pre>
+</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tales-path.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+</html>

@@ -1,0 +1,94 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PythonScripts/Help/ModuleAccess.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:27 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Script (Python)</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Allowing Import of Modules</h3>
+<p>  Scripts are able to import a small number of Python modules for
+  which there are security declarations.  These include <code>string</code>,
+  <code>math</code>, and <code>random</code>.  The only way to make other Python modules
+  available for import is to add security declarations to them in the
+  filesystem.</p>
+<h4>  MyScriptModules</h4>
+<p>    The simplest way to allow import of a module is to create your own
+    simple custom Product.  To make this Product:</p>
+
+<ol>
+<li> Create a subdirectory of your Zope installation's "Products"
+       directory. The name of the directory doesn't really matter; Let's
+       call it <code>MyScriptModules</code>.</li>
+<li> Create a file in this subdirectory called <code>__init__.py</code>.</li>
+<li> Add the following lines to your '__init__.py':
+<pre>
+      from Products.PythonScripts.Utility import allow_module, allow_class
+      from AccessControl import ModuleSecurityInfo, ClassSecurityInfo
+      from Globals import InitializeClass
+</pre>
+</li>
+<li> For each module to which you want to allow access, add
+       security declarations in <code>__init__.py</code>.</li>
+
+</ol>
+<h4>  Security Declarations</h4>
+<p>    You will need to write different security declarations depending
+    on how much of a module you want to expose.  You should import the
+    module at the Python command line, and use <code>dir(&lt;module_name&gt;)</code> to
+    examine its contents.  Names starting with underscore (<code>_</code>) may be
+    safely ignored.  Be wary of dangerous modules, such as <code>sys</code> and
+    <code>os</code>, which may be exposed by the module.</p>
+<p>    You can handle a module, such as <code>base64</code>, that contains only safe
+    functions by writing <code>allow_module("module_name")</code>.</p>
+<p>    To allow access to only some names, in a module with dangerous
+    contents, you can write:
+<pre>
+      ModuleSecurityInfo('module_name').declarePublic('name1',
+      'name2', ...)
+</pre>
+</p>
+<p>    If the module contains a class that you want to use, you will need
+    to add the following:
+<pre>
+      from &lt;module_name&gt; import &lt;class&gt;
+      allow_class(&lt;class&gt;)
+</pre>
+</p>
+<p>    Certain modules, such as <code>sha</code>, provide extension types instead of
+    classes.  Security declarations typically cannot be added to
+    extension types, so the only way to use this sort of module is to
+    write a Python wrapper class, or use External Methods.</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PythonScripts/Help/ModuleAccess.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:27 GMT -->
+</html>

@@ -1,0 +1,87 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/CMFDefault/Help/AddContentFolders.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>CMF Default Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Use Case: Add content folders</h3>
+<h4>  Actor</h4>
+
+<ul>
+<li>Content Creator</li>
+
+</ul>
+<h4>  Overview</h4>
+<p>    As with directories on a filesystem, foldersin a CMF Site allow
+    Content Creators to partition their content into manageable groups.</p>
+<h4>  Assumptions</h4>
+
+<ul>
+<li>Content Creator has logged into the CMF (see <a href="LoginAsMember-2.html">Login to the
+      Site</a>).</li>
+
+</ul>
+<h4>  Procedure</h4>
+
+<ol>
+<li>  Navigate to the folder in which you would like to create sub-folders.</li>
+<li>  In the "Folder contents" view of the folder, select the "New" button.</li>
+<li>  From the list of addable portal types, select "Folder" by clicking
+        the adjacent radio button.  Supply an ID <a href="#ref1">[1]</a> for the new folder in the
+        input field at the bottom of the page, and click the "Add" button.</li>
+<li>  The system will create the new folder using the ID you supplied,
+        and present you with a form for editing the folder's properties.</li>
+<li>  Supply appropriate values as follows:<dl>
+<dt>        <strong>Title</strong></dt>
+<dd>a "human-readable" title for the folder.</dd>
+<dt>        <strong>Description</strong></dt>
+<dd>a brief paragraph summarizing the use to which
+          the folder is put.</dd>
+</dl>
+</li>
+<li>  Click the "Change" button.  The system will update the folder's
+        metadata using the values you supply.</li>
+
+</ol>
+<p>  Notes</p>
+<p>  ..<a href="#ref1">[1]</a> Don't confuse the folder's ID with the its Title. ID's cannot
+        contain special characters (e.g., comma, asterisk, brackets,
+        parentheses, etc.)  A good practise is not to use spaces in
+        an ID either. The ID is used in the url to reach the folder's
+        content, so any character which is not allowed in a URI is not
+        allowed in the id (see: <a href="../../../../../www.ietf.org/rfc/rfc2396.txt">URI RFC</a>).</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/CMFDefault/Help/AddContentFolders.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:21 GMT -->
+</html>

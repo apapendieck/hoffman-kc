@@ -1,0 +1,77 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tal-condition.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>condition: Conditionally insert or remove an element</h3>
+<h4>  Syntax</h4>
+<p>    <code>tal:condition</code> syntax:
+<pre>
+      argument ::= expression
+</pre>
+</p>
+<h4>  Description</h4>
+<p>    The <code>tal:condition</code> statement includes the statement element in the
+    template only if the condition is met, and omits it otherwise.  If
+    its expression evaluates to a <em>true</em> value, then normal processing
+    of the element continues, otherwise the statement element is
+    immediately removed from the template.  For these purposes, the
+    value <em>nothing</em> is false, and <em>default</em> has the same effect as
+    returning a true value.</p>
+<p>    <em>Note: Zope considers missing variables, None, zero, empty strings,
+    and empty sequences false; all other values are true.</em></p>
+<h4>  Examples</h4>
+<p>    Test a variable before inserting it (the first example tests for
+    existence and truth, while the second only tests for existence):
+<pre>
+      &lt;p tal:condition="request/message | nothing"
+         tal:content="request/message"&gt;message goes here&lt;/p&gt;
+
+      &lt;p tal:condition="exists:request/message"
+         tal:content="request/message"&gt;message goes here&lt;/p&gt;
+</pre>
+</p>
+<p>    Test for alternate conditions:
+<pre>
+      &lt;div tal:repeat="item python:range(10)"&gt;
+        &lt;p tal:condition="repeat/item/even"&gt;Even&lt;/p&gt;
+        &lt;p tal:condition="repeat/item/odd"&gt;Odd&lt;/p&gt;
+      &lt;/div&gt;
+</pre>
+</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tal-condition.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+</html>

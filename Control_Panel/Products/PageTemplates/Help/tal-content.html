@@ -1,0 +1,71 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tal-content.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>content: Replace the content of an element</h3>
+<h4>  Syntax</h4>
+<p>    <code>tal:content</code> syntax:
+<pre>
+      argument ::= (['text'] | 'structure') expression
+</pre>
+</p>
+<h4>  Description</h4>
+<p>    Rather than replacing an entire element, you can insert text or
+    structure in place of its children with the <code>tal:content</code>
+    statement.  The statement argument is exactly like that of
+    <code>tal:replace</code>, and is interpreted in the same fashion.  If the
+    expression evaluates to <em>nothing</em>, the statement element is left
+    childless.  If the expression evaluates to <em>default</em>, then the
+    element's contents are unchanged.</p>
+<p>    *Note: The default replacement behavior is <code>text</code>.*</p>
+<h4>  Examples</h4>
+<p>    Inserting the user name:
+<pre>
+      &lt;p tal:content="user/getUserName"&gt;Fred Farkas&lt;/p&gt;
+</pre>
+</p>
+<p>    Inserting HTML/XML:
+<pre>
+      &lt;p tal:content="structure here/getStory"&gt;marked &lt;b&gt;up&lt;/b&gt;
+      content goes here.&lt;/p&gt;
+</pre>
+</p>
+<h4>  See Also</h4>
+<p>    <a href="tal-replace.html"><code>tal:replace</code></a></p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tal-content.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+</html>

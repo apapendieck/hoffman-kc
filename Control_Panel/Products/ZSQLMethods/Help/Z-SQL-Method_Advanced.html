@@ -1,0 +1,76 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/ZSQLMethods/Help/Z-SQL-Method_Advanced.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Z SQL Method - Advanced: Manage advanced settings</h3>
+<h4>    Description</h4>
+<p>        Manage the advanced settings such as caching and plugable
+        brains of a SQL method.</p>
+<h4>    Controls</h4>
+<dl>
+<dt>        <code>ID</code></dt>
+<dd>Indicates the id of the sql method.</dd>
+<dt>        <code>Title</code></dt>
+<dd>Allows you to specify the title of the sql method.</dd>
+<dt>        <code>Connection Hook</code></dt>
+<dd>Specifies the id of a method to be called when the database connection is made. This method will return a string containing the id of the database connection to use. If left blank there is no effect, the connection id specified will be used.</dd>
+<dt>        <code>Maximum number of rows retrieved</code></dt>
+<dd>Specify an upper limit
+        for the number of rows a sql method can retrieve. Setting this
+        option correctly (based on your specific environment) can
+        increase the execution time of the method.</dd>
+<dt>        <code>Maximum number of results in the cache</code></dt>
+<dd>Set the size of
+        the sql method cache.</dd>
+<dt>        <code>Maximum time (seconds) to cache results</code></dt>
+<dd>The time in
+        seconds that results are cached.  Setting to zero disables
+        caching.</dd>
+</dl>
+<p>        Rows returned from this method can be turned into <code>Result
+        objects</code> that are instances of a class you can specify below.</p>
+<dl>
+<dt>        <code>Class name</code></dt>
+<dd>Allows you to specify the name of the Python class. </dd>
+<dt>        <code>Class file</code></dt>
+<dd>Allows you to specify the name of the Python
+        module that the class is defined in. The class file should
+        reside in the Zope <code>Extensions</code> directory.</dd>
+</dl>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/ZSQLMethods/Help/Z-SQL-Method_Advanced.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:43 GMT -->
+</html>

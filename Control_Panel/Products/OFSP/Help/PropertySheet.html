@@ -1,0 +1,311 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/PropertySheet.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<base  />
+
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+
+<h1>API Documentation</h1>
+
+
+
+
+    <a name="PropertySheet"></a>
+<h2 class="api">class
+  PropertySheet</h2>
+
+<dl>
+<dd>
+<p>A PropertySheet is an abstraction for organizing and working
+with a set of related properties. Conceptually it acts like a
+container for a set of related properties and meta-data describing
+those properties. A PropertySheet may or may not provide a web
+interface for managing its properties.</p>
+
+</dd>
+</dl>
+
+
+<hr>
+
+  <a name="__module__"></a>
+<h2 class="attribute">__module__ = __builtin__
+</h2>
+
+
+<h3>Methods</h3>
+  <a name="hasProperty"></a>
+<h2 class="method">hasProperty(id):
+</h2>
+
+<dl><dd>
+<p>Returns true if <code>self</code> has a property with the given <code>id</code>,
+false otherwise.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Access contents information</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getProperty"></a>
+<h2 class="method">getProperty(id, d=None):
+</h2>
+
+<dl><dd>
+<p>Get the property <code>id</code>, returning the optional second
+argument or None if no such property is found.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Python only</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="propertyMap"></a>
+<h2 class="method">propertyMap():
+</h2>
+
+<dl><dd>
+<p>Returns a tuple of mappings, giving meta-data for properties.</p>
+<dl>
+<dt>Permssion</dt>
+<dd>Python only</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="manage_changeProperties"></a>
+<h2 class="method">manage_changeProperties(REQUEST=None, **kw):
+</h2>
+
+<dl><dd>
+<p>Change existing object properties by passing either a mapping
+object as <code>REQUEST</code> containing name:value pairs or by passing
+name=value keyword arguments.</p>
+<p>Some objects have "special" properties defined by product
+authors that cannot be changed. If you try to change one of
+these properties through this method, an error will be raised.</p>
+<p>Note that no type checking or conversion happens when this
+method is called, so it is the caller's responsibility to
+ensure that the updated values are of the correct type.
+<em>This should probably change</em>.</p>
+<p>If a value is provided for <code>REQUEST</code> (as it will be when
+called via the web), the method will return an HTML message
+dialog. If no REQUEST is passed, the method returns <code>None</code> on
+success.</p>
+<p>This method may be called via the web, from DTML or from
+Python code.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Manage Properties</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="manage_delProperties"></a>
+<h2 class="method">manage_delProperties(ids=None, REQUEST=None):
+</h2>
+
+<dl><dd>
+<p>Delete one or more properties with the given <code>ids</code>. The <code>ids</code>
+argument should be a sequence (tuple or list) containing the
+ids of the properties to be deleted. If <code>ids</code> is empty no
+action will be taken. If any of the properties named in <code>ids</code>
+does not exist, an error will be raised.</p>
+<p>Some objects have "special" properties defined by product
+authors that cannot be deleted. If one of these properties is
+named in <code>ids</code>, an HTML error message is returned.</p>
+<p>If no value is passed in for <code>REQUEST</code>, the method will return
+None. If a value is provided for <code>REQUEST</code> (as it will be when
+called via the web), the property management form for the
+object will be rendered and returned.</p>
+<p>This method may be called via the web, from DTML or from
+Python code.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Manage Properties</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="manage_addProperty"></a>
+<h2 class="method">manage_addProperty(id,
+value,
+type, REQUEST=None):
+</h2>
+
+<dl><dd>
+<p>Add a new property with the given <code>id</code>, <code>value</code> and <code>type</code>.</p>
+<p>These are the
+property types:<dl>
+<dt>  <code>boolean</code></dt>
+<dd>1 or 0.</dd>
+<dt>  <code>date</code></dt>
+<dd>A <code>DateTime</code> value, for example <code>12/31/1999 15:42:52 PST</code>.</dd>
+<dt>  <code>float</code></dt>
+<dd>A decimal number, for example <code>12.4</code>.</dd>
+<dt>  <code>int</code></dt>
+<dd>An integer number, for example, <code>12</code>.</dd>
+<dt>  <code>lines</code></dt>
+<dd>A list of strings, one per line.</dd>
+<dt>  <code>long</code></dt>
+<dd>A long integer, for example <code>12232322322323232323423</code>.</dd>
+<dt>  <code>string</code></dt>
+<dd>A string of characters, for example <code>This is a string</code>.</dd>
+<dt>  <code>text</code></dt>
+<dd>A multi-line string, for example a paragraph.</dd>
+<dt>  <code>tokens</code></dt>
+<dd>A list of strings separated by white space, for example
+  <code>one two three</code>.</dd>
+<dt>  <code>selection</code></dt>
+<dd>A string selected by a pop-up menu.</dd>
+<dt>  <code>multiple selection</code></dt>
+<dd>A list of strings selected by a selection list.</dd>
+</dl>
+</p>
+<p>This method will use the passed in <code>type</code> to try to convert
+the <code>value</code> argument to the named type. If the given <code>value</code>
+cannot be converted, a ValueError will be raised.</p>
+<p>The value given for <code>selection</code> and <code>multiple selection</code>
+properites may be an attribute or method name.  The attribute
+or method must return a sequence values.</p>
+<p>If the given <code>type</code> is not recognized, the <code>value</code> and <code>type</code>
+given are simply stored blindly by the object.</p>
+<p>If no value is passed in for <code>REQUEST</code>, the method will return
+<code>None</code>. If a value is provided for <code>REQUEST</code> (as it will when
+called via the web), the property management form for the
+object will be rendered and returned.</p>
+<p>This method may be called via the web, from DTML or from
+Python code.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Manage Properties</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="propertyInfo"></a>
+<h2 class="method">propertyInfo():
+</h2>
+
+<dl><dd>
+<p>Returns a mapping containing property meta-data.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Python only</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getPropertyType"></a>
+<h2 class="method">getPropertyType(id):
+</h2>
+
+<dl><dd>
+<p>Get the type of property <code>id</code>. Returns None if no such
+property exists.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Python only</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="propertyIds"></a>
+<h2 class="method">propertyIds():
+</h2>
+
+<dl><dd>
+<p>Returns a list of property ids.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Access contents information</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="propertyValues"></a>
+<h2 class="method">propertyValues():
+</h2>
+
+<dl><dd>
+<p>Returns a list of actual property values.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Access contents information</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="propertyItems"></a>
+<h2 class="method">propertyItems():
+</h2>
+
+<dl><dd>
+<p>Return a list of (id, property) tuples.</p>
+<dl>
+<dt>Permission</dt>
+<dd><code>Access contents information</code></dd>
+</dl>
+
+</dd></dl>
+
+  <a name="xml_namespace"></a>
+<h2 class="method">xml_namespace():
+</h2>
+
+<dl><dd>
+<p>Return a namespace string usable as an xml namespace
+for this property set. This may be an empty string if
+there is no default namespace for a given property sheet
+(especially property sheets added in ZClass definitions).</p>
+<dl>
+<dt>Permission</dt>
+<dd>Python only</dd>
+</dl>
+
+</dd></dl>
+
+
+
+
+  
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/PropertySheet.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+</html>
+

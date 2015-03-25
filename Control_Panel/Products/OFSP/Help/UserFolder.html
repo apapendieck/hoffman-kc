@@ -1,0 +1,172 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/UserFolder.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<base  />
+
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+
+<h1>API Documentation</h1>
+
+
+
+
+    <a name="UserFolder"></a>
+<h2 class="api">class
+  UserFolder</h2>
+
+<dl>
+<dd>
+<p>User Folder objects are containers for user objects. Programmers can
+work with collections of user objects using the API shared by User
+Folder implementations.</p>
+
+</dd>
+</dl>
+
+
+<hr>
+
+  <a name="__module__"></a>
+<h2 class="attribute">__module__ = __builtin__
+</h2>
+
+
+<h3>Methods</h3>
+  <a name="getUserNames"></a>
+<h2 class="method">getUserNames():
+</h2>
+
+<dl><dd>
+<p>Returns a sequence of names of the users which reside in the user
+folder.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Manage users</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getUsers"></a>
+<h2 class="method">getUsers():
+</h2>
+
+<dl><dd>
+<p>Returns a sequence of all user objects which reside in the user
+folder.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Manage users</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="userFolderAddUser"></a>
+<h2 class="method">userFolderAddUser(name,
+password,
+roles,
+domains, **kw):
+</h2>
+
+<dl><dd>
+<p>API method for creating a new user object. Note that not all
+user folder implementations support dynamic creation of user
+objects. Implementations that do not support dynamic creation
+of user objects will raise an error for this method.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Manage users</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="userFolderDelUsers"></a>
+<h2 class="method">userFolderDelUsers(names):
+</h2>
+
+<dl><dd>
+<p>API method for deleting one or more user objects. Note that not
+all user folder implementations support deletion of user objects.
+Implementations that do not support deletion of user objects
+will raise an error for this method.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Manage users</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getUser"></a>
+<h2 class="method">getUser(name):
+</h2>
+
+<dl><dd>
+<p>Returns the user object specified by name.  If there is no
+user named <code>name</code> in the user folder, return None.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Manage users</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="userFolderEditUser"></a>
+<h2 class="method">userFolderEditUser(name,
+password,
+roles,
+domains, **kw):
+</h2>
+
+<dl><dd>
+<p>API method for changing user object attributes. Note that not
+all user folder implementations support changing of user object
+attributes. Implementations that do not support changing of user
+object attributes will raise an error for this method.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Manage users</dd>
+</dl>
+
+</dd></dl>
+
+
+
+
+  
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/UserFolder.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+</html>
+

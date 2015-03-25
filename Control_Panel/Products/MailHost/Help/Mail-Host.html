@@ -1,0 +1,83 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/MailHost/Help/Mail-Host.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>MailHost: Sends mail through an SMTP server.</h3>
+<p>  MailHosts allow you to send mail via the Simple Mail Transfer
+  Protocol (SMTP).</p>
+<p>  This object can be used deliver mail by the <dtml-sendmail> tag
+  or via the send() and simple_send() methods.<h4>    <code>send(messageText, mto=None, mfrom=None, subject=None, encode=None)</code></h4>
+<p>      Sends an email message where the messageText is an rfc822 formatted
+      message. This allows you complete control over the message headers,
+      including setting any extra headers such as Cc: and Reply-To:.
+      The arguments are:<dl>
+<dt>        messageText</dt>
+<dd>The mail message. It can either be a rfc822
+        formed text with header fields, or just a body without any
+        header fields. The other arguments given will override the
+        header fields in the message, if they exist.</dd>
+<dt>        mto</dt>
+<dd>A commaseparated string or list of recipient(s) of the message.</dd>
+<dt>        mfrom</dt>
+<dd>The address of the message sender.</dd>
+<dt>        subject</dt>
+<dd>The subject of the message.</dd>
+<dt>        encode</dt>
+<dd>The rfc822 defined encoding of the message.  The
+        default of <code>None</code> means no encoding is done.  Valid values
+        are <code>base64</code>, <code>quoted-printable</code> and <code>uuencode</code>.</dd>
+</dl>
+</p>
+<h4>    <code>simple_send(self, mto, mfrom, subject, body)</code></h4>
+<p>      Sends a message. Only To:, From: and Subject: headers can be set.
+      Note that simple_send does not process or validate its arguments
+      in any way.
+      The arguments are:<dl>
+<dt>        mto</dt>
+<dd>A commaseparated string of recipient(s) of the message.</dd>
+<dt>        mfrom</dt>
+<dd>The address of the message sender.</dd>
+<dt>        subject</dt>
+<dd>The subject of the message.</dd>
+<dt>        body</dt>
+<dd>The body of the message.</dd>
+</dl>
+</p>
+</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/MailHost/Help/Mail-Host.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:42 GMT -->
+</html>

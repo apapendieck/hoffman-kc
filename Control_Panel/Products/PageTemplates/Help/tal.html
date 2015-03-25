@@ -1,0 +1,135 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tal.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>TAL Overview</h3>
+<p>  The <em>Template Attribute Language</em> (TAL) standard is an attribute
+  language used to create dynamic templates.  It allows elements of a
+  document to be replaced, repeated, or omitted.</p>
+<p>  The statements of TAL are XML attributes from the TAL namespace.
+  These attributes can be applied to an XML or HTML document in order
+  to make it act as a template.</p>
+<p>  A <strong>TAL statement</strong> has a name (the attribute name) and a body (the
+  attribute value).  For example, an <code>content</code> statement might look
+  like <code>tal:content="string:Hello"</code>.  The element on which a statement
+  is defined is its <strong>statement element</strong>.  Most TAL statements
+  require expressions, but the syntax and semantics of these
+  expressions are not part of TAL. TALES is recommended for this
+  purpose.</p>
+<h4>  TAL Namespace</h4>
+<p>    The TAL namespace URI and recommended alias are currently defined
+    as:
+<pre>
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+</pre>
+</p>
+<p>    This is not a URL, but merely a unique identifier.  Do not expect
+    a browser to resolve it successfully.</p>
+<p>    Zope does not require an XML namespace declaration when creating
+    templates with a content-type of <code>text/html</code>. However, it does
+    require an XML namespace declaration for all other content-types.</p>
+<h4>  TAL Statements   </h4>
+<p>    These are the tal statements:</p>
+
+<ul>
+<li><a href="tal-attributes.stx">tal:attributes</a> - dynamically change
+      element attributes.</li>
+<li><a href="tal-define.html">tal:define</a> - define variables.</li>
+<li><a href="tal-condition.html">tal:condition</a> - test conditions.</li>
+<li><a href="tal-content.html">tal:content</a> - replace the content of an
+      element.</li>
+<li><a href="tal-omit-tag.html">tal:omit-tag</a> - remove an element, leaving
+      the content of the element.</li>
+<li><a href="tal-on-error.html">tal:on-error</a> - handle errors.</li>
+<li><a href="tal-repeat.html">tal:repeat</a> - repeat an element.</li>
+<li><a href="tal-replace.html">tal:replace</a> - replace the content of an
+      element and remove the element leaving the content.</li>
+
+</ul>
+<p>    Expressions used in statements may return values of any type,
+    although most statements will only accept strings, or will convert
+    values into a string representation.  The expression language must
+    define a value named <em>nothing</em> that is not a string.  In
+    particular, this value is useful for deleting elements or
+    attributes.</p>
+<h4>  Order of Operations</h4>
+<p>    When there is only one TAL statement per element, the order in
+    which they are executed is simple.  Starting with the root
+    element, each element's statements are executed, then each of its
+    child elements is visited, in order, to do the same.</p>
+<p>    Any combination of statements may appear on the same elements,
+    except that the <code>content</code> and <code>replace</code> statements may not appear
+    together.</p>
+<p>    When an element has multiple statements, they are executed in this
+    order:</p>
+
+<ol>
+<li> <code>define</code></li>
+<li> <code>condition</code></li>
+<li> <code>repeat</code></li>
+<li> <code>content</code> or <code>replace</code></li>
+<li> <code>attributes</code></li>
+<li> <code>omit-tag</code></li>
+
+</ol>
+<p>    Since the <code>on-error</code> statement is only invoked when an error occurs,
+    it does not appear in the list.  </p>
+<p>    The reasoning behind this ordering goes like this: You often want
+    to set up variables for use in other statements, so <code>define</code> comes
+    first.  The very next thing to do is decide whether this element
+    will be included at all, so <code>condition</code> is next; since the
+    condition may depend on variables you just set, it comes after
+    <code>define</code>.  It is valuable be able to replace various parts of an
+    element with different values on each iteration of a repeat, so
+    <code>repeat</code> is next.  It makes no sense to replace attributes and
+    then throw them away, so <code>attributes</code> is last.  The remaining
+    statements clash, because they each replace or edit the statement
+    element.</p>
+<h4>  See Also</h4>
+<p>    <a href="tales.html">TALES Overview</a></p>
+<p>    <a href="metal.html">METAL Overview</a></p>
+<p>    <a href="tal-attributes.stx">tal:attributes</a></p>
+<p>    <a href="tal-define.html">tal:define</a></p>
+<p>    <a href="tal-condition.html">tal:condition</a></p>
+<p>    <a href="tal-content.html">tal:content</a></p>
+<p>    <a href="tal-omit-tag.html">tal:omit-tag</a></p>
+<p>    <a href="tal-on-error.html">tal:on-error</a></p>
+<p>    <a href="tal-repeat.html">tal:repeat</a></p>
+<p>    <a href="tal-replace.html">tal:replace</a></p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tal.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+</html>

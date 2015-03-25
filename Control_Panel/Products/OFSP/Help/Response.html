@@ -1,0 +1,259 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Response.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<base  />
+
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+
+<h1>API Documentation</h1>
+
+
+
+
+    <a name="Response"></a>
+<h2 class="api">class
+  Response</h2>
+
+<dl>
+<dd>
+<p>The Response object represents the response to a Zope request.</p>
+
+</dd>
+</dl>
+
+
+<hr>
+
+  <a name="__module__"></a>
+<h2 class="attribute">__module__ = __builtin__
+</h2>
+
+
+<h3>Methods</h3>
+  <a name="redirect"></a>
+<h2 class="method">redirect(location, lock=0):
+</h2>
+
+<dl><dd>
+<p>Cause a redirection without raising an error. If the "lock"
+keyword argument is passed with a true value, then the HTTP
+redirect response code will not be changed even if an error
+occurs later in request processing (after redirect() has
+been called).</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="write"></a>
+<h2 class="method">write(data):
+</h2>
+
+<dl><dd>
+<p>Return data as a stream</p>
+<p>HTML data may be returned using a stream-oriented interface.
+This allows the browser to display partial results while
+computation of a response to proceed.</p>
+<p>The published object should first set any output headers or
+cookies on the response object.</p>
+<p>Note that published objects must not generate any errors
+after beginning stream-oriented output.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="setCookie"></a>
+<h2 class="method">setCookie(name,
+value, **kw):
+</h2>
+
+<dl><dd>
+<p>Set an HTTP cookie on the browser</p>
+<p>The response will include an HTTP header that sets a cookie on
+cookie-enabled browsers with a key "name" and value
+"value". This overwrites any previously set value for the
+cookie in the Response object.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="appendCookie"></a>
+<h2 class="method">appendCookie(name,
+value):
+</h2>
+
+<dl><dd>
+<p>Returns an HTTP header that sets a cookie on cookie-enabled
+browsers with a key "name" and value "value". If a value for the
+cookie has previously been set in the response object, the new
+value is appended to the old one separated by a colon.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="expireCookie"></a>
+<h2 class="method">expireCookie(name, **kw):
+</h2>
+
+<dl><dd>
+<p>Cause an HTTP cookie to be removed from the browser</p>
+<p>The response will include an HTTP header that will remove the cookie
+corresponding to "name" on the client, if one exists. This is
+accomplished by sending a new cookie with an expiration date
+that has already passed. Note that some clients require a path
+to be specified - this path must exactly match the path given
+when creating the cookie. The path can be specified as a keyword
+argument.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="addHeader"></a>
+<h2 class="method">addHeader(name,
+value):
+</h2>
+
+<dl><dd>
+<p>Set a new HTTP return header with the given value, while
+retaining any previously set headers with the same name.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="setBase"></a>
+<h2 class="method">setBase(base):
+</h2>
+
+<dl><dd>
+<p>Set the base URL for the returned document.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="appendHeader"></a>
+<h2 class="method">appendHeader(name,
+value, delimiter=,):
+</h2>
+
+<dl><dd>
+<p>Append a value to a header.</p>
+<p>Sets an HTTP return header "name" with value "value",
+appending it following a comma if there was a previous value
+set for the header.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="setStatus"></a>
+<h2 class="method">setStatus(status, reason=None):
+</h2>
+
+<dl><dd>
+<p>Sets the HTTP status code of the response; the argument may
+either be an integer or one of the following strings:<p>    OK,
+    Created,
+    Accepted,
+    NoContent,
+    MovedPermanently,
+    MovedTemporarily,
+    NotModified,
+    BadRequest,
+    Unauthorized,
+    Forbidden,
+    NotFound,
+    InternalError,
+    NotImplemented,
+    BadGateway,
+    ServiceUnavailable</p>
+</p>
+<p>that will be converted to the correct integer value.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="setHeader"></a>
+<h2 class="method">setHeader(name,
+value):
+</h2>
+
+<dl><dd>
+<p>Sets an HTTP return header "name" with value "value", clearing
+the previous value set for the header, if one exists. If the
+literal flag is true, the case of the header name is
+preserved, otherwise word-capitalization will be performed on
+the header name on output.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+
+
+
+  
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Response.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+</html>
+

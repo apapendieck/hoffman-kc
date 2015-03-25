@@ -1,0 +1,67 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-call.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>call: Call a method</h3>
+<p>  The <code>call</code> tag lets you call a method without inserting the results
+  into the DTML output.</p>
+<h4>  Syntax</h4>
+<p>    <code>call</code> tag syntax:
+<pre>
+      &lt;dtml-call Variable|expr="Expression"&gt;
+</pre>
+</p>
+<p>    If the call tag uses a variable, the methods arguments are passed
+    automatically by DTML just as with the <code>var</code> tag. If the method is
+    specified in a expression, then you must pass the arguments yourself.</p>
+<h4>  Examples</h4>
+<p>    Calling by variable name:
+<pre>
+      &lt;dtml-call UpdateInfo&gt;
+</pre>
+</p>
+<p>    This calls the <code>UpdateInfo</code> object automatically passing arguments.</p>
+<p>    Calling by expression:
+<pre>
+      &lt;dtml-call expr="RESPONSE.setHeader('content-type', 'text/plain')"&gt;
+</pre>
+</p>
+<h4>  See Also</h4>
+<p>    <a href="dtml-var.html">var tag</a></p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-call.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+</html>

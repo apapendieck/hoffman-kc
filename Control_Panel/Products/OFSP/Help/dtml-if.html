@@ -1,0 +1,87 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-if.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>if: Tests Conditions</h3>
+<p>  The <code>if</code> tags allows you to test conditions and to take different
+  actions depending on the conditions. The <code>if</code> tag mirrors Python's
+  <code>if/elif/else</code> condition testing statements.</p>
+<h4>  Syntax</h4>
+<p>    If tag syntax:
+<pre>
+      &lt;dtml-if ConditionVariable|expr="ConditionExpression"&gt;
+        [&lt;dtml-elif ConditionVariable|expr="ConditionExpression"&gt;]
+         ...
+        [&lt;dtml-else&gt;]
+      &lt;/dtml-if&gt;
+</pre>
+</p>
+<p>    The <code>if</code> tag is a block tag. The <code>if</code> tag and optional <code>elif</code> tags
+    take a condition variable name or a condition expression, but not
+    both. If the condition name or expression evaluates to true then
+    the <code>if</code> block is executed. True means not zero, an empty string
+    or an empty list.  If the condition variable is not found then the
+    condition is considered false.</p>
+<p>    If the initial condition is false, each <code>elif</code> condition is tested
+    in turn. If any <code>elif</code> condition is true, its block is
+    executed. Finally the optional <code>else</code> block is executed if none of
+    the <code>if</code> and <code>elif</code> conditions were true. Only one block will be
+    executed.</p>
+<h4>  Examples</h4>
+<p>    Testing for a variable:
+<pre>
+      &lt;dtml-if snake&gt;
+        The snake variable is true
+      &lt;/dtml-if&gt;
+</pre>
+</p>
+<p>    Testing for expression conditions:
+<pre>
+      &lt;dtml-if expr="num &gt; 5"&gt;
+        num is greater than five
+      &lt;dtml-elif expr="num &lt; 5"&gt;
+        num is less than five
+      &lt;dtml-else&gt;
+        num must be five
+      &lt;/dtml-if&gt;
+</pre>
+</p>
+<h4>  See Also</h4>
+<p>    <a href="http://www.python.org/doc/current/tut/node6.html#SECTION006100000000000000000">Python Tutorial: If Statements</a></p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-if.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+</html>

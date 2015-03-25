@@ -1,0 +1,75 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-sqlvar.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>sqlvar: Inserts SQL variables</h3>
+<p>  The <code>sqlvar</code> tag safely inserts variables into SQL code. This tag is
+  used in SQL Methods.</p>
+<h4>  Syntax</h4>
+<p>    <code>sqlvar</code> tag syntax:
+<pre>
+      &lt;dtml-sqlvar Variable|expr="VariableExpression"&gt;
+</pre>
+</p>
+<p>    The <code>sqlvar</code> tag is a singleton. Like the <code>var</code> tag, the <code>sqlvar</code>
+    tag looks up a variable and inserts it. Unlike the var tag, the
+    formatting options are tailored for SQL code.</p>
+<h4>  Attributes</h4>
+<dl>
+<dt>    type=string</dt>
+<dd>The type of the variable. Valid types include:
+    <code>string</code>, <code>int</code>, <code>float</code> and <code>nb</code>. <code>nb</code> means non-blank string and
+    should be used in place of <code>string</code> unless you want to use blank
+    strings. The type attribute is required and is used to properly
+    escape inserted variable.</dd>
+<dt>    optional=boolean</dt>
+<dd>If true and the variable is null or
+    non-existent, then nothing is inserted.</dd>
+</dl>
+<h4>  Examples</h4>
+<p>    Basic usage:
+<pre>
+      select * from employees 
+        where name=&lt;dtml-sqlvar name type="nb"&gt;
+</pre>
+</p>
+<p>    This SQL quotes the <code>name</code> string variable.</p>
+<h4>  See Also</h4>
+<p>    <a href="dtml-sqltest.html">sqltest tag</a></p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-sqlvar.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+</html>

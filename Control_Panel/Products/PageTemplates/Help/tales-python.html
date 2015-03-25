@@ -1,0 +1,164 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tales-python.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>TALES Python expressions</h3>
+<h4>  Syntax</h4>
+<p>    Python expression syntax:
+<pre>
+      Any valid Python language expression
+</pre>
+</p>
+<h4>  Description</h4>
+<p>    Python expressions evaluate Python code in a security-restricted
+    environment. Python expressions offer the same facilities as those
+    available in Python-based Scripts and DTML variable expressions.</p>
+<h5>    Security Restrictions</h5>
+<p>      Python expressions are subject to the same security restrictions
+      as Python-based scripts. These restrictions include:</p>
+<dl>
+<dt>      access limits</dt>
+<dd>Python expressions are subject to Zope
+      permission and role security restrictions. In addition,
+      expressions cannot access objects whose names begin with
+      underscore.</dd>
+<dt>      write limits</dt>
+<dd>Python expressions cannot change attributes of
+      Zope objects.</dd>
+</dl>
+<p>      Despite these limits malicious Python expressions can cause
+      problems.  See The Zope Book for more information.</p>
+<h5>    Built-in Functions</h5>
+<p>      Python expressions have the same built-ins as Python-based
+      Scripts with a few additions.</p>
+<p>      These standard Python built-ins are available: <code>None</code>, <code>abs</code>,
+      <code>apply</code>, <code>callable</code>, <code>chr</code>, <code>cmp</code>, <code>complex</code>, <code>delattr</code>,
+      <code>divmod</code>, <code>filter</code>, <code>float</code>, <code>getattr</code>, <code>hash</code>, <code>hex</code>, <code>int</code>,
+      <code>isinstance</code>, <code>issubclass</code>, <code>list</code>, <code>len</code>, <code>long</code>, <code>map</code>, <code>max</code>,
+      <code>min</code>, <code>oct</code>, <code>ord</code>, <code>repr</code>, <code>round</code>, <code>setattr</code>, <code>str</code>, <code>tuple</code>.</p>
+<p>      The <code>range</code> and <code>pow</code> functions are available and work the same
+      way they do in standard Python; however, they are limited to
+      keep them from generating very large numbers and sequences. This
+      limitation helps protect against denial of service attacks.</p>
+<p>      In addition, these utility functions are available: <code>DateTime</code>,
+      <code>test</code>, and <code>same_type</code>. See <a href="../../OFSP/Help/dtml-funcs.html">DTML
+      functions</a> for more
+      information on these functions.</p>
+<p>      Finally, these functions are available in Python expressions,
+      but not in Python-based scripts:</p>
+<dl>
+<dt>      <code>path(string)</code></dt>
+<dd>Evaluate a TALES <a href="tales-path.html">path</a>
+      expression.</dd>
+<dt>      <code>string(string)</code></dt>
+<dd>Evaluate a TALES <a href="tales-string.html">string</a>
+      expression.</dd>
+<dt>      <code>exists(string)</code></dt>
+<dd>Evaluates a TALES <a href="tales-exists.html">exists</a>
+      expression.</dd>
+<dt>      <code>nocall(string)</code></dt>
+<dd>Evaluates a TALES <a href="tales-nocall.html">nocall</a>
+      expression.</dd>
+</dl>
+<h5>    Python Modules</h5>
+<p>      A number of Python modules are available by default. You can
+      make more modules available. You can access modules either via
+      path expressions (for example <code>modules/string/join</code>) or in
+      Python with the <code>modules</code> mapping object (for example
+      <code>modules["string"].join</code>). Here are the default modules:</p>
+<dl>
+<dt>      <code>string</code></dt>
+<dd>The standard <a href="http://www.python.org/doc/current/lib/module-string.html">Python string
+      module</a>. Note:
+      most of the functions in the module are also available as
+      methods on string objects.</dd>
+<dt>      <code>random</code></dt>
+<dd>The standard <a href="http://www.python.org/doc/current/lib/module-random.html">Python random
+      module</a>.</dd>
+<dt>      <code>math</code></dt>
+<dd>The standard <a href="http://www.python.org/doc/current/lib/module-math.html">Python math
+      module</a>.</dd>
+<dt>      <code>sequence</code></dt>
+<dd>A module with a powerful sorting function. See
+      <a href="../../OFSP/Help/sequence.html">sequence</a> for more information.</dd>
+<dt>      <code>Products.PythonScripts.standard</code></dt>
+<dd>Various HTML formatting
+      functions available in DTML. See
+      <a href="../../PythonScripts/Help/standard.html">Products.PythonScripts.standard</a>
+      for more information.</dd>
+<dt>      <code>ZTUtils</code></dt>
+<dd>Batch processing facilities similar to those
+      offered by <code>dtml-in</code>. See <a href="ZTUtils.html">ZTUtils</a>
+      for more information.</dd>
+<dt>      <code>AccessControl</code></dt>
+<dd>Security and access checking facilities. See
+      <a href="../../OFSP/Help/AccessControl.html">AccessControl</a> for more
+      information.</dd>
+</dl>
+<h4>  Examples</h4>
+<p>    Using a module usage (pick a random choice from a list):
+<pre>
+      &lt;span tal:replace="python:modules['random'].choice(['one', 
+                           'two', 'three', 'four', 'five'])"&gt;
+        a random number between one and five
+      &lt;/span&gt;
+</pre>
+</p>
+<p>    String processing (capitalize the user name):
+<pre>
+      &lt;p tal:content="python:user.getUserName().capitalize()"&gt;
+        User Name
+      &lt;/p&gt;
+</pre>
+</p>
+<p>    Basic math (convert an image size to megabytes):
+<pre>
+      &lt;p tal:content="python:image.getSize() / 1048576.0"&gt;
+        12.2323
+      &lt;/p&gt;
+</pre>
+</p>
+<p>    String formatting (format a float to two decimal places):
+<pre>
+      &lt;p tal:content="python:'%0.2f' % size"&gt;
+        13.56
+      &lt;/p&gt;
+</pre>
+</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tales-python.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:16 GMT -->
+</html>

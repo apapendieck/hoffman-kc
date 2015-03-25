@@ -1,0 +1,76 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PythonScripts/Help/Bindings.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Script (Python)</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Bindings View: View/Change Script Bindings</h3>
+<h4>    Description</h4>
+<p>        This view allows you to set "bindings" (associations between a
+        name and a Zope object) in the context of a single Script.
+        These names can be used within the Script to refer to objects
+        outside the script.</p>
+<h4>    Controls</h4>
+<dl>
+<dt>        <code>Context</code></dt>
+<dd>associate a name with the acqusition parent of
+         the script when it is invoked.  The default name for this
+         binding is "context".</dd>
+<dt>        <code>Container</code></dt>
+<dd>associate a name with the physical parent
+         container of the script when it is invoked.  The default name
+         for this binding is "container".</dd>
+<dt>        <code>Script</code></dt>
+<dd>associate a name with the script object itself.
+        There is no default name for this binding.</dd>
+<dt>        <code>Namespace</code></dt>
+<dd>associate a name with the DTML "namespace"
+        object.  When this script is called from DTML, the namespace
+        name will be bound to the DTML namespace object, otherwise it
+        will be bound to an empty namespace.  There is no default name
+        for this binding.</dd>
+<dt>        <code>Subpath</code></dt>
+<dd>associate a name with the portion of the URL path
+        after the script's name if the script is called directly via a
+        URL.  The subpath is represented as a list of strings split a
+        slash separators if the script is called directly from a URL.
+        Otherwise, the subpath is an empty list.  The default name for
+        this binding is "traverse_subpath".</dd>
+<dt>        <code>Save Changes</code></dt>
+<dd>saves changes made to the elements of this form.</dd>
+</dl>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PythonScripts/Help/Bindings.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:26 GMT -->
+</html>

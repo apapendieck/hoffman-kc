@@ -1,0 +1,84 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/CMFDefault/Help/Syndication-Tool_Overview.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>CMF Default Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>SyndicationTool - Overview: CMF Syndication Overview.</h3>
+<h4>  Description</h4>
+<p>    The SyndicationTool allows for sitewide syndication of content in folders
+    (or folder-like objects which support the synContentValues interface).
+    Currently on the SyndicationTool the following features are present:
+<ol>
+<li>  Enable/disable sitewide syndication.</li>
+<li>  Override my Syndicaiton Element defaults on the Properties 
+        management form.</li>
+
+</ol>
+</p>
+<p>    Once sitewide syndication has been enabled, the Syndication action on
+    folders is enabled, allowing syndication for a specific folder to be 
+    enabled.  This is to protect calling the RSS dtml method on folder 
+    contents one wishes to remain non-syndicated.  A <code>syndication_information</code>
+    object is set on the folder which acts as the <code>propertysheet</code> for over-
+    riding sitewide defaults for each particular syndication instance.</p>
+<p>    In the next revision of the SyndicationTool, the following features are
+    being planned:
+<ol>
+<li> Reimplementation of the manner properties are called on the 
+        SyndicationTool class and instance, as well as on the <code>syndication-
+        information</code> object.  A getElementProperty method will handle generic
+        grabing of properties.</li>
+<li>  Adding the ability to addElementProperties, to allow for easily
+        enabling additional XML namespaces to be incorporated on an instance
+        without requiring reimplementation of the SyndicationTool.</li>
+<li>  Default sitewide properties for the dublin core module support.</li>
+<li>  Sitewide enabling/disabling override switches for the supported
+        XML namespace module default values.</li>
+<li>  Sitewide/Folder level content filtering of content returned back
+        in the itemRSS DTML method to allow for selective content returned 
+        for the syndication.</li>
+<li>  Sort Order setting.  Allow the setting of how the content is sorted
+        in the syndication.</li>
+<li>  Add switch to disallow acquisition to disable sub-folder syndication
+        within an existing syndicated folder.</li>
+<li>  Other features are possible as users give feedback on the 
+        Syndication implementation.</li>
+
+</ol>
+</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/CMFDefault/Help/Syndication-Tool_Overview.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:23 GMT -->
+</html>

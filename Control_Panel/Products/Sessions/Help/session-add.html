@@ -1,0 +1,79 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/Sessions/Help/session-add.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Session Data Manager - Add</h3>
+<p>  A Zope Session Data Manager is responsible for maintaining a 
+  relationship between session data objects and Zope browser ids.
+  It is part of the Zope sessioning machinery.  Programmers will
+  sometimes interact with a session data manager in order to obtain
+  information about session data.</p>
+<p>  You can place a session data manager in any Zope container,as
+  long as a browser id manager object can be acquired from that
+  container.  The session data manager will use the first acquired
+  object named "browser_id_manager" as a browser id manager.</p>
+<p>  Choose "Session Data Manager" within the container you wish to
+  house the session data manager from the "Add" dropdown box in
+  the Zope management interface.</p>
+<h4>  The session data manager add form displays these options:</h4>
+<dl>
+<dt>    id</dt>
+<dd>choose an id for the session data manager</dd>
+<dt>    title</dt>
+<dd>choose a title for the session data manager</dd>
+<dt>    transient object container path</dt>
+<dd>the path in Zope to a transient object container which will
+    store the actual session data.  This path is 
+    /temp_folder/transient_container in a default Zope installation.</dd>
+<dt>    place SESSION in REQUEST as</dt>
+<dd>If set, the REQUEST variable will be populated with the session
+    object, stored as the given name (default is <code>SESSION</code>)</dd>
+</dl>
+<p>  After reviewing and changing these options, click the "Add"
+  button to instantiate a session data manager.</p>
+<p>  You can manage a session data manager by visiting it in the
+  management interface.  You may change all options available
+  during the add process by doing this.</p>
+<h3>See Also</h3>
+
+<ul>
+<li><a href="SessionInterfaces.html">Session API</a></li>
+
+</ul>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/Sessions/Help/session-add.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+</html>

@@ -1,0 +1,78 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/ZSQLMethods/Help/Z-SQL-Method_Add.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<p>Z SQL Method - Add: Create new Z SQL Method</p>
+<h3>Description</h3>
+<p>    This view allows you to create a new Z SQL Method.</p>
+<h3>Controls</h3>
+<dl>
+<dt>    <code>ID</code></dt>
+<dd>Specifies the id of the sql method.</dd>
+<dt>    <code>Title</code></dt>
+<dd>Specifies the title of the sql method. </dd>
+<dt>    <code>Connection id</code></dt>
+<dd>Select list that specifies the database
+      connection on which the sql method operates.<p>      <strong>Note:</strong> If you change the ID of your DB Connection object, all
+      the Z SQL Methods using this connection object will <em>NOT</em> be
+      updated. You have to update all Methods one by one.</p>
+</dd>
+<dt>    <code>Arguments</code></dt>
+<dd>Allows you to specify a list of arguments that the sql 
+      method takes. The arguments should be separated by spaces or
+      a newline in the field. Furthermore, you can specify the 
+      type of the argument as well as a default 
+      value.<p>      <strong>Example:</strong> <code>title:string="No title!"</code>, where <code>title</code> is the
+      attribute, <code>string</code> is the type of the attribute, and <code>"No
+      title!"</code> is the default value.</p>
+</dd>
+<dt>    <code>Query template</code></dt>
+<dd><p>      Text area that specifies the SQL query that will execute when
+      this method is called.  The query template can contain DTML
+      markup to tailor the SQL statement to the arguments.  There are
+      three additional DTML tags called <code>SQLVAR</code>, <code>SQLTEST</code>, and
+      <code>SQLGROUP</code>. Please refer to their references get more details on
+      how to use them in your SQL statement.</p>
+<p>      <strong>Note:</strong> the SQL statement need not be a <code>SELECT</code> query, it may
+      be any valid SQL statement including an INSERT or UPDATE.</p>
+<p>      <strong>Important:</strong> You can have several SQL statements in one ZSQL
+      Method.</p>
+</dd>
+</dl>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/ZSQLMethods/Help/Z-SQL-Method_Add.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:43 GMT -->
+</html>

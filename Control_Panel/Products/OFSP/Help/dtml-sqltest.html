@@ -1,0 +1,120 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-sqltest.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>sqltest: Formats SQL condition tests</h3>
+<p>  The <code>sqltest</code> tag inserts a condition test into SQL code. It tests a
+  column against a variable. This tag is used in SQL Methods.</p>
+<h4>  Syntax</h4>
+<p>    <code>sqltest</code> tag syntax:
+<pre>
+      &lt;dtml-sqltest Variable|expr="VariableExpression"&gt;
+</pre>
+</p>
+<p>    The <code>sqltest</code> tag is a singleton. It inserts a SQL condition test
+    statement. It is used to build SQL queries. The <code>sqltest</code> tag
+    correctly escapes the inserted variable. The named variable or
+    variable expression is tested against a SQL column using the
+    specified comparison operation.</p>
+<h4>  Attributes</h4>
+<dl>
+<dt>    type=string</dt>
+<dd>The type of the variable. Valid types include:
+    <code>string</code>, <code>int</code>, <code>float</code> and <code>nb</code>. <code>nb</code> means non-blank string,
+    and should be used instead of <code>string</code> unless you want to test for
+    blank values. The type attribute is required and is used to
+    properly escape inserted variable.</dd>
+<dt>    column=string</dt>
+<dd>The name of the SQL column to test against. This
+    attribute defaults to the variable name.</dd>
+<dt>    multiple=boolean</dt>
+<dd>If true, then the variable may be a sequence
+    of values to test the column against.</dd>
+<dt>    optional=boolean</dt>
+<dd>If true, then the test is optional and will
+    not be rendered if the variable is empty or non-existent.</dd>
+<dt>    op=string</dt>
+<dd>The comparison operation. Valid comparisons include: <dl>
+<dt>      eq</dt>
+<dd>equal to</dd>
+<dt>      gt</dt>
+<dd>greater than</dd>
+<dt>      lt</dt>
+<dd>less than</dd>
+<dt>      ne</dt>
+<dd>not equal to</dd>
+<dt>      ge</dt>
+<dd>greater than or equal to</dd>
+<dt>      le</dt>
+<dd>less than or equal to</dd>
+</dl>
+<p>      The comparison defaults to equal to. If the comparison is not
+      recognized it is used anyway. Thus you can use comparisons such
+      as <code>like</code>.</p>
+</dd>
+</dl>
+<h4>  Examples</h4>
+<p>    Basic usage:
+<pre>
+      select * from employees
+        where &lt;dtml-sqltest name type="nb"&gt;
+</pre>
+</p>
+<p>    If the <code>name</code> variable is <code>Bob</code> then this renders:
+<pre>
+      select * from employees
+        where name = 'Bob'
+</pre>
+</p>
+<p>    Multiple values:
+<pre>
+      select * from employees
+        where &lt;dtml-sqltest empid type=int multiple&gt;
+</pre>
+</p>
+<p>    If the <code>empid</code> variable is <code>(12,14,17)</code> then this renders:
+<pre>
+      select * from employees
+        where empid in (12, 14, 17)
+</pre>
+</p>
+<h4>  See Also</h4>
+<p>    <a href="dtml-sqlgroup.html">sqlgroup tag</a></p>
+<p>    <a href="dtml-sqlvar.html">sqlvar tag</a></p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-sqltest.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+</html>

@@ -1,0 +1,323 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-in.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>in: Loops over sequences</h3>
+<p>  The <code>in</code> tag gives you powerful controls for looping over sequences
+  and performing batch processing.</p>
+<h4>  Syntax</h4>
+<p>    <code>in</code> tag syntax:
+<pre>
+      &lt;dtml-in SequenceVariable|expr="SequenceExpression"&gt;
+      [&lt;dtml-else&gt;]
+      &lt;/dtml-in&gt;
+</pre>
+</p>
+<p>    The <code>in</code> block is repeated once for each item in the sequence
+    variable or sequence expression. The current item is pushed on to
+    the DTML namespace during each executing of the <code>in</code> block.</p>
+<p>    If there are no items in the sequence variable or expression, the
+    optional <code>else</code> block is executed.</p>
+<h4>  Attributes</h4>
+<dl>
+<dt>    mapping</dt>
+<dd>Iterates over mapping objects rather than
+    instances. This allows values of the mapping objects to be
+    accessed as DTML variables.</dd>
+<dt>    no_push_item</dt>
+<dd>Inhibit pushing sequence-item onto the namespace
+    stack.</dd>
+<dt>    reverse</dt>
+<dd>Reverses the sequence.</dd>
+<dt>    sort=string</dt>
+<dd>Sorts the sequence by the given attribute name.</dd>
+<dt>    start=int</dt>
+<dd>The number of the first item to be shown, where
+    items are numbered from 1.</dd>
+<dt>    end=int</dt>
+<dd>The number of the last item to be shown, where items
+    are numbered from 1.</dd>
+<dt>    size=int</dt>
+<dd>The size of the batch.</dd>
+<dt>    skip_unauthorized</dt>
+<dd>Don't raise an exception if an unauthorized
+    item is encountered.</dd>
+<dt>    orphan=int</dt>
+<dd>The desired minimum batch size. This controls how
+    sequences are split into batches. If a batch smaller than the
+    orphan size would occur, then no split is performed, and a batch
+    larger than the batch size results.<p>      For example, if the sequence size is 12, the batch size is 10
+      the orphan size is 3, then the result is one batch with all 12
+      items since splitting the items into two batches would result in
+      a batch smaller than the orphan size.</p>
+<p>      The default value is 0.</p>
+</dd>
+<dt>    overlap=int</dt>
+<dd>The number of items to overlap between batches. The
+    default is no overlap.</dd>
+<dt>    previous</dt>
+<dd>Iterates once if there is a previous batch. Sets batch
+    variables for previous sequence. </dd>
+<dt>    next</dt>
+<dd>Iterates once if there is a next batch. Sets batch variables
+    for the next sequence.</dd>
+<dt>    prefix=string</dt>
+<dd>Provide versions of the tag variables that start
+    with this prefix instead of "sequence", and that use underscores
+    (<u>) instead of hyphens (-).  The prefix must start with a letter and
+    contain only alphanumeric characters and underscores (</u>).</dd>
+<dt>    sort_expr=expression</dt>
+<dd>Sorts the sequence by an attribute named
+    by the value of the expression. This allows you to sort on
+    different attributes.</dd>
+<dt>    reverse_expr=expression</dt>
+<dd>Reverses the sequence if the expression
+    evaluates to true. This allows you to selectively reverse the
+    sequence.</dd>
+</dl>
+<h4>  Tag Variables</h4>
+<h5>    Current Item Variables</h5>
+<p>      These variables describe the
+      current item.<dl>
+<dt>        sequence-item</dt>
+<dd>The current item.</dd>
+<dt>        sequence-key</dt>
+<dd>The current key. When looping over tuples of the
+        form <code>(key,value)</code>, the <code>in</code> tag interprets them as
+        <code>(sequence-key, sequence-item)</code>. </dd>
+<dt>        sequence-index</dt>
+<dd>The index starting with 0 of the current item.</dd>
+<dt>        sequence-number</dt>
+<dd>The index starting with 1 of the current item.</dd>
+<dt>        sequence-roman</dt>
+<dd>The index in lowercase Roman numerals of the
+        current item.</dd>
+<dt>        sequence-Roman</dt>
+<dd>The index in uppercase Roman numerals of the
+        current item.</dd>
+<dt>        sequence-letter</dt>
+<dd>The index in lowercase letters of the current
+        item.</dd>
+<dt>        sequence-Letter</dt>
+<dd>The index in uppercase letters of the current
+        item.</dd>
+<dt>        sequence-start</dt>
+<dd>True if the current item is the first item.</dd>
+<dt>        sequence-end</dt>
+<dd>True if the current item is the last item.</dd>
+<dt>        sequence-even</dt>
+<dd>True if the index of the current item is even.</dd>
+<dt>        sequence-odd</dt>
+<dd>True if the index of the current item is odd.</dd>
+<dt>        sequence-length</dt>
+<dd>The length of the sequence.</dd>
+<dt>        sequence-var-<em>variable</em></dt>
+<dd>A variable in the current item. For
+        example, <code>sequence-var-title</code> is the <code>title</code> variable of the
+        current item. Normally you can access these variables directly
+        since the current item is pushed on the DTML namespace. However
+        these variables can be useful when displaying previous and next
+        batch information.</dd>
+<dt>        sequence-index-<em>variable</em></dt>
+<dd>The index of a variable of the
+        current item.</dd>
+</dl>
+</p>
+<h5>    Summary Variables</h5>
+<p>      These variable summarize information about numeric item
+      variables. To use these variable you must loop over objects
+      (like database query results) that have numeric variables.<dl>
+<dt>        total-<em>variable</em></dt>
+<dd>The total of all occurrences of an item variable. </dd>
+<dt>        count-<em>variable</em></dt>
+<dd>The number of occurrences of an item variable.</dd>
+<dt>        min-<em>variable</em></dt>
+<dd>The minimum value of an item variable.</dd>
+<dt>        max-<em>variable</em></dt>
+<dd>The maximum value of an item variable.</dd>
+<dt>        mean-<em>variable</em></dt>
+<dd>The mean value of an item variable.</dd>
+<dt>        variance-<em>variable</em></dt>
+<dd>The variance of an item variable with
+        count-1 degrees of freedom. </dd>
+<dt>        variance-n-<em>variable</em></dt>
+<dd>The variance of an item variable with
+        n degrees of freedom. </dd>
+<dt>        standard-deviation-<em>variable</em></dt>
+<dd>The standard-deviation of an
+        item variable with count-1 degrees of freedom.</dd>
+<dt>        standard-deviation-n-<em>variable</em></dt>
+<dd>The standard-deviation of
+        an item variable with n degrees of freedom.</dd>
+</dl>
+</p>
+<h5>    Grouping Variables</h5>
+<p>      These variables allow you to track changes in current item
+      variables.<dl>
+<dt>        first-<em>variable</em></dt>
+<dd>True if the current item is the first with
+        a particular value for a variable.</dd>
+<dt>        last-<em>variable</em></dt>
+<dd>True if the current item is the last with a
+        particular value for a variable.</dd>
+</dl>
+</p>
+<h5>    Batch Variables</h5>
+<dl>
+<dt>      sequence-query</dt>
+<dd>The query string with the <code>start</code> variable
+      removed. You can use this variable to construct links to next
+      and previous batches.</dd>
+<dt>      sequence-step-size</dt>
+<dd>The batch size.</dd>
+<dt>      previous-sequence</dt>
+<dd>True if the current batch is not the
+      first one. Note, this variable is only true for the first loop
+      iteration. </dd>
+<dt>      previous-sequence-start-index</dt>
+<dd>The starting index of the
+      previous batch.</dd>
+<dt>      previous-sequence-start-number</dt>
+<dd>The starting number of the
+      previous batch. Note, this is the same as
+      <code>previous-sequence-start-index</code> + 1.</dd>
+<dt>      previous-sequence-end-index</dt>
+<dd>The ending index of the previous
+      batch. </dd>
+<dt>      previous-sequence-end-number</dt>
+<dd>The ending number of the
+      previous batch. Note, this is the same as
+      <code>previous-sequence-end-index</code> + 1.</dd>
+<dt>      previous-sequence-size</dt>
+<dd>The size of the previous batch.</dd>
+<dt>      previous-batches</dt>
+<dd>A sequence of mapping objects with
+      information about all previous batches. Each mapping object has
+      these keys <code>batch-start-index</code>, <code>batch-end-index</code>, and
+      <code>batch-size</code>.</dd>
+<dt>      next-sequence</dt>
+<dd>True if the current batch is not the last
+      batch. Note, this variable is only true for the last loop
+      iteration. </dd>
+<dt>      next-sequence-start-index</dt>
+<dd>The starting index of the next
+      sequence. </dd>
+<dt>      next-sequence-start-number</dt>
+<dd>The starting number of the next
+      sequence. Note, this is the same as <code>next-sequence-start-index</code>
+      + 1.</dd>
+<dt>      next-sequence-end-index</dt>
+<dd>The ending index of the next
+      sequence. </dd>
+<dt>      next-sequence-end-number</dt>
+<dd>The ending number of the next
+      sequence. Note, this is the same as <code>next-sequence-end-index</code>
+      + 1.</dd>
+<dt>      next-sequence-size</dt>
+<dd>The size of the next index.</dd>
+<dt>      next-batches</dt>
+<dd>A sequence of mapping objects with information
+      about all following batches. Each mapping object has these keys
+      <code>batch-start-index</code>, <code>batch-end-index</code>, and <code>batch-size</code>.</dd>
+</dl>
+<h4>  Examples</h4>
+<p>    Looping over sub-objects:
+<pre>
+      &lt;dtml-in objectValues&gt;
+        title: &lt;dtml-var title&gt;&lt;br&gt;
+      &lt;/dtml-in&gt;
+</pre>
+</p>
+<p>    Looping over two sets of objects, using prefixes:
+<pre>
+      &lt;dtml-let rows="(1,2,3)" cols="(4,5,6)"&gt;
+        &lt;dtml-in rows prefix="row"&gt;
+          &lt;dtml-in cols prefix="col"&gt;
+            &lt;dtml-var expr="row_item * col_item"&gt;&lt;br&gt;
+            &lt;dtml-if col_end&gt;
+              &lt;dtml-var expr="col_total_item * row_mean_item"&gt;
+            &lt;/dtml-if&gt;
+          &lt;/dtml-in&gt;
+        &lt;/dtml-in&gt;
+      &lt;/dtml-let&gt;
+</pre>
+</p>
+<p>    Looping over a list of <code>(key, value)</code> tuples:
+<pre>
+      &lt;dtml-in objectItems&gt;
+        id: &lt;dtml-var sequence-key&gt;, title: &lt;dtml-var title&gt;&lt;br&gt;
+      &lt;/dtml-in&gt; 
+</pre>
+</p>
+<p>    Creating alternate colored table cells:
+<pre>
+      &lt;table&gt;
+      &lt;dtml-in objectValues&gt;
+      &lt;tr &lt;dtml-if sequence-odd&gt;bgcolor="#EEEEEE"
+          &lt;dtml-else&gt;bgcolor="#FFFFFF"
+          &lt;/dtml-if&gt;
+        &lt;td&gt;&lt;dtml-var title&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;/dtml-in&gt;
+      &lt;/table&gt;
+</pre>
+</p>
+<p>    Basic batch processing:
+<pre>
+      &lt;p&gt;
+      &lt;dtml-in largeSequence size=10 start=start previous&gt;
+        &lt;a href="&lt;dtml-var absolute_url&gt;&lt;dtml-var sequence-query&gt;start=&lt;dtml-var previous-sequence-start-number&gt;"&gt;Previous&lt;/a&gt;
+      &lt;/dtml-in&gt;
+
+      &lt;dtml-in largeSequence size=10 start=start next&gt;
+        &lt;a href="&lt;dtml-var absolute_url&gt;&lt;dtml-var sequence-query&gt;start=&lt;dtml-var next-sequence-start-number&gt;"&gt;Next&lt;/a&gt;
+      &lt;/dtml-in&gt;
+      &lt;/p&gt;
+
+      &lt;p&gt;
+      &lt;dtml-in largeSequence size=10 start=start&gt;
+        &lt;dtml-var sequence-item&gt;
+      &lt;/dtml-in&gt;
+      &lt;/p&gt;
+</pre>
+</p>
+<p>    This example creates <em>Previous</em> and <em>Next</em> links to navigate
+    between batches. Note, by using <code>sequence-query</code>, you do not lose
+    any GET variables as you navigate between batches.</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-in.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+</html>

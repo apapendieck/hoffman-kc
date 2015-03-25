@@ -1,0 +1,83 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/CMFCore/Help/Actions.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>CMF Core Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>CMFCore - Actions</h3>
+<p>  Actions generate links to views of content, or to specific methods
+  of the site.  They can be filtered via their conditions.</p>
+<p>  The <code>Actions</code> tab is the place to add or modify actions. The following
+  fields are available to describe an action:
+<ul>
+<li><code>Title</code> -- The freely selectable title will show up as the link
+      text for the linked action in the portal.</li>
+<li><code>Id</code> -- An ID uniquely identifies an action in its action category
+      (see below) and thus should be unique among the other action IDs in
+      the same category.</li>
+<li><code>URL (Expression)</code> -- A TALES expression that is used to construct
+      the link target for the action. The following bound names are
+      available to your expression:
+<ul>
+<li><code>object</code> -- The current object</li>
+<li><code>object_url</code> -- The URL for the current object</li>
+<li><code>folder</code> -- The current object's containing folder</li>
+<li><code>folder_url</code> -- The URL for the current object's containing folder</li>
+<li><code>portal</code> -- The portal object</li>
+<li><code>portal_url</code> -- The URL for the portal</li>
+<li><code>isAnonymous</code> -- A boolean evaluating to a truth value if the
+          current user is an anonymous site visitor and false if the user is
+          authenticated</li>
+<li><code>user_id</code> -- The current user's ID</li>
+
+</ul>
+</li>
+<li><code>Condition (Expression)</code> -- A TALES expression that determines whether
+      the described action should be shown or not. The expression namespace 
+      contains the same members as described under <code>URL (Expression)</code></li>
+<li><code>Permission</code> -- Select a permission to limit the action to visitors who
+      have the selected permission</li>
+<li><code>Category</code> -- The action category, which is used to subdivide the
+      available actions into logical groups. The category can be arbitrary or
+      one of the commonly-used categories, such as <code>object</code> or <code>folder</code> etc.</li>
+<li><code>Visible</code> -- Toggle to enable or disable showing the action link in case
+      the Permission and Condition restrictions are met, but the action is not
+      supposed to show up at all.</li>
+
+</ul>
+</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/CMFCore/Help/Actions.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:07 GMT -->
+</html>

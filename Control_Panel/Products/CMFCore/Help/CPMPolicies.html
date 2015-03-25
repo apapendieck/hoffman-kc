@@ -1,0 +1,90 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/CMFCore/Help/CPMPolicies.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>CMF Core Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Cache Policy Manager - Policies</h3>
+<h4>  A cache policy represent a single class of cachable objects:</h4>
+
+<ul>
+<li>class membership is defined by <code>predicate</code>, a TALES expression
+      with access to the following top-level names:<dl>
+<dt>      <code>object</code></dt>
+<dd>the object itself</dd>
+<dt>      <code>view</code></dt>
+<dd>the name of the view method</dd>
+<dt>      <code>keywords</code></dt>
+<dd>keywords passed to the request</dd>
+<dt>      <code>request</code></dt>
+<dd>the REQUEST object itself</dd>
+<dt>      <code>member</code></dt>
+<dd>the authenticated member, or None if anonymous</dd>
+<dt>      <code>modules</code></dt>
+<dd>usual TALES access-with-import</dd>
+<dt>      <code>nothing</code></dt>
+<dd>None</dd>
+<dt>      <code>time</code></dt>
+<dd>A DateTime object for the current date and time</dd>
+</dl>
+</li>
+<li>The "Last-modified" HTTP response header will be set using
+      <code>mtime_func</code>, which is another TALES expression evaluated
+      against the same namespace.  If not specified explicitly,
+      uses <code>object/modified</code>.</li>
+<li>The "Expires" HTTP response header and the "max-age" token of
+      the "Cache-control" header will be set using <code>max_age_secs</code>,
+      if passed;  it should be an integer value in seconds.</li>
+<li>The "Vary" HTTP response headers will be set if a value is
+      provided. The Vary header is described in RFC 2616. In essence,
+      it instructs caches that respect this header (such as Squid
+      after version 2.4) to distinguish between requests not just by
+      the request URL, but also by values found in the headers showing
+      in the Vary tag. "Vary: Cookie" would force Squid to also take
+      Cookie headers into account when deciding what cached object to
+      choose and serve in response to a request.</li>
+<li>The "ETag" HTTP response header will be set if a value is
+      provided. The value is a TALES expression and the result
+      after evaluation will be used as the ETag header value.</li>
+<li>Other tokens will be added to the "Cache-control" HTTP response
+      header as follows:<p>       <code>no_cache=1</code> argument => "no-cache" token</p>
+<p>       <code>no_store=1</code> argument => "no-store" token</p>
+<p>       <code>must_revalidate=1</code> argument => "must-revalidate" token</p>
+</li>
+
+</ul>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/CMFCore/Help/CPMPolicies.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:07 GMT -->
+</html>

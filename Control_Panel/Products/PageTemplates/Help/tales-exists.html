@@ -1,0 +1,64 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tales-exists.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>TALES Exists expressions</h3>
+<h4>  Syntax</h4>
+<p>    Exists expression syntax:
+<pre>
+      exists_expressions ::= 'exists:' path_expression
+</pre>
+</p>
+<h4>  Description</h4>
+<p>    Exists expressions test for the existence of paths.  An exists
+    expression returns true when the path expressions following it
+    expression returns a value. It is false when the path expression
+    cannot locate an object.</p>
+<h4>  Examples</h4>
+<p>    Testing for the existence of a form variable:
+<pre>
+      &lt;p tal:condition="not:exists:request/form/number"&gt;
+        Please enter a number between 0 and 5
+      &lt;/p&gt;
+</pre>
+</p>
+<p>    Note that in this case you can't use the expression,
+    <code>not:request/form/number</code>, since that expression will be true if
+    the <code>number</code> variable exists and is zero.</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/tales-exists.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+</html>

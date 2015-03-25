@@ -1,0 +1,191 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-var.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>var: Inserts a variable</h3>
+<p>  The <code>var</code> tags allows you insert variables into
+  DTML output.</p>
+<h4>  Syntax</h4>
+<p>    <code>var</code> tag syntax:
+<pre>
+      &lt;dtml-var Variable|expr="Expression"&gt;
+</pre>
+</p>
+<p>    The <code>var</code> tag is a singleton tag.  The <code>var</code> tag finds a variable
+    by searching the DTML namespace which usually consists of current
+    object, the current object's containers, and finally the web
+    request.  If the variable is found, it is inserted into the DTML
+    output. If not found, Zope raises an error.</p>
+<p>    <code>var</code> tag entity syntax:
+<pre>
+      &amp;dtml-variableName;
+</pre>
+</p>
+<p>    Entity syntax is a short cut which inserts and HTML quotes the
+    variable. It is useful when inserting variables into HTML
+    tags.</p>
+<p>    <code>var</code> tag entity syntax with attributes:
+<pre>
+      &amp;dtml.attribute1[.attribute2]...-variableName;
+</pre>
+</p>
+<p>    To a limited degree you may specify attributes with the entity
+    syntax. You may include zero or more attributes delimited by
+    periods. You cannot provide arguments for attributes using the
+    entity syntax. If you provide zero or more attributes, then the
+    variable is not automatically HTML quoted. Thus you can avoid HTML
+    quoting with this syntax, <code>&amp;dtml.-variableName;</code>.</p>
+<h4>  Attributes</h4>
+<dl>
+<dt>    html_quote</dt>
+<dd>Convert characters that have special meaning in
+    HTML to HTML character entities.</dd>
+<dt>    missing=string</dt>
+<dd>Specify a default value in case Zope cannot find
+    the variable.</dd>
+<dt>    fmt=string</dt>
+<dd>Format a variable. Zope provides a few built-in
+    formats including C-style format strings. For more information on
+    C-style format strings see the <a href="http://www.python.org/doc/current/lib/typesseq-strings.html">Python Library
+    Reference</a>
+    If the format string is not a built-in format, then it is assumed
+    to be a method of the object, and it called.<dl>
+<dt>      whole-dollars</dt>
+<dd>Formats the variable as dollars.</dd>
+<dt>      dollars-and-cents</dt>
+<dd>Formats the variable as dollars and cents.</dd>
+<dt>      collection-length</dt>
+<dd>The length of the variable, assuming it is
+      a sequence.</dd>
+<dt>      structured-text</dt>
+<dd>Formats the variable as Structured Text. For
+      more information on Structured Text see <a href="http://www.zope.org/Members/millejoh/structuredText">Structured Text
+      How-To</a> on
+      the Zope.org web site.</dd>
+</dl>
+</dd>
+<dt>    null=string</dt>
+<dd>A default value to use if the variable is None.</dd>
+<dt>    lower</dt>
+<dd>Converts upper-case letters to lower case. </dd>
+<dt>    upper</dt>
+<dd>Converts lower-case letters to upper case. </dd>
+<dt>    capitalize</dt>
+<dd>Capitalizes the first character of the inserted
+    word. </dd>
+<dt>    spacify</dt>
+<dd>Changes underscores in the inserted value to spaces.</dd>
+<dt>    thousands_commas</dt>
+<dd>Inserts commas every three
+    digits to the left of a decimal point in values containing
+    numbers for example <code>12000</code> becomes <code>12,000</code>.</dd>
+<dt>    url</dt>
+<dd>Inserts the URL of the object, by calling its
+    <code>absolute_url</code> method.</dd>
+<dt>    url_quote</dt>
+<dd>Converts characters that have special meaning in
+    URLs to HTML character entities.</dd>
+<dt>    url_quote_plus</dt>
+<dd>URL quotes character, like <code>url_quote</code> but also
+    converts spaces to plus signs.</dd>
+<dt>    url_unquote</dt>
+<dd>Converts HTML <code>%xx</code> escapes into their single
+    character values (ie: undoes the effects of url_quote).</dd>
+<dt>    url_unquote_plus</dt>
+<dd>Like url_unquote, but also replaces <code>+</code>
+    characters with spaces (ie: undoes the effects of url_quote_plus).</dd>
+<dt>    sql_quote</dt>
+<dd>Converts single quotes to pairs of single
+    quotes. This is needed to safely include values in SQL strings.</dd>
+<dt>    newline_to_br</dt>
+<dd>Convert newlines (including carriage returns) to
+    HTML break tags.</dd>
+<dt>    size=arg</dt>
+<dd>Truncates the variable at the given length
+    (Note: if a space occurs in the second half of the truncated
+    string, then the string is further truncated to the right-most space).</dd>
+<dt>    etc=arg</dt>
+<dd>Specifies a string to add to the end of a string
+    which has been truncated (by setting the <code>size</code> attribute listed
+    above).  By default, this is <code>...</code></dd>
+</dl>
+<h4>  Examples</h4>
+<p>    Inserting a simple variable into a document:
+<pre>
+      &lt;dtml-var standard_html_header&gt;
+</pre>
+</p>
+<p>    Truncation:
+<pre>
+      &lt;dtml-var colors size=10 etc=", etc."&gt;
+</pre>
+</p>
+<p>    will produce the following output if <em>colors</em> is the string 'red
+    yellow green':
+<pre>
+      red yellow, etc.
+</pre>
+</p>
+<p>    C-style string formatting:
+<pre>
+      &lt;dtml-var expr="23432.2323" fmt="%.2f"&gt;
+</pre>
+</p>
+<p>    renders to:
+<pre>
+      23432.23
+</pre>
+</p>
+<p>    Inserting a variable, <em>link</em>, inside an HTML <code>A</code> tag with the entity
+    syntax:
+<pre>
+      &lt;a href="&amp;dtml-link;"&gt;Link&lt;/a&gt;
+</pre>
+</p>
+<p>    Inserting a link to a document <code>doc</code>, using entity syntax with
+    attributes:
+<pre>
+      &lt;a href="&amp;dtml.url-doc;"&gt;&lt;dtml-var doc fmt="title_or_id"&gt;&lt;/a&gt;
+</pre>
+</p>
+<p>    This creates an HTML link to an object using its URL and
+    title. This example calls the object's <code>absolute_url</code> method for
+    the URL (using the <code>url</code> attribute) and its <code>title_or_id</code> method
+    for the title.</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-var.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+</html>

@@ -1,0 +1,135 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/sequence.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<base  />
+
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+
+<h1>API Documentation</h1>
+
+
+
+<h3>sequence: Sequence sorting module</h3>
+<p>  This module provides a <code>sort</code> function for use with DTML, Page
+  Templates, and Python-based Scripts.</p>
+
+<hr noshade>
+
+
+    <a name="sort"></a>
+<h2 class="method">sort(seq,
+sort):
+</h2>
+
+<dl><dd>
+<p>Sort the sequence <em>seq</em> of objects by the optional sort schema
+<em>sort</em>.  <em>sort</em> is a sequence of tuples <code>(key, func, direction)</code>
+that describe the sort order.</p>
+<dl>
+<dt>key</dt>
+<dd>Attribute of the object to be sorted.</dd>
+<dt>func</dt>
+<dd>Defines the compare function (optional).  Allowed values:<dl>
+<dt>  "cmp"</dt>
+<dd>Standard Python comparison function</dd>
+<dt>  "nocase"</dt>
+<dd>Case-insensitive comparison</dd>
+<dt>  "strcoll" or "locale"</dt>
+<dd>Locale-aware string comparison</dd>
+<dt>  "strcoll_nocase" or "locale_nocase"</dt>
+<dd>Locale-aware
+  case-insensitive string comparison</dd>
+<dt>  other</dt>
+<dd>A specified, user-defined comparison function, should
+  return 1, 0, -1.</dd>
+<dt>  direction</dt>
+<dd>defines the sort direction for the key (optional).
+  (allowed values: "asc", "desc")</dd>
+</dl>
+</dd>
+</dl>
+<h3>DTML Examples</h3>
+<p>  Sort child object (using the <code>objectValues</code> method) by id (using
+  the <code>getId</code> method), ignoring case:
+<pre>
+    &lt;dtml-in expr="_.sequence.sort(objectValues(),
+                                   (('getId', 'nocase'),))"&gt;
+      &lt;dtml-var getId&gt; &lt;br&gt;
+    &lt;/dtml-in&gt;
+</pre>
+</p>
+<p>  Sort child objects by title (ignoring case) and date (from newest
+  to oldest):
+<pre>
+    &lt;dtml-in expr="_.sequence.sort(objectValues(),
+                                   (('title', 'nocase'),
+                                    ('bobobase_modification_time',
+                                    'cmp', 'desc')
+                                   ))"&gt;
+      &lt;dtml-var title&gt; &lt;dtml-var bobobase_modification_time&gt; &lt;br&gt;
+    &lt;/dtml-in&gt;
+</pre>
+</p>
+<h3>Page Template Examples</h3>
+<p>  You can use the <code>sequence.sort</code> function in Python expressions
+  to sort objects. Here's an example that mirrors the DTML example
+  above:
+<pre>
+    &lt;table tal:define="objects here/objectValues;
+                       sort_on python:(('title', 'nocase', 'asc'),
+                                       ('bobobase_modification_time', 'cmp', 'desc'));
+                       sorted_objects python:sequence.sort(objects, sort_on)"&gt;
+      &lt;tr tal:repeat="item sorted_objects"&gt;
+        &lt;td tal:content="item/title"&gt;title&lt;/td&gt;
+        &lt;td tal:content="item/bobobase_modification_time"&gt;
+          modification date&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+</pre>
+</p>
+<p>  This example iterates over a sorted list of object, drawing a
+  table row for each object. The objects are sorted by title and
+  modification time.</p>
+<h3>See Also</h3>
+<p>  <a href="http://www.python.org/doc/lib/built-in-funcs.html">Python cmp function</a></p>
+
+</dd></dl>
+
+  
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/sequence.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+</html>
+

@@ -1,0 +1,97 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/StandardCacheManagers/Help/RAM.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:27 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>StandardCacheManagers</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>  RAM Cache Managers</h3>
+<p>    For background information, see the
+    <a href="../../OFSP/Help/Caching.html">description of cache management</a>.</p>
+<p>    The RAM cache manager allows you to cache the result of calling 
+    expensive objects, such as Python Scripts and External Methods,
+    in memory.  It provides access statistics and simple configuration 
+    options.</p>
+<p>    Not all objects are appropriate for use with a RAM Cache Manager.
+    See the <strong>caveats</strong> section below.</p>
+<p>    Storing the result in memory results in the fastest possible cache
+    retrieval, but carries some risks.  Unconstrained, it can consume too
+    much RAM.  And it doesn't reduce network traffic, it only helps
+    Zope return a result more quickly.</p>
+<p>    Fortunately, RAM cache managers have tunable parameters.  You can
+    configure the threshold on the number of entries that should be in
+    the cache, which defaults to 1000.  Reduce it if the cache is taking
+    up too much memory or increase it if entries are being cleared too
+    often.</p>
+<p>    You can also configure the cleanup interval.  If the RAM cache is
+    fluctuating too much in memory usage, reduce the cleanup interval.</p>
+<p>    Finally, you can configure the list of REQUEST variables that will
+    be used in the cache key.  This can be a simple and effective way
+    to distinguish requests from authenticated versus anonymous users
+    or those with session cookies.</p>
+<p>    If you find that some of your objects need certain cache parameters
+    while others need somewhat different parameters, create multiple
+    RAM cache managers.</p>
+<p>    The <code>Statistics</code> tab allows you to view a summary of the contents
+    of the cache.  Click the column headers to re-sort the list, twice
+    to sort backwards.  You can use the statistics to gauge the
+    benefit of caching each of your objects.  For a given object, if
+    the number of hits is less than or not much greater than the number
+    of misses, you probably need to re-evaluate how that object is
+    cached.</p>
+<h3>   Caveats</h3>
+<p>    You should generally not cache the following with RAM Cache Manager:</p>
+
+<ul>
+<li>Images </li>
+<li>Files</li>
+<li>Complete web pages</li>
+
+</ul>
+<p>    Although Zope does not prevent you from doing so, 
+    it generally does not make sense to associate any of these objects
+    with a RAM cache manager.  The cache will simply not cache image or 
+    file data, since the data is already available in RAM.  </p>
+<p>    In addition, be careful with complete web pages.
+    The problem is that most cacheable objects will cache only their
+    return value; important out-of-band information such as the HTTP
+    response code is typically not cached. For example, if you cache 
+    a page which calls RESPONSE.redirect(), a client that gets
+    a cache hit will see an HTTP 200 response code instead
+    of the redirect.  </p>
+<p>    For all of the above objects, another kind of cache manager, an 
+    <em>accelerated HTTP cache manager</em>, is available and more suitable. </p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/StandardCacheManagers/Help/RAM.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:27 GMT -->
+</html>

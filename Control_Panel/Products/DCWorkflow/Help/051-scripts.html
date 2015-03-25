@@ -1,0 +1,58 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/DCWorkflow/Help/051-scripts.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>DCWorkflow</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Scripts Tab</h3>
+<p> Scripts are used to extend the workflow in various ways.  Scripts can
+ be External Methods, Python Scripts, DTML methods, or any other callable
+ Zope object.  They are accessible by name in expressions, eg:
+<pre>
+   scripts/myScript
+</pre>
+</p>
+<p> or:
+<pre>
+   python:scripts.myScript(arg1, arg2...) 
+</pre>
+</p>
+<p> From transitions, as before and after scripts, they are invoked with a
+ <code>state_change</code> object as the first argument; see the Expressions section
+ for more details on the <code>state_change</code> object.</p>
+<p> Objects under the scripts are managed in the usual ZMI fashion.</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/DCWorkflow/Help/051-scripts.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:24 GMT -->
+</html>

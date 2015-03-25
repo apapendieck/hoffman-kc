@@ -1,0 +1,130 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/CMFDefault/Help/CreateNewContent.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>CMF Default Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Use Case:  Create Content Object</h3>
+<h4>  Actor</h4>
+
+<ul>
+<li>Content Creator</li>
+
+</ul>
+<h4>  Assumptions</h4>
+
+<ul>
+<li>Content Creator has logged into the CMF (see <a href="LoginAsMember-2.html">Login to the
+      Site</a>).</li>
+
+</ul>
+<h4>  Procedure</h4>
+
+<ol>
+<li> Navigate to a location within CMF where you have rights to
+       add content.  For example, select <code>My Stuff</code> from your
+       navigation bar to create the content in your member folder.</li>
+<li> If needed, select the <code>Folder contents</code> link from the action
+       box.</li>
+<li> Click the "New" button.  The system will display the "Add
+       Content" page.  From the list of available content types<a href="#ref1">[1]</a>,
+       select the radio button corresponding to the type of content
+       which you wish to create.  Enter an appropriate ID<a href="#ref2">[2]</a> for
+       the new piece of content, and click the "Add" button.</li>
+<li> The system will create a new, empty content object of the
+       type you selected, and display the "Standard Resource Metadata"
+       edit form.  This form, common across all of the default
+       content types which come stock with the CMF, allows you to
+       enter specific metadata about your new content:<dl>
+<dt>       <strong>Title</strong></dt>
+<dd>A string used to identify your content.</dd>
+<dt>       <strong>Description</strong></dt>
+<dd>A short summary of the content.</dd>
+<dt>       <strong>Subject</strong></dt>
+<dd>A set of keywords, used for cataloging your content.</dd>
+</dl>
+<p>       The form provides three submit buttons, each of which saves
+       your content:</p>
+<dl>
+<dt>       <strong>Change</strong></dt>
+<dd>commits your changes and return to the metadata form.</dd>
+<dt>       <strong>Change and Edit</strong></dt>
+<dd>commits your changes and redirects to the edit form, which
+         will allow you to enter the "body" of your content.</dd>
+<dt>       <strong>Change and View</strong></dt>
+<dd>commit your changes and proceed to viewing your new piece
+         of content.</dd>
+</dl>
+</li>
+<li> Select "Change and Edit", and supply the initial content for
+       your object as follows:<dl>
+<dt>       <strong>Document</strong></dt>
+<dd>Enter the text for your object, as either Structured
+         Text<a href="#ref3">[3]</a> or HTML<a href="#ref4">[4]</a>.  You may either type or paste the text
+         into the textarea, or upload it from your computer.</dd>
+<dt>       <strong>News Item</strong></dt>
+<dd>Fill out the "Lead-in" and "Body" text areas.</dd>
+<dt>       <strong>File / Image</strong></dt>
+<dd>Upload the content from your computer.</dd>
+<dt>       <strong>Link / Favorite / Event</strong></dt>
+<dd>Fill out the form with appropriate values.</dd>
+</dl>
+<p>       Fill out the form and select the "Change" button to save your
+       content.</p>
+</li>
+<li> You may wish to continue with one of the workflow use cases:
+<ul>
+<li><a href="SubmitContentForReview.html">Submit Content for Review</a></li>
+<li><a href="PublishContent.html">Publish Content</a></li>
+
+</ul>
+</li>
+
+</ol>
+<h4>  Notes</h4>
+<p>   ..<a href="#ref1">[1]</a> see "Default CMF Content Types",DefaultContentTypes.stx.</p>
+<p>   ..<a href="#ref2">[2]</a> Don't confuse the content's ID with the its Title. ID's cannot
+         contain special characters (e.g., comma, asterisk, brackets,
+         parentheses, etc.)  A good practise is not to use spaces in
+         an ID either. The ID is used in the URL to reach the folder's
+         content, so any character which is not allowed in a URI is not
+         allowed in the id (see <a href="../../../../../www.ietf.org/rfc/rfc2396.txt">URI RFC</a>).</p>
+<p>   ..<a href="#ref3">[3]</a> See <a href="StructuredTextIntro.html">Structured Text Introduction</a></p>
+<p>   ..<a href="#ref4">[4]</a> The HTML you enter will have everything outside the BODY
+         tag stripped off;  the TITLE and META tags will be used, if
+         present, to update the content's metadata.</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/CMFDefault/Help/CreateNewContent.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:23 GMT -->
+</html>

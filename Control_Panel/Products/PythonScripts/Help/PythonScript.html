@@ -1,0 +1,321 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PythonScripts/Help/PythonScript.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<base  />
+
+<title>Script (Python)</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+
+<h1>API Documentation</h1>
+
+<h3>Classes</h3>
+<dl><dd>
+<h2 class="api">
+<a href="#PythonScript">PythonScript</a>
+</h2>
+</dd></dl>
+
+<h3>Functions</h3>
+<dl><dd>
+<h2 class="api">
+<a href="#manage_addPythonScript">manage_addPythonScript</a>
+</h2>
+</dd></dl>
+
+
+      <h2>Classes</h2>
+    <a name="PythonScript"></a>
+<h2 class="api">class
+  PythonScript(<a href="Script.html#Script">Script</a>)
+</h2>
+
+<dl>
+<dd>
+<p>Python Scripts contain python code that gets executed when you call the
+script by:
+<ul>
+<li>Calling the script through the web by going to its location with a
+    web browser.</li>
+<li>Calling the script from another script object.</li>
+<li>Calling the script from a method object, such as a DTML Method.</li>
+
+</ul>
+</p>
+<p>Python Scripts can contain a "safe" subset of the python language.
+Python Scripts must be safe because they can be potentially edited by
+many different users through an insecure medium like the web.  The
+following safety issues drive the need for secure Python Scripts:
+<ul>
+<li>Because many users can use Zope, a Python Script must make sure it
+    does not allow a user to do something they are not allowed to do,
+    like deleting an object they do not have permission to delete.
+    Because of this requirement, Python Scripts do many security checks
+    in the course of their execution.</li>
+<li>Because Python Scripts can be edited through the insecure medium of
+    the web, they are not allowed access to the Zope server's
+    file-system.  Normal Python builtins like <code>open</code> are, therefore,
+    not allowed.</li>
+<li>Because many standard Python modules break the above two security
+    restrictions, only a small subset of Python modules may be imported
+    into a Python Scripts with the "import" statement unless they have
+    been validated by Zope's security policy.  Currently, the following
+    standard python modules have been validated:
+<ul>
+<li>string</li>
+<li>math</li>
+<li>random</li>
+<li>Products.PythonScripts.standard</li>
+
+</ul>
+</li>
+<li>Because it allows you to execute arbitrary python code, the python
+    "exec" statement is not allowed in Python methods.</li>
+<li>Because they may represent or cause security violations, some
+    Python builtin functions are not allowed.  The following
+    Python builtins are not allowed:
+<ul>
+<li>open</li>
+<li>input</li>
+<li>raw_input</li>
+<li>eval</li>
+<li>execfile</li>
+<li>compile</li>
+<li>type</li>
+<li>coerce</li>
+<li>intern</li>
+<li>dir</li>
+<li>globals</li>
+<li>locals</li>
+<li>vars</li>
+<li>buffer</li>
+<li>reduce</li>
+
+</ul>
+</li>
+<li>Other builtins are restricted in nature.  The following builtins
+    are restricted:<dl>
+<dt>      range</dt>
+<dd>Due to possible memory denial of service attacks, the
+      range builtin is restricted to creating ranges less than 10,000
+      elements long.</dd>
+<dt>      filter, map, tuple, list</dt>
+<dd>For the same reason, builtins
+      that construct lists from sequences do not operate on strings.</dd>
+<dt>      getattr, setattr, delattr</dt>
+<dd>Because these may enable Python
+      code to circumvent Zope's security system, they are replaced with
+      custom, security constrained versions.</dd>
+</dl>
+</li>
+<li>In order to be consistent with the Python expressions
+    available to DTML, the builtin functions are augmented with a
+    small number of functions and a class:
+<ul>
+<li>test</li>
+<li>namespace</li>
+<li>render</li>
+<li>same_type</li>
+<li>DateTime</li>
+
+</ul>
+</li>
+<li>Because the "print" statement cannot operate normally in Zope,
+    its effect has been changed.  Rather than sending text to
+    stdout, "print" appends to an internal variable.  The special
+    builtin name "printed" evaluates to the concatenation of all
+    text printed so far during the current execution of the
+    script.</li>
+
+</ul>
+</p>
+
+</dd>
+</dl>
+
+<hr>
+<h3>Product Constructor</h3>
+      <a name="manage_addPythonScript"></a>
+<h2 class="method">manage_addPythonScript(id, REQUEST=None):
+</h2>
+
+<dl><dd>
+<p>Add a Python script to a folder.</p>
+
+</dd></dl>
+
+  
+<hr>
+
+  <a name="__module__"></a>
+<h2 class="attribute">__module__ = __builtin__
+</h2>
+
+
+<h3>Methods</h3>
+  <a name="write"></a>
+<h2 class="method">write(text):
+</h2>
+
+<dl><dd>
+<p>Change the script by parsing the text argument into parts.
+Leading lines that begin with <code>##</code> are stripped off, and if
+they are of the form <code>##name=value</code>, they are used to set
+meta-data such as the title and parameters.  The remainder of
+the text is set as the body of the Python Script.</p>
+
+</dd></dl>
+
+  <a name="ZPythonScriptHTML_editAction"></a>
+<h2 class="method">ZPythonScriptHTML_editAction(REQUEST,
+title,
+params,
+body):
+</h2>
+
+<dl><dd>
+<p>Change the script's main parameters.  This method accepts the
+following arguments:<dl>
+<dt>  REQUEST</dt>
+<dd>The current request.</dd>
+<dt>  title</dt>
+<dd>The new value of the Python Script's title.  This must
+  be a string.</dd>
+<dt>  params</dt>
+<dd>The new value of the Python Script's parameters.  Must
+  be a comma seperated list of values in valid python function
+  signature syntax.  If it does not contain a valid signature
+  string, a SyntaxError is raised.</dd>
+<dt>  body</dt>
+<dd>The new value of the Python Script's body.  Must contain
+  valid Python syntax.  If it does not contain valid Python syntax,
+  a SyntaxError is raised.</dd>
+</dl>
+</p>
+
+</dd></dl>
+
+  <a name="read"></a>
+<h2 class="method">read():
+</h2>
+
+<dl><dd>
+<p>Return the body of the Python Script, with a special comment
+block prepended.  This block contains meta-data in the form of
+comment lines as expected by the <code>write</code> method.</p>
+
+</dd></dl>
+
+  <a name="ZScriptHTML_tryParams"></a>
+<h2 class="method">ZScriptHTML_tryParams():
+</h2>
+
+<dl><dd>
+<p>Return a list of the required parameters with which to
+test the script.</p>
+
+</dd></dl>
+
+  <a name="ZPythonScript_setTitle"></a>
+<h2 class="method">ZPythonScript_setTitle(title):
+</h2>
+
+<dl><dd>
+<p>Change the script's title.  This method accepts one argument,
+<code>title</code> which is the new value for the script's title and must be a
+string.</p>
+
+</dd></dl>
+
+  <a name="ZPythonScriptHTML_upload"></a>
+<h2 class="method">ZPythonScriptHTML_upload(REQUEST, file=):
+</h2>
+
+<dl><dd>
+<p>Pass the text in file to the <code>write</code> method.</p>
+
+</dd></dl>
+
+  <a name="ZPythonScript_edit"></a>
+<h2 class="method">ZPythonScript_edit(params,
+body):
+</h2>
+
+<dl><dd>
+<p>Change the parameters and body of the script.  This method accepts
+two arguments:<dl>
+<dt>  params</dt>
+<dd>The new value of the Python Script's parameters.  Must
+  be a comma seperated list of values in valid python function
+  signature syntax.  If it does not contain a valid signature
+  string, a SyntaxError is raised.</dd>
+<dt>  body</dt>
+<dd>The new value of the Python Script's body.  Must contain
+  valid Python syntax.  If it does not contain valid Python syntax,
+  a SyntaxError is raised.</dd>
+</dl>
+</p>
+
+</dd></dl>
+
+  <a name="document_src"></a>
+<h2 class="method">document_src(REQUEST=None, RESPONSE=None):
+</h2>
+
+<dl><dd>
+<p>Return the text of the <code>read</code> method, with content type
+<code>text/plain</code> set on the RESPONSE.</p>
+
+</dd></dl>
+
+
+
+
+      <hr noshade>
+  
+      <h2>Functions</h2>
+    <a name="manage_addPythonScript"></a>
+<h2 class="method">manage_addPythonScript(id, REQUEST=None):
+</h2>
+
+<dl><dd>
+<p>Add a Python script to a folder.</p>
+
+</dd></dl>
+
+  
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PythonScripts/Help/PythonScript.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:13 GMT -->
+</html>
+

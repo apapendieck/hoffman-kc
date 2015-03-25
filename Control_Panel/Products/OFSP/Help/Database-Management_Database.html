@@ -1,0 +1,59 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Database-Management_Database.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Database Management - Database: Zope database information and pack.</h3>
+<h4>  Description</h4>
+<p>    This view gives you information about the size and location of the
+    Zope database. The Zope database stores all Zope objects.</p>
+<p>    You can reduce the size of your Zope database by packing
+    it. Packing removes old revisions of objects, thus freeing up
+    space but also limiting your ability to undo object changes.    </p>
+<h4>  Controls</h4>
+<dl>
+<dt>    <code>Pack</code></dt>
+<dd>Pack will remove all versions of objects from the Zope
+    database. This will reduce the size of your database. <strong>Note Pack
+    will prevent you from undoing some or all old transactions.</strong></dd>
+</dl>
+<p>    You can control which old revisions of objects are removed from
+    the database by specifying how many days old the revisions must be
+    to be removed. If you specify 0 days old, then all old object
+    revisions will be removed.</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Database-Management_Database.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:42 GMT -->
+</html>

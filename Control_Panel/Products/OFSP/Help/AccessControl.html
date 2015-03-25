@@ -1,0 +1,178 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/AccessControl.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<base  />
+
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+
+<h1>API Documentation</h1>
+
+<h3>Classes</h3>
+<dl><dd>
+<h2 class="api">
+<a href="#SecurityManager">SecurityManager</a>
+</h2>
+</dd></dl>
+
+<h3>Functions</h3>
+<dl><dd>
+<h2 class="api">
+<a href="#getSecurityManager">getSecurityManager</a>
+</h2>
+</dd></dl>
+
+<h3>AccessControl: Security functions and classes</h3>
+<p>  The functions and classes in this module are available to
+  Python-based Scripts and Page Templates.</p>
+
+<hr noshade>
+
+      <h2>Classes</h2>
+    <a name="SecurityManager"></a>
+<h2 class="api">class
+  SecurityManager</h2>
+
+<dl>
+<dd>
+<p>A security manager provides methods for checking access and
+managing executable context and policies</p>
+
+</dd>
+</dl>
+
+
+<hr>
+
+  <a name="__module__"></a>
+<h2 class="attribute">__module__ = __builtin__
+</h2>
+
+
+<h3>Methods</h3>
+  <a name="calledByExecutable"></a>
+<h2 class="method">calledByExecutable(self):
+</h2>
+
+<dl><dd>
+<p>Return a boolean value indicating if this context was called
+by an executable.</p>
+<dl>
+<dt>permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getUser"></a>
+<h2 class="method">getUser(self):
+</h2>
+
+<dl><dd>
+<p>Get the current authenticated user. See the
+<code>AuthenticatedUser</code> class.</p>
+<dl>
+<dt>permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="validate"></a>
+<h2 class="method">validate(accessed=None, container=None, name=None, value=None, roles=None):
+</h2>
+
+<dl><dd>
+<p>Validate access.</p>
+<p>Arguments:</p>
+<dl>
+<dt>accessed</dt>
+<dd>the object that was being accessed</dd>
+<dt>container</dt>
+<dd>the object the value was found in</dd>
+<dt>name</dt>
+<dd>The name used to access the value</dd>
+<dt>value</dt>
+<dd>The value retrieved though the access.</dd>
+<dt>roles</dt>
+<dd>The roles of the object if already known.</dd>
+</dl>
+<p>The arguments may be provided as keyword arguments. Some of
+these arguments may be omitted, however, the policy may
+reject access in some cases when arguments are omitted.  It
+is best to provide all the values possible.</p>
+<dl>
+<dt>permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="checkPermission"></a>
+<h2 class="method">checkPermission(self,
+permission,
+object):
+</h2>
+
+<dl><dd>
+<p>Check whether the security context allows the given permission
+on the given object.</p>
+<dl>
+<dt>permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+
+
+
+      <hr noshade>
+  
+      <h2>Functions</h2>
+    <a name="getSecurityManager"></a>
+<h2 class="method">getSecurityManager():
+</h2>
+
+<dl><dd>
+<p>Returns the security manager. See the <code>SecurityManager</code> class.</p>
+
+</dd></dl>
+
+  
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/AccessControl.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:13 GMT -->
+</html>
+

@@ -1,0 +1,145 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/CMFDefault/Help/CreateCMFTopic.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>CMF Default Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Use Case: Create CMF Topic</h3>
+<h4>  Actor</h4>
+
+<ul>
+<li>Site Manager<a href="#ref1">[1]</a></li>
+
+</ul>
+<h4>  Overview</h4>
+<p>    One of the ways you manage the structure of a CMF site is through
+    the use of CMF Topics.  Often a site is comprised of a large amount
+    of content through which visitors are able to navigate.  A Topic
+    allows you to create a dynamic view onto the available content
+    enabling visitors to drill down into that content.</p>
+<p>    Within each Topic can be configured a set of Criteria which
+    constrain the list of content that appear when viewing the Topic.
+    Topic Criteria can be based upon any of the data or meta-data that
+    comprise your content.</p>
+<p>    Note that one useful meta-datam on which to base a Topic Criteria is
+    "Subject," which is generally configured to allow a set of
+    categories to be chosen when creating new content.  These categories
+    can then be used in a Topic Criteria to enable visitors to view
+    categorized content.  A standard pattern is to create a number of
+    Topics which each correspond to a category.</p>
+<p>    Another example of a useful Topic is one which constrains your
+    content by creation or modification date in order to display all
+    recently changed content.</p>
+<h4>  Assumptions</h4>
+
+<ul>
+<li>Site Manager has logged into the CMF (see <a href="LoginAsMember-2.html">Login to the
+      Site</a>)</li>
+
+</ul>
+<h4>  Procedure</h4>
+
+<ol>
+<li> Select "Folder Contents" from the actions box and navigate
+      to the folder which will contain the Topic.</li>
+<li> Click the "New..." button, which brings up the "Add Content"
+      form allowing you to choose among the various content types
+      that you are allowed to create.  Select "Topic," type in an
+      ID which will be used to identify the Topic in the future,
+      and click "Add."</li>
+<li> The system will create the topic and present you with its
+      "Edit Topic" form, which allows you to supply metadata about
+      the topic.  <dl>
+<dt>      <strong>Title</strong></dt>
+<dd>the name which will be displayed to visitors.</dd>
+<dt>      <strong>Description</strong></dt>
+<dd>a brief paragraph describing the intended purpose of the
+        Topic.  The description will be used to annotate the topic
+        object when it is included in another display (e.g., the
+        view of its parent folder).</dd>
+<dt>      <strong>Acquire criteria from parent</strong></dt>
+<dd>when creating topic hierarchies<a href="#ref2">[2]</a>, allows sub-topics to
+        refine the search criteria they acquire from their
+        parents.</dd>
+</dl>
+<p>      Click "Change" to save the changes you've made.  The system
+      will then show the default view of your new Topic, including
+      the list of content which match the Topic's criteria and
+      the list of the Topic's Criteria.</p>
+<p>      Note that since you have not yet set up any criteria, the
+      Topic will match all content objects in the catalog.</p>
+</li>
+<li> To constrain the Topic's matches, select "Criteria" in the actions
+      box.  Create a new Criterion by filling out the "Add Criteria" form,
+      which has the following fields:<dl>
+<dt>      <strong>Field id</strong></dt>
+<dd>a drop-down list containing the names of all indexed
+        attributes.  Select the value corresponding to the field
+        to be searched by the criterion.</dd>
+<dt>      <strong>Criteria type</strong></dt>
+<dd>the kind of search to apply.  The standard types include:<dl>
+<dt>        <em>String Criterion</em></dt>
+<dd>matches all content objects for which the specified
+          field in the content contains the supplied value</dd>
+<dt>        <em>Integer Criterion</em></dt>
+<dd>matches ranges or exact values for fields which are
+          represented as whole numbers</dd>
+<dt>        <em>List Criterion</em></dt>
+<dd>matches content objects for which the specified field
+          contains one of a set of string values.</dd>
+<dt>        <em>Friendly Date Criterion</em></dt>
+<dd>applies a range search to a date field, relative to the
+          current time.</dd>
+</dl>
+</dd>
+</dl>
+<p>      Click "Add" to create the criterion and add it to the
+      Topic.</p>
+</li>
+<li> Fill in the value of the "Criterion value" and click "Save
+      changes." You may continue to add criteria which each further
+      constrain the content matched by the Topic.</li>
+<li> To view the content matching the current set of criteria,
+      select "View" from the actions box.</li>
+
+</ol>
+<p>  Notes</p>
+<p>  ..<a href="#ref1">[1]</a> Like "Create Folder", this is not solely the prerogative of
+        Site Managers;  Content Creators build topics.</p>
+<p>  ..<a href="#ref2">[2]</a> See <a href="AddSubtopic.html">Add a Subtopic</a> for an explanation of topic
+        hierarchies.</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/CMFDefault/Help/CreateCMFTopic.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:22 GMT -->
+</html>

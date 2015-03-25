@@ -1,0 +1,170 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/AuthenticatedUser.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<base  />
+
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+
+<h1>API Documentation</h1>
+
+
+
+
+    <a name="AuthenticatedUser"></a>
+<h2 class="api">class
+  AuthenticatedUser</h2>
+
+<dl>
+<dd>
+<p>This interface needs to be supported by objects that
+are returned by user validation and used for access control.</p>
+
+</dd>
+</dl>
+
+
+<hr>
+
+  <a name="__module__"></a>
+<h2 class="attribute">__module__ = __builtin__
+</h2>
+
+
+<h3>Methods</h3>
+  <a name="getDomains"></a>
+<h2 class="method">getDomains():
+</h2>
+
+<dl><dd>
+<p>Return the list of domain restrictions for a user.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getRolesInContext"></a>
+<h2 class="method">getRolesInContext(object):
+</h2>
+
+<dl><dd>
+<p>Return the list of roles assigned to the user, including local
+roles assigned in context of an object.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getId"></a>
+<h2 class="method">getId():
+</h2>
+
+<dl><dd>
+<p>Get the ID of the user. The ID can be used from
+Python to get the user from the user's UserDatabase.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getRoles"></a>
+<h2 class="method">getRoles():
+</h2>
+
+<dl><dd>
+<p>Return a list of the user's roles.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="has_permission"></a>
+<h2 class="method">has_permission(permission,
+object):
+</h2>
+
+<dl><dd>
+<p>Return true if the user has a permission on an object.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="has_role"></a>
+<h2 class="method">has_role(roles, object=None):
+</h2>
+
+<dl><dd>
+<p>Return true if the user has at least one role from a list of
+roles, optionally in the context of an object.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="getUserName"></a>
+<h2 class="method">getUserName():
+</h2>
+
+<dl><dd>
+<p>Return the name of a user</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+
+
+
+  
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/AuthenticatedUser.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:13 GMT -->
+</html>
+

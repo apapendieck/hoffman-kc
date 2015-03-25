@@ -1,0 +1,95 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/StandardCacheManagers/Help/Accel.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:27 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>StandardCacheManagers</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>  Accelerated HTTP Cache Managers</h3>
+<p>    For background information, see the
+    <a href="../../OFSP/Help/Caching.html">description of cache management</a>.</p>
+<p>    The HTTP protocol provides for headers that can indicate to
+    downstream proxy caches, browser caches, and dedicated caches that
+    certain documents and images are cacheable.  Most images, for example,
+    can safely be cached for a long time.  Anonymous visits to most
+    primary pages can be cached as well.</p>
+<p>    An accelerated HTTP cache manager lets you control the headers that
+    get sent with the responses to requests so that downstream caches
+    will know what to cache and for how long.  This allows you to reduce
+    the traffic to your site and handle larger loads than otherwise
+    possible.  You can associate accelerated HTTP cache managers with
+    any kind of cacheable object that can be viewed through the web.</p>
+<p>    The main risk in using an accelerated HTTP cache manager involves
+    a part of a page setting headers that apply to the whole response.
+    If, for example, your home page contains three parts that are
+    cacheable and one of those parts is associated with an accelerated
+    HTTP cache manager, Zope will return the headers set by the part of
+    the page, making downstream caches think that the whole page should
+    be cached.</p>
+<p>    The workaround is simple: don't use an accelerated HTTP cache manager
+    with objects that make up parts of a page unless you really know
+    what you're doing.</p>
+<p>    There are some parameters available for accelerated HTTP cache managers.
+    The interval is the number of seconds the downstream caches should
+    cache the object.  3600 seconds, or one hour, is a good default.
+    If you find that some objects need one interval and other objects
+    should be set to another interval, use multiple cache managers.</p>
+<p>    If you set the <em>cache anonymous connections only</em> checkbox, you
+    will reduce the possibility of caching private data.</p>
+<p>    The <em>notify URLs</em> parameter allows you to specify the URLs of
+    specific downstream caches so they can receive invalidation messages
+    as <code>PURGE</code> directives.  Dedicated HTTP cache software such
+    as Squid will clear cached data for a given URL when receiving the
+    <code>PURGE</code> directive.  (More details below.)</p>
+<p>    Simple statistics are provided.  Remember that the only time Zope
+    receives a request that goes through an HTTP cache is when the
+    HTTP cache had a <em>miss</em>.  So the hits seen by Zope correspond to
+    misses seen by the HTTP cache.  To do traffic analysis, you should
+    consult the downstream HTTP caches.</p>
+<p>    When testing the accelerated HTTP cache manager, keep in mind that
+    the <em>reload</em> button on most browsers causes the <code>Pragma: no-cache</code>
+    header to be sent, forcing HTTP caches to reload the page as well.
+    Try using telnet, netcat, or tcpwatch to observe the headers.</p>
+<p>    To allow Zope to execute the Squid PURGE directive, make sure the
+    following lines or the equivalent are in squid.conf (changing
+    <code>localhost</code> to the correct host name if Squid is on a different
+    machine)::</p>
+<p>      acl PURGE method purge
+      http_access allow localhost
+      http_access allow purge localhost
+      http_access deny purge
+      http_access deny all</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/StandardCacheManagers/Help/Accel.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:27 GMT -->
+</html>

@@ -1,0 +1,64 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-return.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>return: Returns data</h3>
+<p>  The <code>return</code> tag stops executing DTML and returns data. It mirrors
+  the Python <code>return</code> statement.</p>
+<h4>  Syntax</h4>
+<p>    <code>return</code> tag syntax:
+<pre>
+      &lt;dtml-return ReturnVariable|expr="ReturnExpression"&gt;
+</pre>
+</p>
+<p>    Stops execution of DTML and returns a variable or expression. The
+    DTML output is not returned. Usually a return expression is more
+    useful than a return variable. Scripts largely obsolete this tag.</p>
+<h4>  Examples</h4>
+<p>    Returning a variable:
+<pre>
+      &lt;dtml-return result&gt;    
+</pre>
+</p>
+<p>    Returning a Python dictionary:
+<pre>
+      &lt;dtml-return expr="{'hi':200, 'lo':5}"&gt;
+</pre>
+</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-return.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+</html>

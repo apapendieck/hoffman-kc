@@ -1,0 +1,67 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/metal-define-macro.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>define-macro: Define a macro</h3>
+<h4>  Syntax</h4>
+<p>    <code>metal:define-macro</code> syntax:
+<pre>
+      argument ::= Name
+</pre>
+</p>
+<h4>  Description</h4>
+<p>    The <code>metal:define-macro</code> statement defines a macro. The macro is
+    named by the statement expression, and is defined as the element
+    and its sub-tree.</p>
+<p>    In Zope, a macro definition is available as a sub-object of a
+    template's <code>macros</code> object. For example, to access a macro named
+    <code>header</code> in a template named <code>master.html</code>, you could use the path
+    expression <code>master.html/macros/header</code>.</p>
+<h4>  Examples</h4>
+<p>    Simple macro definition:
+<pre>
+      &lt;p metal:define-macro="copyright"&gt;
+        Copyright 2001, &lt;em&gt;Foobar&lt;/em&gt; Inc.
+      &lt;/p&gt;
+</pre>
+</p>
+<h4>  See Also</h4>
+<p>    <a href="metal-use-macro.html">metal:use-macro</a></p>
+<p>    <a href="metal-define-slot.html">metal:define-slot</a></p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/metal-define-macro.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+</html>

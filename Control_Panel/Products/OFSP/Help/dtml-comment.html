@@ -1,0 +1,70 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-comment.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>comment: Comments DTML</h3>
+<p>  The comment tag lets you document your DTML with comments. You can
+  also use it to temporarily disable DTML tags by commenting them out.</p>
+<h4>  Syntax</h4>
+<p>    <code>comment</code> tag syntax:
+<pre>
+      &lt;dtml-comment&gt;
+      &lt;/dtml-comment&gt;
+</pre>
+</p>
+<p>    The <code>comment</code> tag is a block tag. The contents of the block are
+    not executed, nor are they inserted into the DTML output.</p>
+<h4>  Examples</h4>
+<p>    Documenting DTML:
+<pre>
+      &lt;dtml-comment&gt;
+        This content is not executed and does not appear in the
+        output.
+      &lt;/dtml-comment&gt;
+</pre>
+</p>
+<p>    Commenting out DTML:
+<pre>
+      &lt;dtml-comment&gt;
+        This DTML is disabled and will not be executed.
+        &lt;dtml-call someMethod&gt;
+      &lt;/dtml-comment&gt;
+</pre>
+</p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/dtml-comment.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:44 GMT -->
+</html>

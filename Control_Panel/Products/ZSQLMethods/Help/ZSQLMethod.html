@@ -1,0 +1,191 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/ZSQLMethods/Help/ZSQLMethod.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<base  />
+
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+
+<h1>API Documentation</h1>
+
+<h3>Classes</h3>
+<dl><dd>
+<h2 class="api">
+<a href="#ZSQLMethod">ZSQLMethod</a>
+</h2>
+</dd></dl>
+
+<h3>Functions</h3>
+<dl><dd>
+<h2 class="api">
+<a href="#manage_addZSQLMethod">manage_addZSQLMethod</a>
+</h2>
+</dd></dl>
+
+
+      <h2>Classes</h2>
+    <a name="ZSQLMethod"></a>
+<h2 class="api">class
+  ZSQLMethod</h2>
+
+<dl>
+<dd>
+<p>ZSQLMethods abstract SQL code in Zope.</p>
+<p>SQL Methods behave like methods of the folders they are
+accessed in.  In particular, they can be used from other
+methods, like Documents, ExternalMethods, and even other SQL
+Methods.</p>
+<p>Database methods support the Searchable Object Interface.
+Search interface wizards can be used to build user
+interfaces to them.  They can be used in joins and
+unions. They provide meta-data about their input parameters
+and result data.</p>
+<p>For more information, see the searchable-object interface
+specification.</p>
+<p>Database methods support URL traversal to access and invoke
+methods on individual record objects. For example, suppose you
+had an <code>employees</code> database method that took a single argument
+<code>employee_id</code>.  Suppose that employees had a <code>service_record</code>
+method (defined in a record class or acquired from a
+folder). The <code>service_record</code> method could be accessed with a
+URL like:
+<pre>
+   employees/employee_id/1234/service_record
+</pre>
+</p>
+<p>Search results are returned as Record objects.  The schema of
+a Record objects matches the schema of the table queried in
+the search.</p>
+
+</dd>
+</dl>
+
+<hr>
+<h3>Product Constructor</h3>
+      <a name="manage_addZSQLMethod"></a>
+<h2 class="method">manage_addZSQLMethod(id,
+title,
+connection_id,
+arguments,
+template):
+</h2>
+
+<dl><dd>
+<p>Add an SQL Method to an ObjectManager.</p>
+<p>The <code>connection_id</code> argument is the id of a database connection
+that resides in the current folder or in a folder above the
+current folder.  The database should understand SQL.</p>
+<p>The <code>arguments</code> argument is a string containing an arguments
+specification, as would be given in the SQL method cration form.</p>
+<p>The <code>template</code> argument is a string containing the source for the
+SQL Template.</p>
+
+</dd></dl>
+
+  
+<hr>
+
+  <a name="__module__"></a>
+<h2 class="attribute">__module__ = __builtin__
+</h2>
+
+
+<h3>Methods</h3>
+  <a name="__call__"></a>
+<h2 class="method">__call__(REQUEST=None, **kw):
+</h2>
+
+<dl><dd>
+<p>Call the ZSQLMethod.</p>
+<p>The arguments to the method should be passed via keyword
+arguments, or in a single mapping object. If no arguments are
+given, and if the method was invoked through the Web, then the
+method will try to acquire and use the Web REQUEST object as
+the argument mapping.</p>
+<p>The returned value is a sequence of record objects.</p>
+
+</dd></dl>
+
+  <a name="manage_edit"></a>
+<h2 class="method">manage_edit(title,
+connection_id,
+arguments,
+template):
+</h2>
+
+<dl><dd>
+<p>Change database method properties.</p>
+<p>The <code>connection_id</code> argument is the id of a database
+connection that resides in the current folder or in a folder
+above the current folder.  The database should understand SQL.</p>
+<p>The <code>arguments</code> argument is a string containing an arguments
+specification, as would be given in the SQL method creation
+form.</p>
+<p>The <code>template</code> argument is a string containing the source for
+the SQL Template.</p>
+
+</dd></dl>
+
+
+
+
+      <hr noshade>
+  
+      <h2>Functions</h2>
+    <a name="manage_addZSQLMethod"></a>
+<h2 class="method">manage_addZSQLMethod(id,
+title,
+connection_id,
+arguments,
+template):
+</h2>
+
+<dl><dd>
+<p>Add an SQL Method to an ObjectManager.</p>
+<p>The <code>connection_id</code> argument is the id of a database connection
+that resides in the current folder or in a folder above the
+current folder.  The database should understand SQL.</p>
+<p>The <code>arguments</code> argument is a string containing an arguments
+specification, as would be given in the SQL method cration form.</p>
+<p>The <code>template</code> argument is a string containing the source for the
+SQL Template.</p>
+
+</dd></dl>
+
+  
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/ZSQLMethods/Help/ZSQLMethod.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+</html>
+

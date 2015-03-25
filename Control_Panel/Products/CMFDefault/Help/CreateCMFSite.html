@@ -1,0 +1,122 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/CMFDefault/Help/CreateCMFSite.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>CMF Default Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>Use Case: Create a CMF Site</h3>
+<h4>  Actor</h4>
+
+<ul>
+<li>Site Manager</li>
+
+</ul>
+<h4>  Overview</h4>
+<p>    The top-level concept in the CMF is the idea of a "CMF Site". A
+    CMF site is a content-oriented Web site with specific business
+    goals, workflows, collaborations and audiences (content
+    consumers). </p>
+<p>    The "CMF Site" object is used in Zope to represent and manage a
+    CMF Web site. The CMF Site object acts as a container for site
+    components and content, and provides interfaces for configuring
+    the functionality of the site.</p>
+<h4>  Assumptions</h4>
+
+<ul>
+<li>Site Manager is logged into the Zope Management Interface
+      (ZMI) with a user ID having the "Add CMF Sites" permission
+      at the desired location.</li>
+
+</ul>
+<h4>  Procedure</h4>
+
+<ol>
+<li> From the ZMI, select "CMF Site" from the add list and click
+      the "Add" button. This will bring up the "Add CMF Site" Web
+      form. The elements on the add form are:<dl>
+<dt>      <strong>Id</strong></dt>
+<dd>the id to be used for the new CMF Site object. This id
+        will appear in URLs to the site and its subobjects. The id
+        field is a required field.</dd>
+<dt>      <strong>Title</strong></dt>
+<dd>the title to be used for the new CMF Site object. The
+        title provides a more human-friendly label for the site
+        object.  Providing a title is optional, but recommended.</dd>
+<dt>      <strong>Membership Source</strong></dt>
+<dd>the source of member information to be used by the new CMF
+        Site. The default for this field is "Create a new user
+        folder in the CMF Site". This option will create a new
+        User Folder in the CMF Site to be used as the source of
+        member data.<p>        You may also select "I have an existing user folder and
+        want to use it instead". In this case, the CMF Site will
+        draw its member information from a User Folder that
+        already exists in the Zope object heirarchy above the new
+        CMF Site.</p>
+</dd>
+<dt>      <strong>Description</strong></dt>
+<dd>a short description of the site. This description may be
+        made available with syndicated content and may be used by
+        some of the default user interface elements of the site.
+        Providing a description is optional, but recommended.</dd>
+</dl>
+<p>      After completing the Web form, click the "Add" button to
+      create the new CMF Site object.</p>
+</li>
+<li> After submitting the form, the right frame of the ZMI should
+      contain an administrative "welcome" page of the new CMF
+      site.  The welcome page provides links to:<dl>
+<dt>      <strong>The site configuration form</strong></dt>
+<dd>This form allows you manage sitewide policies and
+        configuration options. This should be your first stop
+        after creating a CMF Site object.</dd>
+<dt>      <strong>The management interface</strong></dt>
+<dd>The Zope management interface (ZMI) for CMF Site objects
+        provides management-level access to the individual
+        components of the site and provides for more advanced
+        configuration options.</dd>
+<dt>      <strong>The site home page</strong></dt>
+<dd>The default homepage of the new CMF site.  This is what
+        visitors and members of the site will initially see when
+        they access the site through the Web.</dd>
+</dl>
+</li>
+<li> Now that the basic CMF Site object has been created, you
+      should visit the site configuration form to continue setting
+      up the new site.</li>
+
+</ol>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/CMFDefault/Help/CreateCMFSite.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:54:22 GMT -->
+</html>

@@ -1,0 +1,86 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/metal.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+<h3>METAL Overview</h3>
+<p>  The <em>Macro Expansion Template Attribute Language</em> (METAL) standard
+  is a facility for HTML/XML macro preprocessing. It can be used in
+  conjunction with or independently of <a href="tal.html">TAL</a> and
+  <a href="tales.html">TALES</a>.</p>
+<p>  Macros provide a way to define a chunk of presentation in one
+  template, and share it in others, so that changes to the macro are
+  immediately reflected in all of the places that share it.
+  Additionally, macros are always fully expanded, even in a template's
+  source text, so that the template appears very similar to its final
+  rendering.</p>
+<h4>  METAL Namespace</h4>
+<p>    The METAL namespace URI and recommended alias are currently
+    defined as:
+<pre>
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+</pre>
+</p>
+<p>    Just like the TAL namespace URI, this URI is not attached to a web
+    page; it's just a unique identifier.</p>
+<p>    Zope does not require an XML namespace declaration when creating
+    templates with a content-type of <code>text/html</code>. However, it does
+    require an XML namespace declaration for all other content-types.</p>
+<h4>  METAL Statements </h4>
+<p>    METAL defines a number of statements:</p>
+
+<ul>
+<li><a href="metal-define-macro.html">metal:define-macro</a> - Define a macro.</li>
+<li><a href="metal-use-macro.html">metal:use-macro</a> - Use a macro.</li>
+<li><a href="metal-define-slot.html">metal:define-slot</a> - Define a macro
+    customization point.</li>
+<li><a href="metal-fill-slot.html">metal:fill-slot</a> - Customize a macro.</li>
+
+</ul>
+<p>    Although METAL does not define the syntax of expression
+    non-terminals, leaving that up to the implementation, a canonical
+    expression syntax for use in METAL arguments is described in
+    <a href="tales.html">TALES Specification</a>.</p>
+<h4>  See Also</h4>
+<p>    <a href="tal.html">TAL Overview</a></p>
+<p>    <a href="tales.html">TALES Overview</a></p>
+<p>    <a href="metal-define-macro.html">metal:define-macro</a></p>
+<p>    <a href="metal-use-macro.html">metal:use-macro</a></p>
+<p>    <a href="metal-define-slot.html">metal:define-slot</a></p>
+<p>    <a href="metal-fill-slot.html">metal:fill-slot</a></p>
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/PageTemplates/Help/metal.stx by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:15 GMT -->
+</html>

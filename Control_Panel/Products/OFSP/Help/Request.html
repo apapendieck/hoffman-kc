@@ -1,0 +1,287 @@
+<html>
+
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Request.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<base  />
+
+<title>Zope Help</title>
+
+<style type="text/css">
+
+.instructions{
+background: #FFFFAA;
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.explanation{
+border-width: thin;
+border-style: solid;
+padding: 10pt;
+}
+
+.api{
+font-size: 14pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+.attribute, .method{
+font-size: 12pt;
+font-family : "Courier New", Courier, monospace;
+}
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+
+
+<h1>API Documentation</h1>
+
+
+
+
+    <a name="Request"></a>
+<h2 class="api">class
+  Request</h2>
+
+<dl>
+<dd>
+<p>The request object encapsulates all of the information regarding
+the current request in Zope.  This includes, the input headers,
+form data, server data, and cookies.</p>
+<p>The request object is a mapping object that represents a
+collection of variable to value mappings.  In addition, variables
+are divided into five categories:
+<ul>
+<li>Environment variables<p>      These variables include input headers, server data, and
+      other request-related data.  The variable names are as <a
+      href="http://hoohoo.ncsa.uiuc.edu/cgi/env.html">specified</a>
+      in the <a
+      href="http://hoohoo.ncsa.uiuc.edu/cgi/interface.html">CGI
+      specification</a></p>
+</li>
+<li>Form data<p>      These are data extracted from either a URL-encoded query
+      string or body, if present.</p>
+</li>
+<li>Cookies<p>      These are the cookie data, if present.</p>
+</li>
+<li>Lazy Data<p>      These are callables which are deferred until explicitly
+      referenced, at which point they are resolved (called) and
+      the result stored as "other" data, ie regular request data.</p>
+<p>      Thus, they are "lazy" data items.  An example is SESSION objects.</p>
+<p>      Lazy data in the request may only be set by the Python
+      method set_lazy(name,callable) on the REQUEST object.  This
+      method is not callable from DTML or through the web.</p>
+</li>
+<li>Other<p>      Data that may be set by an application object.</p>
+</li>
+
+</ul>
+</p>
+<p>The request object may be used as a mapping object, in which case
+values will be looked up in the order: environment variables,
+other variables, form data, and then cookies.</p>
+<p>These special variables are set in
+the Request:<dl>
+<dt>  <code>PARENTS</code></dt>
+<dd>A list of the objects traversed to get to the
+  published object. So, <code>PARENTS[0]</code> would be the ancestor of
+  the published object.</dd>
+<dt>  <code>REQUEST</code></dt>
+<dd>The Request object.</dd>
+<dt>  <code>RESPONSE</code></dt>
+<dd>The Response object.</dd>
+<dt>  <code>PUBLISHED</code></dt>
+<dd>The actual object published as a result of
+  url traversal.</dd>
+<dt>  <code>URL</code></dt>
+<dd>The URL of the Request without query string.</dd>
+<dt>  <em>URLn</em></dt>
+<dd><code>URL0</code> is the same as <code>URL</code>. <code>URL1</code> is the same as
+  <code>URL0</code> with the last path element removed. <code>URL2</code> is the same
+  as <code>URL1</code> with the last element removed. Etcetera.<p>    For example if URL=<code>http://localhost/foo/bar</code>, then
+    URL1=<code>http://localhost/foo</code> and URL2=<code>http://localhost</code>.</p>
+</dd>
+<dt>  <em>URLPATHn</em></dt>
+<dd><code>URLPATH0</code> is the path portion of <code>URL</code>,
+  <code>URLPATH1</code> is the path portion of <code>URL1</code>, and so on.<p>    For example if URL=<code>http://localhost/foo/bar</code>, then
+    URLPATH1=<code>/foo</code> and URLPATH2=<code>/</code>.</p>
+</dd>
+<dt>  <em>BASEn</em></dt>
+<dd><code>BASE0</code> is the URL up to but not including the Zope
+  application object. <code>BASE1</code> is the URL of the Zope application
+  object. <code>BASE2</code> is the URL of the Zope application object with
+  an additional path element added in the path to the published
+  object. Etcetera.<p>    For example if URL=<code>http://localhost/Zope.cgi/foo/bar</code>, then
+    BASE0=<code>http://localhost</code>, BASE1=<code>http://localhost/Zope.cgi</code>,
+    and BASE2=<code>http://localhost/Zope.cgi/foo</code>.</p>
+</dd>
+<dt>  <em>BASEPATHn</em></dt>
+<dd><code>BASEPATH0</code> is the path portion of <code>BASE0</code>,
+  <code>BASEPATH1</code> is the path portion of <code>BASE1</code>, and so on.
+  <code>BASEPATH1</code> is the externally visible path to the root Zope
+  folder, equivalent to CGI's <code>SCRIPT_NAME</code>, but virtual-host aware.<p>    For example if URL=<code>http://localhost/Zope.cgi/foo/bar</code>, then
+    BASEPATH0='/<code>, BASEPATH1=</code>/Zope.cgi', and BASEPATH2=<code>/Zope.cgi/foo</code>.</p>
+</dd>
+</dl>
+</p>
+
+</dd>
+</dl>
+
+
+<hr>
+
+  <a name="__module__"></a>
+<h2 class="attribute">__module__ = __builtin__
+</h2>
+
+
+<h3>Methods</h3>
+  <a name="set"></a>
+<h2 class="method">set(name,
+value):
+</h2>
+
+<dl><dd>
+<p>Create a new name in the REQUEST object and assign it a value.
+This name and value is stored in the <code>Other</code> category.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="keys"></a>
+<h2 class="method">keys():
+</h2>
+
+<dl><dd>
+<p>Returns a sorted sequence of all keys in the REQUEST object.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="items"></a>
+<h2 class="method">items():
+</h2>
+
+<dl><dd>
+<p>Returns a sequence of (key, value) tuples for all the keys in
+the REQUEST object.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="setServerURL"></a>
+<h2 class="method">setServerURL(protocol=None, hostname=None, port=None):
+</h2>
+
+<dl><dd>
+<p>Sets the specified elements of <code>SERVER_URL</code>, also affecting
+<code>URL</code>, <code>URLn</code>, <code>BASEn</code>, and <code>absolute_url()</code>.</p>
+<p>Provides virtual hosting support.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="has_key"></a>
+<h2 class="method">has_key(key):
+</h2>
+
+<dl><dd>
+<p>Returns a true value if the REQUEST object contains key,
+returns a false value otherwise.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="values"></a>
+<h2 class="method">values():
+</h2>
+
+<dl><dd>
+<p>Returns a sequence of values for all the keys in the REQUEST
+object.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="setVirtualRoot"></a>
+<h2 class="method">setVirtualRoot(path, hard=0):
+</h2>
+
+<dl><dd>
+<p>Alters <code>URL</code>, <code>URLn</code>, <code>URLPATHn</code>, <code>BASEn</code>, <code>BASEPATHn</code>, and
+<code>absolute_url()</code> so that the current object has path <code>path</code>.
+If <code>hard</code> is true, <code>PARENTS</code> is emptied.</p>
+<p>Provides virtual hosting support.  Intended to be called from
+publishing traversal hooks.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="text"></a>
+<h2 class="method">text():
+</h2>
+
+<dl><dd>
+<p>Returns information about the request as text. This is useful
+for debugging purposes. The returned text lists form contents,
+cookies, special variables, and evironment variables.</p>
+<dl>
+<dt>Permissions</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+  <a name="get_header"></a>
+<h2 class="method">get_header(name, default=None):
+</h2>
+
+<dl><dd>
+<p>Return the named HTTP header, or an optional default argument
+or None if the header is not found. Note that both original
+and CGI header names without the leading <code>HTTP_</code> are
+recognized, for example, <code>Content-Type</code>, <code>CONTENT_TYPE</code> and
+<code>HTTP_CONTENT_TYPE</code> should all return the Content-Type header,
+if available.</p>
+<dl>
+<dt>Permission</dt>
+<dd>Always available</dd>
+</dl>
+
+</dd></dl>
+
+
+
+
+  
+
+</body>
+<!-- Mirrored from payson.webfactional.com/Control_Panel/Products/OFSP/Help/Request.py by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2015 20:57:14 GMT -->
+</html>
+
